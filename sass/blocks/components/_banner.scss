@@ -1,0 +1,48 @@
+.banner {
+  border-radius: 10px;
+  padding: 69px 162px;
+
+  min-height: 280px;
+  overflow: hidden;
+
+  margin-top: 20px;
+
+  position: relative;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+  }
+  &__descr {
+    font-weight: 400;
+    font-size: 18px;
+    color: #776e73;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    transform-style: preserve-3d;
+    img {
+      position: absolute;
+      top: 22px;
+      right: 27%;
+
+      transform: translateZ(2px);
+    }
+    svg {
+      position: absolute;
+      right: 16%;
+      bottom: 0;
+
+      filter: blur(90px);
+
+      transform: translateZ(1px);
+    }
+  }
+}

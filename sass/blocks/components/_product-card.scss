@@ -115,7 +115,7 @@
 
 .card-banner {
   padding: 30px;
-  background: url("../../images/product-card/card-banner.png");
+  background: url("../../../images/product-card/card-banner.png");
   &__title {
     font-weight: 800;
     font-size: 22px;
@@ -133,5 +133,40 @@
 
     max-width: 100px;
     margin-top: 13px;
+  }
+}
+
+.card__arrow {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  justify-content: space-between;
+  &_item {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #e8e3e6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    svg, path {
+      cursor: pointer;
+    }
+  }
+  &_prev {
+    position: absolute;
+    left: -70px;
+  }
+  &_next {
+    position: absolute;
+    right: -70px;
   }
 }
