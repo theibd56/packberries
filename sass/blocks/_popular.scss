@@ -1,0 +1,15 @@
+.popular {
+  margin-top: 50px;
+  &__wrapper {
+    margin-top: 21px;
+
+    display: grid;
+    grid-template: auto / 832px 548px;
+    gap: 20px;
+  }
+  &__cards {
+    display: grid;
+    grid-template: auto / repeat(3, 1fr);
+    gap: 20px;
+  }
+}

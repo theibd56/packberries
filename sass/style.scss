@@ -3,6 +3,9 @@
 @import './base/animation';
 @import './libs/font';
 
+@import 'blocks';
+@import 'media';
+
 
 
 * {
@@ -32,10 +35,3 @@ a {
 ul {
   list-style-type: none;
 }
-
-@import './blocks/header';
-@import './blocks/promo';
-@import './blocks/brand';
-@import './blocks/footer';
-
-@import './base/media';

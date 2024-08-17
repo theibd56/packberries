@@ -33,3 +33,18 @@ const brandSlider = new Swiper('.brand__slider', {
         pauseOnMouseEnter: true,
     },
 });
+
+//смена стилей если нет скидки
+document.querySelectorAll('.card').forEach((item) => {
+    //смена цвета прайса
+    const cardPriceNew = item.querySelector('.card__price_new');
+    const cardPriceOld = item.querySelector('.card__price_old');
+
+    if (cardPriceOld) {
+        cardPriceNew.style.color = '#f0371e'
+    } else {
+        cardPriceNew.style.color = '#290718'
+    }
+
+
+})

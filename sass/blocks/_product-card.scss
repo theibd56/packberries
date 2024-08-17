@@ -1,0 +1,137 @@
+.card {
+  padding: 10px 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.05);
+  background: #fff;
+  border: 1px solid transparent;
+  transition: all .3s;
+
+  position: relative;
+    &__top {
+      margin-bottom: 35px;
+      &_heading {
+        display: flex;
+        align-items: center;
+        &-sale {
+          font-weight: 500;
+          font-size: 12px;
+          color: #f0371e;
+
+          border: 1px solid rgba(240, 55, 30, 0.2);
+          border-radius: 10px;
+
+          padding: 3px 5px;
+
+
+        }
+        &-like {
+          width: 24px;
+          height: 24px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          cursor: pointer;
+          margin-left: auto;
+
+          svg, path {
+            cursor: pointer;
+          }
+        }
+      }
+      &_image {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 194px;
+          height: 194px;
+
+          object-fit: contain;
+
+          cursor: pointer;
+        }
+      }
+    }
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__star {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+
+      &_count {
+        font-weight: 400;
+        font-size: 12px;
+        color: #c2bdbf;
+      }
+      img {
+        cursor: pointer;
+      }
+    }
+    &__title {
+      font-weight: 400;
+      font-size: 16px;
+      color: #776e73;
+      display: block;
+      margin-top: 10px;
+      height: 60px;
+    }
+    &__price {
+      display: flex;
+      gap: 10px;
+
+      margin-top: 10px;
+      &_old {
+        font-weight: 400;
+        font-size: 15px;
+        text-decoration: line-through;
+        color: #c2bdbf;
+      }
+      &_new {
+        font-weight: 500;
+        font-size: 21px;
+      }
+      span {
+        cursor: pointer;
+      }
+    }
+
+
+  &:hover {
+    box-shadow: 0 4px 25px 0 rgba(194, 2, 94, 0.1);
+    border: 1px solid #e8e3e6;
+  }
+}
+
+.card-banner {
+  padding: 30px;
+  background: url("../../images/product-card/card-banner.png");
+  &__title {
+    font-weight: 800;
+    font-size: 22px;
+
+    /* line-height: 24px; */
+    line-height: 1.09091;
+    color: #182f1f;
+
+    max-width: 186px;
+  }
+  &__descr {
+    font-weight: 400;
+    font-size: 14px;
+    color: #182f1f;
+
+    max-width: 100px;
+    margin-top: 13px;
+  }
+}
