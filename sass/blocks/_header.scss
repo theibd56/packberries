@@ -19,7 +19,6 @@
       gap: 30px;
     }
   }
-
   &__catalog {
     display: flex;
     align-items: center;
@@ -85,7 +84,6 @@
       cursor: pointer;
     }
   }
-
   &__links {
     display: flex;
     flex-direction: column;
@@ -105,4 +103,48 @@
       cursor: pointer;
     }
   }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 30px;
+    ul {
+      padding: 0;
+      li {
+        margin: 0;
+      }
+    }
+    a {
+      font-weight: 400;
+      font-size: 13px;
+      text-align: center;
+      color: #776e73;
+    }
+  }
+  &__categories {
+    &_menu {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+  &__nav {
+    &_menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    &_item {
+      a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
+
+
+
 }
