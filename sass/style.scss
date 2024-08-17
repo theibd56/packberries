@@ -1,0 +1,39 @@
+@import './base/mixins';
+@import './base/variables';
+@import './base/animation';
+@import './libs/font';
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  cursor: default;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@import './blocks/header';
+@import './blocks/footer';
+
+@import './base/media';
