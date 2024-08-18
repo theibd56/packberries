@@ -73,6 +73,9 @@ document.querySelectorAll('.card').forEach((item) => {
     } else {
         cardPriceNew.style.color = '#290718'
     }
-
-
 })
+
+//fancybox
+Fancybox.bind("[data-fancybox]", {
+    // Your custom options
+});

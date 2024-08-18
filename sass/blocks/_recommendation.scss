@@ -1,0 +1,15 @@
+.recommendation {
+  margin-top: 50px;
+  &__wrapper {
+    margin-top: 21px;
+
+    display: grid;
+    grid-template: auto / 548px 832px;
+    gap: 20px;
+  }
+  &__cards {
+    display: grid;
+    grid-template: auto / repeat(3, 1fr);
+    gap: 20px;
+  }
+}
