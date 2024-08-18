@@ -1,0 +1,141 @@
+.filter {
+  width: 265px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__category {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    &_title {
+      font-weight: 500;
+      font-size: 13px;
+      color: #290718;
+    }
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(232, 227, 230, 0.5);
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &-checkbox {
+      label {
+        cursor: pointer;
+        * {
+          cursor: pointer;
+        }
+        &>input {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+        }
+        &>span {
+          display: inline-flex;
+          align-items: center;
+          user-select: none;
+        }
+        &>span::before {
+          content: '';
+          display: block;
+          border: 1px solid #e8e3e6;
+          border-radius: 6px;
+          min-width: 30px;
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+        &>input:checked+span::before {
+          content: '';
+          background-image: url("/images/checked.svg");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 50% 50%;
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 15px;
+          color: #776e73;
+        }
+      }
+    }
+    &-radio {
+      label {
+        cursor: pointer;
+        * {
+          cursor: pointer;
+        }
+        &>input {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+        }
+        &>span {
+          display: inline-flex;
+          align-items: center;
+          user-select: none;
+        }
+        &>span::before {
+          content: '';
+          display: block;
+          border: 1px solid #e8e3e6;
+          border-radius: 30px;
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+        &>input:checked+span::before {
+          content: '';
+          background-image: url("/images/radio.svg");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 50% 50%;
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 15px;
+          color: #776e73;
+        }
+      }
+    }
+    &-num {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      input {
+        border-radius: 6px;
+        max-width: 122px;
+        height: 50px;
+        background: #f8f7f7;
+        border: none;
+
+        outline: none;
+        padding: 0 15px;
+
+        font-weight: 400;
+        font-size: 15px;
+        color: #776e73;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}
