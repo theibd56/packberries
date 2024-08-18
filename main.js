@@ -37,21 +37,27 @@ const brandSlider = new Swiper('.brand__slider', {
 });
 
 //слайдер для блока с карточками товаров
-const cardSlider = new Swiper('.card__slider', {
-    slidesPerView: 5,
-    spaceBetween: 20,
-    speed: 800,
-    loop: false,
-    navigation: {
-        nextEl: '.card__arrow_next',
-        prevEl: '.card__arrow_prev',
-    },
-    autoplay: {
-        delay: 6000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-    },
-});
+const cardSliders = document.querySelectorAll('.card__slider'),
+    cardPrevArrow = document.querySelectorAll('.card__arrow_prev'),
+    cardNextArrow = document.querySelectorAll('.card__arrow_next');
+
+cardSliders.forEach((slider, index) => {
+    let cardSlider = new Swiper(slider, {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        speed: 800,
+        loop: false,
+        navigation: {
+            nextEl: cardNextArrow[index],
+            prevEl: cardPrevArrow[index],
+        },
+        autoplay: {
+            delay: 6000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+    });
+})
 
 //OTHER SCRIPTS
 //смена стилей если нет скидки
