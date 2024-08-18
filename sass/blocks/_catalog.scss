@@ -53,4 +53,72 @@
       background: #f8f7f7;
     }
   }
+  &-popular {
+    margin-top: 40px;
+    &__wrapper {
+      margin-top: 20px;
+      display: grid;
+      grid-template: minmax(258px, auto) / repeat(6, 1fr);
+      gap: 20px;
+    }
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+        &_card {
+          height: 216px;
+          background: #e8e3e6;
+          border-radius: 10px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          position: relative;
+
+          transform-style: preserve-3d;
+          &-img {
+            height: 174px;
+
+            transform: translateZ(2px);
+          }
+          &-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: translateZ(1px);
+            svg {
+              position: absolute;
+              &:first-child {
+                top: 0;
+                right: 0;
+              }
+              &:last-child {
+                bottom: 0;
+                left: 0;
+              }
+            }
+          }
+        }
+        &_title {
+          font-weight: 400;
+          font-size: 13px;
+          text-align: center;
+          color: #776e73;
+        }
+        * {
+          cursor: pointer;
+        }
+    }
+  }
+  &-brands {
+    &__wrapper {
+      margin-top: 20px;
+      display: grid;
+      grid-template: auto / repeat(4, 1fr);
+      gap: 20px;
+    }
+  }
 }
