@@ -1,7 +1,9 @@
 import Swiper from 'swiper/bundle';
+import { Fancybox } from "@fancyapps/ui";
 // import styles bundle
-import 'swiper/css/bundle';
 
+import 'swiper/css/bundle';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './sass/style.scss';
 
 
