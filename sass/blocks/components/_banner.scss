@@ -12,6 +12,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  &-small {
+    min-height: 216px;
+    padding: 60px 220px;
+    &__content {
+      gap: 10px !important;
+      max-width: 455px !important;
+    }
+    &__title {
+      font-weight: 800;
+      font-size: 30px;
+
+      /* line-height: 31px; */
+      line-height: 1.03333;
+      text-transform: uppercase;
+      color: #290718;
+    }
+  }
   &__content {
     display: flex;
     flex-direction: column;

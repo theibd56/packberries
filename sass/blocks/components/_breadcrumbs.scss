@@ -1,0 +1,17 @@
+.breadcrumbs {
+  margin-top: 20px;
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+  &-item {
+    &-link {
+      font-weight: 400;
+      font-size: 13px;
+      color: #a9a2a6;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}

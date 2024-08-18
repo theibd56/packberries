@@ -61,6 +61,23 @@ cardSliders.forEach((slider, index) => {
     });
 })
 
+//слайдер для баннера в каталоге
+const bannerSlider = new Swiper('.catalog-banners-slider', {
+    slidesPerView: 1,
+    spaceBetween: 40,
+    speed: 800,
+    loop: false,
+    navigation: {
+        nextEl: '.catalog-banners-arrow__next',
+        prevEl: '.catalog-banners-arrow__prev',
+    },
+    autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+});
+
 //OTHER SCRIPTS
 //смена стилей если нет скидки
 document.querySelectorAll('.card').forEach((item) => {

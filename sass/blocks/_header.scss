@@ -8,6 +8,10 @@
     display: block;
     height: 100%;
     width: 100%;
+
+    img {
+      cursor: pointer;
+    }
   }
   &__top {
     display: flex;
@@ -89,11 +93,12 @@
     flex-direction: column;
     align-items: center;
     gap: 6px;
-
+    svg, path {
+      cursor: pointer;
+    }
     &_ico {
       min-width: 24px;
       min-height: 24px;
-      cursor: pointer;
     }
     &_title {
       font-weight: 400;
@@ -137,6 +142,9 @@
       gap: 20px;
     }
     &_item {
+      svg, path, span {
+        cursor: pointer;
+      }
       a {
         display: flex;
         align-items: center;
