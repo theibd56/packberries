@@ -1,0 +1,120 @@
+.footer {
+  margin-top: 80px;
+  &__top {
+    padding: 50px 0 40px;
+    box-shadow: 0 -4px 35px 0 rgba(0, 0, 0, 0.05);
+    background: #fff;
+    &_container {
+      display: flex;
+      justify-content: space-between;
+    }
+    &_item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  &__bottom {
+    padding: 30px 0 48px;
+    background: #f6f4f5;
+    &_container {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    p {
+      font-weight: 400;
+      font-size: 13px;
+
+      /* line-height: 18px; */
+      line-height: 1.35;
+      text-align: center;
+      color: #a9a2a6;
+    }
+  }
+
+  &__nav {
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      list-style-type: none;
+      padding: 0;
+      a {
+        font-weight: 400;
+        font-size: 13px;
+
+        /* line-height: 27px; */
+        line-height: 2.07692;
+        color: #776e73;
+      }
+    }
+  }
+  &__social {
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    &_item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      span, svg {
+        cursor: pointer;
+      }
+      &-ico {
+        height: 20px;
+        width: 20px;
+      }
+      &-title {
+        font-weight: 400;
+        font-size: 13px;
+        color: #776e73;
+      }
+    }
+  }
+  &__contacts {
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    &_phone {
+      &-item {
+        font-weight: 400;
+        font-size: 18px;
+
+        /* line-height: 24px; */
+        line-height: 1.35;
+        color: #290718;
+      }
+    }
+    &_item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      &-title {
+        font-weight: 400;
+        font-size: 12px;
+
+        /* line-height: 16px; */
+        line-height: 1.35;
+        color: #a9a2a6;
+      }
+      &-wrapper {
+        display: flex;
+        gap: 10px;
+        span, svg, path {
+          cursor: pointer;
+        }
+        span {
+          font-weight: 400;
+          font-size: 13px;
+          color: #776e73;
+        }
+      }
+    }
+  }
+}
