@@ -152,7 +152,18 @@
     justify-content: space-between;
     gap: 19px;
     &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       width: 100%;
+    }
+    &__cards {
+      display: grid;
+      grid-template: minmax(264px, auto) / repeat(4, 1fr);
+      gap: 20px;
+      &-row {
+        grid-template: minmax(264px, auto) / 1fr;
+      }
     }
   }
 

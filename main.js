@@ -90,6 +90,42 @@ document.querySelectorAll('.card').forEach((item) => {
     } else {
         cardPriceNew.style.color = '#290718'
     }
+
+    //триггер на кнопку
+    const cardButton = item.querySelector('.card__button');
+
+    cardButton.addEventListener('click', function() {
+        cardButton.classList.toggle('card__button-cart');
+
+        cardButton.innerHTML == 'Добавить в корзину' ?
+            cardButton.innerHTML = 'В корзине' :
+            cardButton.innerHTML = 'Добавить в корзину';
+
+    })
+})
+
+//сорт
+const sortRow = document.querySelector('.sort-view-row');
+const sortGrid = document.querySelector('.sort-view-grid');
+const catalogCards = document.querySelector('.catalog-content__cards')
+
+sortRow.addEventListener('click', function() {
+    if(sortGrid.classList.contains('sort-view-item-active')) {
+        sortGrid.classList.remove('sort-view-item-active')
+        sortRow.classList.add('sort-view-item-active')
+
+        catalogCards.classList.add('catalog-content__cards-row')
+    }
+})
+
+sortGrid.addEventListener('click', function() {
+    if (sortRow.classList.contains('sort-view-item-active')) {
+        sortRow.classList.remove('sort-view-item-active')
+        sortGrid.classList.add('sort-view-item-active')
+
+        catalogCards.classList.remove('catalog-content__cards-row')
+    }
+
 })
 
 //fancybox

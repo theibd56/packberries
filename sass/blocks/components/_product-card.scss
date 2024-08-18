@@ -105,11 +105,38 @@
         cursor: pointer;
       }
     }
+    &__button {
+      margin-top: 13px;
+      display: block;
+      border: 1px solid rgba(194, 2, 94, 0.2);
+      border-radius: 8px;
+
+      padding: 15px;
+      width: 100%;
+
+      font-weight: 500;
+      font-size: 15px;
+      text-align: center;
+      color: #c2025e;
+
+      background: none;
+      cursor: pointer;
+
+      transition: all .3s;
+
+      &-cart {
+        color: #fff;
+        background: #c2025e;
+        border: 1px solid transparent;
+      }
+    }
 
 
   &:hover {
     box-shadow: 0 4px 25px 0 rgba(194, 2, 94, 0.1);
     border: 1px solid #e8e3e6;
+
+
   }
 }
 
