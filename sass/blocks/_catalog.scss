@@ -151,5 +151,9 @@
     display: flex;
     justify-content: space-between;
     gap: 19px;
+    &__wrapper {
+      width: 100%;
+    }
   }
+
 }

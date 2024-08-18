@@ -1,0 +1,65 @@
+.sort {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    width: 292px;
+
+    label {
+      font-weight: 500;
+      font-size: 13px;
+      color: #290718;
+    }
+    select {
+      background: #f8f7f7;
+      border-radius: 10px;
+      height: 50px;
+      outline: none;
+      border: none;
+
+      font-weight: 400;
+      font-size: 15px;
+      color: #776e73;
+
+      padding: 0 15px;
+
+      cursor: pointer;
+    }
+    option {
+      cursor: pointer;
+    }
+  }
+  &-view {
+    height: 50px;
+    padding: 5px;
+    background: #f8f7f7;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-item {
+      height: 40px;
+      width: 40px;
+
+      background: none;
+      border: none;
+      border-radius: 8px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      * {
+        cursor: pointer;
+      }
+    }
+  }
+}
