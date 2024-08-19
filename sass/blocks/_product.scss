@@ -1,0 +1,125 @@
+.product {
+  &__info, &__review {
+    display: grid;
+    grid-template: auto / 985px 375px;
+    gap: 40px;
+  }
+  &__info {
+    &_left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #e8e3e6;;
+      &-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      &-info {
+        width: 375px;
+        max-width: 375px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+    &_top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+
+    &_code {
+      font-weight: 400;
+      font-size: 13px;
+      color: #776e73;
+    }
+    &_title {
+      font-weight: 700;
+      font-size: 23px;
+      color: #2b2b2b;
+    }
+    &_rating {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      &-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        font-weight: 400;
+        font-size: 13px;
+        color: #776e73;
+      }
+    }
+    &_brand {
+      padding: 7px 13px;
+      background: #f8f7f7;
+      border-radius: 10px;
+      img {
+        width: 114px;
+        max-width: 114px;
+
+        object-fit: cover;
+      }
+    }
+    &_characteristic {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      &-title {
+        font-weight: 700;
+        font-size: 18px;
+        color: #290718;
+      }
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+
+        padding: 10px 0;
+        &:not(:first-child) {
+          border-bottom: 1px solid rgba(232, 227, 230, 0.5);;
+        }
+      }
+      &-name {
+        font-weight: 400;
+        font-size: 13px;
+        color: #776e73;
+      }
+      &-meaning {
+        font-weight: 400;
+        font-size: 13px;
+        color: #290718;
+      }
+    }
+
+
+    &_description {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      &-title {
+        font-weight: 700;
+        font-size: 18px;
+        color: #290718;
+      }
+      &-text {
+        p {
+          font-weight: 400;
+          font-size: 15px;
+          color: #776e73;
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
