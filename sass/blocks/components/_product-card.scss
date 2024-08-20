@@ -144,7 +144,7 @@
 .card-banner {
   padding: 30px;
   border-radius: 10px;
-  background: url("../../../images/product-card/card-banner.png");
+  background: url("/images/product-card/card-banner.png");
   &__title {
     font-weight: 800;
     font-size: 22px;
@@ -167,7 +167,7 @@
 .card-video {
   padding: 30px;
   border-radius: 10px;
-  background: url("../../../images/product-card/card-video.png") center / cover no-repeat;
+  background: url("/images/product-card/card-video.png") center / cover no-repeat;
 
   position: relative;
   &__link {
