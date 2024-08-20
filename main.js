@@ -80,7 +80,7 @@ const bannerSlider = new Swiper('.catalog-banners-slider', {
 
 //OTHER SCRIPTS
 //смена стилей если нет скидки
-document.querySelectorAll('.card').forEach((item) => {
+document.querySelectorAll('.card').forEach((item, index) => {
     //смена цвета прайса
     const cardPriceNew = item.querySelector('.card__price_new');
     const cardPriceOld = item.querySelector('.card__price_old');
@@ -90,8 +90,9 @@ document.querySelectorAll('.card').forEach((item) => {
     } else {
         cardPriceNew.style.color = '#290718'
     }
-
-    //триггер на кнопку
+})
+//триггер на кнопку
+document.querySelectorAll('.card').forEach((item, index) => {
     const cardButton = item.querySelector('.card__button');
 
     cardButton.addEventListener('click', function() {
@@ -125,7 +126,6 @@ sortGrid.addEventListener('click', function() {
 
         catalogCards.classList.remove('catalog-content__cards-row')
     }
-
 })
 
 //fancybox
