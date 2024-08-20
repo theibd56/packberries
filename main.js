@@ -6,6 +6,11 @@ import 'swiper/css/bundle';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './sass/style.scss';
 
+//fancybox (может конфликтовать)
+Fancybox.bind("[data-fancybox]", {
+    // Your custom options
+});
+
 
 //SLIDERS
 //слайдер для промо блока
@@ -129,6 +134,14 @@ sortGrid.addEventListener('click', function() {
 })
 
 //fancybox
-Fancybox.bind("[data-fancybox]", {
-    // Your custom options
-});
+const cardVideo = document.querySelectorAll('.card-video__link');
+cardVideo.forEach(item => {
+    item.fancybox({
+        openEffect  : 'none',
+        closeEffect : 'none',
+        helpers : {
+            media : {}
+        }
+    });
+})
+

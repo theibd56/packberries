@@ -165,11 +165,17 @@
   }
 }
 .card-video {
-  padding: 30px;
+  //padding: 30px;
   border-radius: 10px;
-  background: url("/images/product-card/card-video.png") center / cover no-repeat;
 
   position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-radius: 10px;
+  }
   &__link {
     width: 80px;
     height: 80px;
