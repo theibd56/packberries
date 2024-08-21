@@ -89,13 +89,24 @@ document.querySelectorAll('.card').forEach((item, index) => {
     //смена цвета прайса
     const cardPriceNew = item.querySelector('.card__price_new');
     const cardPriceOld = item.querySelector('.card__price_old');
+    const cardSale = item.querySelector('.card__top_heading-sale');
 
     if (cardPriceOld) {
+        //смена новой цены на красный цвет
         cardPriceNew.style.color = '#f0371e'
+
+        //расчет скидки в %
+        const saleProcent = Math.round(
+            (cardPriceNew.innerText.replace(/[\s.,₽]/g, '') /
+                cardPriceOld.innerText.replace(/[\s.,₽]/g, '') * 100)
+        )
+        cardSale.innerText = saleProcent + '%'
     } else {
+        //смена новой цены на дефолтный цвет
         cardPriceNew.style.color = '#290718'
     }
 })
+
 //триггер на кнопку
 document.querySelectorAll('.card').forEach((item, index) => {
     const cardButton = item.querySelector('.card__button');
