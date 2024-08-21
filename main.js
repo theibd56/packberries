@@ -83,6 +83,42 @@ const bannerSlider = new Swiper('.catalog-banners-slider', {
     },
 });
 
+//слайдер для навигационного слайдера на странице продукта
+const productSliderNavigate = new Swiper('.product__slider_thumbs', {
+    centeredSlidesBounds: true,
+    slidesPerView: 7,
+    spaceBetween: 10,
+    watchOverflow: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    direction: 'vertical',
+    speed: 800,
+});
+
+//слайдер для главного слайдера на странице продукта
+const productSlider = new Swiper('.product__slider_main', {
+    speed: 800,
+    watchOverflow: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    preventInteractionOnTransition: true,
+    thumbs: {
+        swiper: productSliderNavigate,
+    },
+    navigation: {
+        nextEl: '.product__slider_navigate-next',
+        prevEl: '.product__slider_navigate-prev',
+    },
+});
+
+productSlider.on('slideChangeTransitionStart', function() {
+    productSliderNavigate.slideTo(productSlider.activeIndex);
+});
+
+productSliderNavigate.on('transitionStart', function(){
+    productSlider.slideTo(productSliderNavigate.activeIndex);
+});
+
 //OTHER SCRIPTS
 //смена стилей если нет скидки
 document.querySelectorAll('.card').forEach((item, index) => {
