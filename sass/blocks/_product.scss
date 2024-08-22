@@ -325,6 +325,9 @@
   }
 
   &__review {
+    &_left {
+      margin-top: 30px;
+    }
     &_counter {
       border-radius: 10px;
       padding: 30px;
@@ -387,6 +390,66 @@
           text-align: right;
           color: #290718;
         }
+      }
+    }
+
+
+    &_heading {
+      display: flex;
+      gap: 8px;
+    }
+    &_title {
+      font-weight: 700;
+      font-size: 18px;
+      color: #290718;
+    }
+    &_count {
+      font-weight: 400;
+      font-size: 13px;
+      color: #776e73;
+    }
+    &_images {
+      margin-top: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      &-item {
+        width: 86px;
+        height: 86px;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+
+          object-fit: cover;
+        }
+      }
+    }
+    &_sort {
+      margin-top: 30px;
+
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      &-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      &-item {
+        font-weight: 400;
+        font-size: 13px;
+        color: #776e73;
+
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        border: none;
+        background: none;
+        outline: none;
       }
     }
   }
