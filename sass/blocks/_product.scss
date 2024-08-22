@@ -43,6 +43,9 @@
       gap: 10px;
     }
     &_right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       &-top {
         width: 100%;
         padding: 30px;
@@ -50,6 +53,48 @@
         box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.08);
         background: #fff;
       }
+
+      //удалить при интеграция виджета ДОЛЯМИ
+      &-dolyame {
+        border-radius: 8px;
+        padding: 12px;
+        height: 44px;
+
+        background: #000;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        cursor: pointer;
+        &__icon {
+          border-radius: 4px;
+          padding: 6px;
+          width: 68px;
+          height: 20px;
+
+          background: #fff;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        &__text {
+          font-weight: 400;
+          font-size: 13px;
+          text-align: left;
+          width: 100%;
+
+          /* line-height: 24px; */
+          line-height: 1.84615;
+          color: #fff;
+        }
+        * {
+          cursor: pointer;
+        }
+      }
+      //удалить при интеграция виджета ДОЛЯМИ
     }
     &_code {
       font-weight: 400;
