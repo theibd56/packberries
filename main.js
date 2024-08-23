@@ -11,9 +11,8 @@ Fancybox.bind("[data-fancybox]", {
     // Your custom options
 });
 
-
-//SLIDERS
-//слайдер для промо блока
+//----------------- SLIDERS -----------------//
+//----------------- слайдер для промо блока -----------------//
 const promoSlider = new Swiper('.promo__slider', {
     slidesPerView: 1,
     spaceBetween: 40,
@@ -30,7 +29,7 @@ const promoSlider = new Swiper('.promo__slider', {
     },
 });
 
-//слайдер для блока бренды
+
 const brandSlider = new Swiper('.brand__slider', {
     slidesPerView: 4,
     spaceBetween: 20,
@@ -43,7 +42,7 @@ const brandSlider = new Swiper('.brand__slider', {
     },
 });
 
-//слайдер для блока с карточками товаров
+//----------------- слайдер для блока с карточками товаров -----------------//
 const cardSliders = document.querySelectorAll('.card__slider'),
     cardPrevArrow = document.querySelectorAll('.card__arrow_prev'),
     cardNextArrow = document.querySelectorAll('.card__arrow_next');
@@ -66,7 +65,7 @@ cardSliders.forEach((slider, index) => {
     });
 })
 
-//слайдер для баннера в каталоге
+//----------------- слайдер для баннера в каталоге -----------------//
 const bannerSlider = new Swiper('.catalog-banners-slider', {
     slidesPerView: 1,
     spaceBetween: 40,
@@ -83,7 +82,7 @@ const bannerSlider = new Swiper('.catalog-banners-slider', {
     },
 });
 
-//слайдер для навигационного слайдера на странице продукта
+//----------------- слайдер для навигационного слайдера на странице продукта -----------------//
 const productSliderNavigate = new Swiper('.product__slider_thumbs', {
     centeredSlidesBounds: true,
     slidesPerView: 7,
@@ -95,7 +94,7 @@ const productSliderNavigate = new Swiper('.product__slider_thumbs', {
     speed: 800,
 });
 
-//слайдер для главного слайдера на странице продукта
+//----------------- слайдер для главного слайдера на странице продукта -----------------//
 const productSlider = new Swiper('.product__slider_main', {
     speed: 800,
     watchOverflow: true,
@@ -119,8 +118,8 @@ productSliderNavigate.on('transitionStart', function(){
     productSlider.slideTo(productSliderNavigate.activeIndex);
 });
 
-//OTHER SCRIPTS
-//смена стилей если нет скидки
+//----------------- OTHER SCRIPTS -----------------//
+//----------------- смена стилей если нет скидки -----------------//
 document.querySelectorAll('.card').forEach((item, index) => {
     //смена цвета прайса
     const cardPriceNew = item.querySelector('.card__price_new');
@@ -143,7 +142,7 @@ document.querySelectorAll('.card').forEach((item, index) => {
     }
 })
 
-//триггер на кнопку
+//----------------- триггер на кнопку -----------------//
 document.querySelectorAll('.card').forEach((item, index) => {
     const cardButton = item.querySelector('.card__button');
 
@@ -186,7 +185,7 @@ if (sortGrid) {
     })
 }
 
-//fancybox
+//----------------- fancybox -----------------//
 const cardVideo = document.querySelectorAll('.card-video__link');
 cardVideo.forEach(item => {
     item.fancybox({
@@ -198,7 +197,27 @@ cardVideo.forEach(item => {
     });
 })
 
-//установка инициалов в качестве иконки пользователя
+//----------------- установка заполнения прогресс бара в коутере отзывов -----------------//
+let totalRating = 0
+const reviewCounterItem = document.querySelectorAll('.product__review_counter-item')
+const reviewCounterAmount = document.querySelectorAll('.product__review_counter-item__amount')
+
+//считаем общую сумму все отзывов
+reviewCounterAmount.forEach(amount => {
+    totalRating += +amount.textContent
+})
+reviewCounterItem.forEach(item => {
+    //получаем значение из селектора в числовом типе
+    const reviewAmount = +item.querySelector('.product__review_counter-item__amount').textContent
+    const reviewProgressActive = item.querySelector('.product__review_counter-item__progress-active')
+
+    //задаем ширину ширину активному прогрес бару
+    reviewProgressActive.style.width = (reviewAmount / totalRating) * 100 + '%'
+})
+
+
+
+//----------------- установка инициалов в качестве иконки пользователя -----------------//
 const productReview = document.querySelectorAll('.product__review_item')
 productReview.forEach(item => {
     const productReviewerName = item.querySelector('.product__review_item-name')
@@ -215,10 +234,5 @@ productReview.forEach(item => {
     } else {
         productReviewerIco.textContent = initialName.substring(0, 3)
     }
-
-    console.log(initialName)
-
-
-
 })
 

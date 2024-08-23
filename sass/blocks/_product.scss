@@ -380,6 +380,12 @@
           height: 6px;
           border-radius: 10px;
           background: #f6f4f5;
+          &-active {
+            border-radius: 10px;
+            height: 100%;
+            width: 0;
+            background: #ffb648;
+          }
         }
         &__amount {
           max-width: 35px;
