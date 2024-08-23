@@ -158,6 +158,17 @@ document.querySelectorAll('.card').forEach((item, index) => {
     }
 })
 
+//----------------- триггер на кнопку like-----------------//
+document.querySelectorAll('.card').forEach((item, index) => {
+    const cartLike = item.querySelector('.card__top_heading-like svg');
+
+    if(cartLike.parentNode) {
+        cartLike.parentNode.addEventListener('click', () => {
+            cartLike.classList.toggle('like')
+        })
+    }
+})
+
 //----------------- скрипт для сорта -----------------//
 const sortRow = document.querySelector('.sort-view-row');
 const sortGrid = document.querySelector('.sort-view-grid');
@@ -184,18 +195,6 @@ if (sortGrid) {
         }
     })
 }
-
-//----------------- fancybox -----------------//
-const cardVideo = document.querySelectorAll('.card-video__link');
-cardVideo.forEach(item => {
-    item.fancybox({
-        openEffect  : 'none',
-        closeEffect : 'none',
-        helpers : {
-            media : {}
-        }
-    });
-})
 
 //----------------- установка заполнения прогресс бара в коутере отзывов -----------------//
 let totalRating = 0
