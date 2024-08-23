@@ -158,7 +158,7 @@ document.querySelectorAll('.card').forEach((item, index) => {
     }
 })
 
-//сорт
+//----------------- скрипт для сорта -----------------//
 const sortRow = document.querySelector('.sort-view-row');
 const sortGrid = document.querySelector('.sort-view-grid');
 const catalogCards = document.querySelector('.catalog-content__cards')
@@ -215,8 +215,6 @@ reviewCounterItem.forEach(item => {
     reviewProgressActive.style.width = (reviewAmount / totalRating) * 100 + '%'
 })
 
-
-
 //----------------- установка инициалов в качестве иконки пользователя -----------------//
 const productReview = document.querySelectorAll('.product__review_item')
 productReview.forEach(item => {
@@ -236,3 +234,47 @@ productReview.forEach(item => {
     }
 })
 
+//----------------- тогл класса активности у кнопок сорта на странице продукта -----------------//
+const reviewSortItem = document.getElementsByClassName("product__review_sort-item");
+const reviewSortItemActive = document.getElementsByClassName('active');
+for (let i = 0; reviewSortItem.length > i; i++) {
+    reviewSortItem[i].onclick = function() {
+        let currentActive = reviewSortItemActive[0];
+        if (currentActive)
+            currentActive.classList.remove("active");
+
+        if (currentActive !== this)
+            this.classList.add("active");
+    };
+}
+
+//----------------- вывод определенного кол-ва изображений в отзывах -----------------//
+const productReviewImages = document.querySelector('.product__review_images');
+const productReviewImagesItem = productReviewImages.querySelectorAll('.product__review_images-item')
+let maxViewImages = 10
+let productReviewImagesDifference = productReviewImagesItem.length - maxViewImages
+
+productReviewImagesItem.forEach((item, index) => {
+    //получаем img
+    const productReviewImg = item.querySelector('img')
+
+    //создаем span
+    const span = document.createElement("span");
+
+    span.innerText = productReviewImagesDifference > 10 ?
+                        //в innerText попадает число округленное до меньшего десятка с добавлением плюса
+                        Math.floor(productReviewImagesDifference/10)*10 + '+' :
+                        productReviewImagesDifference
+    span.classList.add()
+
+    //если индекс item'а больше или равен максимальному числу - то он убирается
+    if (index >= maxViewImages) {
+        item.style.display = 'none'
+    }
+
+    //если индекс item'а равен 9, то задаем фото блюр и добавляем ранее созданный span
+    if (index === 9) {
+        productReviewImg.style.filter = "blur(2px)";
+        item.append(span)
+    }
+})
