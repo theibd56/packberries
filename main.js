@@ -277,3 +277,25 @@ productReviewImagesItem.forEach((item, index) => {
         item.append(span)
     }
 })
+
+//----------------- inc / dec в input при добавление товара в корзину -----------------//
+const productCounterToCart = document.querySelector('.product__info_counter-cart')
+const productCounterInput = productCounterToCart.querySelector('input')
+const productCounterDec = productCounterToCart.querySelector('#product__cart_dec')
+const productCounterInc = productCounterToCart.querySelector('#product__cart_inc')
+
+console.log(productCounterInput.value)
+
+function decrementCart() {
+    productCounterInput.value <= 1 ? // ограничение в 1 ед. товара
+        productCounterInput.value = productCounterInput.value :
+        productCounterInput.value = --productCounterInput.value
+}
+productCounterDec.addEventListener('click', decrementCart)
+function incrementCart() {
+    productCounterInput.value >= 999 ? // ограничение в 999 ед. товара
+        productCounterInput.value = productCounterInput.value :
+        productCounterInput.value = ++productCounterInput.value
+}
+productCounterInc.addEventListener('click', incrementCart)
+
