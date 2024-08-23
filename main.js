@@ -159,12 +159,12 @@ document.querySelectorAll('.card').forEach((item, index) => {
 })
 
 //----------------- триггер на кнопку like-----------------//
-document.querySelectorAll('.card').forEach((item, index) => {
-    const cartLike = item.querySelector('.card__top_heading-like svg');
+document.querySelectorAll('.like-trigger').forEach((item, index) => {
+    const likeSvg = item.querySelector('svg');
 
-    if(cartLike.parentNode) {
-        cartLike.parentNode.addEventListener('click', () => {
-            cartLike.classList.toggle('like')
+    if(likeSvg.parentNode) {
+        likeSvg.parentNode.addEventListener('click', () => {
+            likeSvg.parentNode.classList.toggle('like')
         })
     }
 })
@@ -283,8 +283,6 @@ const productCounterToCart = document.querySelector('.product__info_counter-cart
 const productCounterInput = productCounterToCart.querySelector('input')
 const productCounterDec = productCounterToCart.querySelector('#product__cart_dec')
 const productCounterInc = productCounterToCart.querySelector('#product__cart_inc')
-
-console.log(productCounterInput.value)
 
 function decrementCart() {
     productCounterInput.value <= 1 ? // ограничение в 1 ед. товара
