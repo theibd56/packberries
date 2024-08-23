@@ -147,14 +147,16 @@ document.querySelectorAll('.card').forEach((item, index) => {
 document.querySelectorAll('.card').forEach((item, index) => {
     const cardButton = item.querySelector('.card__button');
 
-    cardButton.addEventListener('click', function() {
-        cardButton.classList.toggle('card__button-cart');
+    if(cardButton) {
+        cardButton.addEventListener('click', function() {
+            cardButton.classList.toggle('card__button-cart');
 
-        cardButton.innerHTML == 'Добавить в корзину' ?
-            cardButton.innerHTML = 'В корзине' :
-            cardButton.innerHTML = 'Добавить в корзину';
+            cardButton.innerHTML == 'Добавить в корзину' ?
+                cardButton.innerHTML = 'В корзине' :
+                cardButton.innerHTML = 'Добавить в корзину';
 
-    })
+        })
+    }
 })
 
 //сорт
@@ -162,23 +164,27 @@ const sortRow = document.querySelector('.sort-view-row');
 const sortGrid = document.querySelector('.sort-view-grid');
 const catalogCards = document.querySelector('.catalog-content__cards')
 
-sortRow.addEventListener('click', function() {
-    if(sortGrid.classList.contains('sort-view-item-active')) {
-        sortGrid.classList.remove('sort-view-item-active')
-        sortRow.classList.add('sort-view-item-active')
+if (sortRow) {
+    sortRow.addEventListener('click', function() {
+        if(sortGrid.classList.contains('sort-view-item-active')) {
+            sortGrid.classList.remove('sort-view-item-active')
+            sortRow.classList.add('sort-view-item-active')
 
-        catalogCards.classList.add('catalog-content__cards-row')
-    }
-})
+            catalogCards.classList.add('catalog-content__cards-row')
+        }
+    })
+}
 
-sortGrid.addEventListener('click', function() {
-    if (sortRow.classList.contains('sort-view-item-active')) {
-        sortRow.classList.remove('sort-view-item-active')
-        sortGrid.classList.add('sort-view-item-active')
+if (sortGrid) {
+    sortGrid.addEventListener('click', function() {
+        if (sortRow.classList.contains('sort-view-item-active')) {
+            sortRow.classList.remove('sort-view-item-active')
+            sortGrid.classList.add('sort-view-item-active')
 
-        catalogCards.classList.remove('catalog-content__cards-row')
-    }
-})
+            catalogCards.classList.remove('catalog-content__cards-row')
+        }
+    })
+}
 
 //fancybox
 const cardVideo = document.querySelectorAll('.card-video__link');
@@ -190,5 +196,29 @@ cardVideo.forEach(item => {
             media : {}
         }
     });
+})
+
+//установка инициалов в качестве иконки пользователя
+const productReview = document.querySelectorAll('.product__review_item')
+productReview.forEach(item => {
+    const productReviewerName = item.querySelector('.product__review_item-name')
+    const productReviewerIco = item.querySelector('.product__review_item-ico')
+
+    let initialName = ''
+
+    productReviewerName.textContent.split(' ').forEach(part => {
+        initialName += part.charAt(0).toUpperCase();
+    })
+
+    if(initialName.length <= 3) {
+        productReviewerIco.textContent = initialName
+    } else {
+        productReviewerIco.textContent = initialName.substring(0, 3)
+    }
+
+    console.log(initialName)
+
+
+
 })
 

@@ -450,6 +450,81 @@
         border: none;
         background: none;
         outline: none;
+
+        cursor: pointer;
+        * {
+          cursor: pointer;
+        }
+      }
+      .active {
+        font-weight: 500;
+        color: #c2025e;
+      }
+    }
+
+    &_wrapper {
+      margin-top: 30px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    &_item {
+      display: flex;
+      gap: 20px;
+
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(232, 227, 230, 0.5);
+      &-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      &-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &__right {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+      }
+      &-ico {
+        min-width: 50px;
+        width: 50px;
+        height: 50px;
+
+        border-radius: 100%;
+        background: #e8e3e6;
+
+        font-weight: 800;
+        font-size: 15px;
+        color: #f6f4f5;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &-name {
+        font-weight: 600;
+        font-size: 15px;
+        color: #290718;
+      }
+      &-date {
+        font-weight: 400;
+        font-size: 13px;
+        color: #776e73;
+      }
+      &-stars {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      &-text {
+        font-weight: 400;
+        font-size: 15px;
+        color: #776e73;
       }
     }
   }
