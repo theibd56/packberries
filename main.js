@@ -297,3 +297,35 @@ function incrementCart() {
 }
 productCounterInc.addEventListener('click', incrementCart)
 
+//----------------- кнопка показать еще в характеристиках -----------------//
+
+const characteristicWrapper = document.querySelector('.product__info_characteristic-wrapper')
+const characteristicItem = characteristicWrapper.querySelectorAll('.product__info_characteristic-item')
+const characteristicMore = characteristicWrapper.querySelector('.product__info_characteristic-more')
+const characteristicMoreSpan = characteristicMore.querySelector('span')
+
+if (characteristicItem.length > 5) {
+    characteristicItem.forEach((item, index) => {
+       if(index > 4) {
+           item.classList.add('hidden')
+       }
+    })
+
+    characteristicMore.classList.remove('hidden')
+}
+
+characteristicMore.addEventListener('click', () => {
+    characteristicItem.forEach((item, index) => {
+        if(index > 4) {
+            item.classList.toggle('hidden')
+        }
+    })
+    characteristicMore.classList.toggle('show')
+
+    characteristicMoreSpan.innerText === 'Показать все' ?
+    characteristicMoreSpan.innerText = 'Скрыть' :
+    characteristicMoreSpan.innerText = 'Показать все';
+
+    characteristicWrapper.classList.toggle('characteristic-active')
+})
+
