@@ -202,6 +202,43 @@
                   <!--svg end-->
                 </div>
               </div>
+
+              <!--видео с iframe-->
+              <div class="promo__slide promo__slide_video swiper-slide">
+                <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/qeMFqkcPYcg?si=jBu0pgUaK_Jyi2r9"
+                        srcdoc="<style>*{padding:0;margin:0;overflow:hidden}
+                        html,body{height:100%}
+                        img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
+                        span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}
+                        </style>
+                        <a href=https://www.youtube.com/embed/qeMFqkcPYcg?si=jBu0pgUaK_Jyi2r9>
+                        <img src=https://img.youtube.com/vi/qeMFqkcPYcg/hqdefault.jpg alt='Demo video'>
+                        <span>▶</span>
+                        </a>"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        title="Demo video">
+                </iframe>
+              </div>
+
+              <!--видео с тегом video (для видео в формате файла) и с постером-->
+              <div class="promo__slide promo__slide_video swiper-slide">
+                <video controls loop
+                       poster="https://www.film.ru/sites/default/files/movies/posters/50483019-2577104.jpeg">
+                  <source src="https://www.film.ru/sites/default/files/trailers/50483019/Miraculous-clip_2.mp4">
+                </video>
+              </div>
+
+              <!--видео с тегом video (для видео в формате файла) без постера-->
+              <div class="promo__slide promo__slide_video swiper-slide">
+                <video controls loop>
+                  <source src="/test-video.mp4">
+                </video>
+              </div>
             </div>
           </div>
           <div class="promo__arrow">
