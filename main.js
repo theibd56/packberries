@@ -249,83 +249,87 @@ for (let i = 0; reviewSortItem.length > i; i++) {
 
 //----------------- вывод определенного кол-ва изображений в отзывах -----------------//
 const productReviewImages = document.querySelector('.product__review_images');
-const productReviewImagesItem = productReviewImages.querySelectorAll('.product__review_images-item')
-let maxViewImages = 10
-let productReviewImagesDifference = productReviewImagesItem.length - maxViewImages
+if (productReviewImages) {
+    const productReviewImagesItem = productReviewImages.querySelectorAll('.product__review_images-item')
+    let maxViewImages = 10
+    let productReviewImagesDifference = productReviewImagesItem.length - maxViewImages
 
-productReviewImagesItem.forEach((item, index) => {
-    //получаем img
-    const productReviewImg = item.querySelector('img')
+    productReviewImagesItem.forEach((item, index) => {
+        //получаем img
+        const productReviewImg = item.querySelector('img')
 
-    //создаем span
-    const span = document.createElement("span");
+        //создаем span
+        const span = document.createElement("span");
 
-    span.innerText = productReviewImagesDifference > 10 ?
-                        //в innerText попадает число округленное до меньшего десятка с добавлением плюса
-                        Math.floor(productReviewImagesDifference/10)*10 + '+' :
-                        productReviewImagesDifference
-    span.classList.add()
+        span.innerText = productReviewImagesDifference > 10 ?
+            //в innerText попадает число округленное до меньшего десятка с добавлением плюса
+            Math.floor(productReviewImagesDifference/10)*10 + '+' :
+            productReviewImagesDifference
+        span.classList.add()
 
-    //если индекс item'а больше или равен максимальному числу - то он убирается
-    if (index >= maxViewImages) {
-        item.style.display = 'none'
-    }
+        //если индекс item'а больше или равен максимальному числу - то он убирается
+        if (index >= maxViewImages) {
+            item.style.display = 'none'
+        }
 
-    //если индекс item'а равен 9, то задаем фото блюр и добавляем ранее созданный span
-    if (index === 9) {
-        productReviewImg.style.filter = "blur(2px)";
-        item.append(span)
-    }
-})
+        //если индекс item'а равен 9, то задаем фото блюр и добавляем ранее созданный span
+        if (index === 9) {
+            productReviewImg.style.filter = "blur(2px)";
+            item.append(span)
+        }
+    })
+}
 
 //----------------- inc / dec в input при добавление товара в корзину -----------------//
 const productCounterToCart = document.querySelector('.product__info_counter-cart')
-const productCounterInput = productCounterToCart.querySelector('input')
-const productCounterDec = productCounterToCart.querySelector('#product__cart_dec')
-const productCounterInc = productCounterToCart.querySelector('#product__cart_inc')
+if (productCounterToCart) {
+    const productCounterInput = productCounterToCart.querySelector('input')
+    const productCounterDec = productCounterToCart.querySelector('#product__cart_dec')
+    const productCounterInc = productCounterToCart.querySelector('#product__cart_inc')
 
-function decrementCart() {
-    productCounterInput.value <= 1 ? // ограничение в 1 ед. товара
-        productCounterInput.value = productCounterInput.value :
-        productCounterInput.value = --productCounterInput.value
+    function decrementCart() {
+        productCounterInput.value <= 1 ? // ограничение в 1 ед. товара
+            productCounterInput.value = productCounterInput.value :
+            productCounterInput.value = --productCounterInput.value
+    }
+    productCounterDec.addEventListener('click', decrementCart)
+    function incrementCart() {
+        productCounterInput.value >= 999 ? // ограничение в 999 ед. товара
+            productCounterInput.value = productCounterInput.value :
+            productCounterInput.value = ++productCounterInput.value
+    }
+    productCounterInc.addEventListener('click', incrementCart)
 }
-productCounterDec.addEventListener('click', decrementCart)
-function incrementCart() {
-    productCounterInput.value >= 999 ? // ограничение в 999 ед. товара
-        productCounterInput.value = productCounterInput.value :
-        productCounterInput.value = ++productCounterInput.value
-}
-productCounterInc.addEventListener('click', incrementCart)
-
 //----------------- кнопка показать еще в характеристиках -----------------//
 
 const characteristicWrapper = document.querySelector('.product__info_characteristic-wrapper')
-const characteristicItem = characteristicWrapper.querySelectorAll('.product__info_characteristic-item')
-const characteristicMore = characteristicWrapper.querySelector('.product__info_characteristic-more')
-const characteristicMoreSpan = characteristicMore.querySelector('span')
+if (characteristicWrapper) {
+    const characteristicItem = characteristicWrapper.querySelectorAll('.product__info_characteristic-item')
+    const characteristicMore = characteristicWrapper.querySelector('.product__info_characteristic-more')
+    const characteristicMoreSpan = characteristicMore.querySelector('span')
 
-if (characteristicItem.length > 5) {
-    characteristicItem.forEach((item, index) => {
-       if(index > 4) {
-           item.classList.add('hidden')
-       }
+    if (characteristicItem.length > 5) {
+        characteristicItem.forEach((item, index) => {
+            if(index > 4) {
+                item.classList.add('hidden')
+            }
+        })
+
+        characteristicMore.classList.remove('hidden')
+    }
+
+    characteristicMore.addEventListener('click', () => {
+        characteristicItem.forEach((item, index) => {
+            if(index > 4) {
+                item.classList.toggle('hidden')
+            }
+        })
+        characteristicMore.classList.toggle('show')
+
+        characteristicMoreSpan.innerText === 'Показать все' ?
+            characteristicMoreSpan.innerText = 'Скрыть' :
+            characteristicMoreSpan.innerText = 'Показать все';
+
+        characteristicWrapper.classList.toggle('characteristic-active')
     })
-
-    characteristicMore.classList.remove('hidden')
 }
-
-characteristicMore.addEventListener('click', () => {
-    characteristicItem.forEach((item, index) => {
-        if(index > 4) {
-            item.classList.toggle('hidden')
-        }
-    })
-    characteristicMore.classList.toggle('show')
-
-    characteristicMoreSpan.innerText === 'Показать все' ?
-    characteristicMoreSpan.innerText = 'Скрыть' :
-    characteristicMoreSpan.innerText = 'Показать все';
-
-    characteristicWrapper.classList.toggle('characteristic-active')
-})
-
