@@ -162,7 +162,7 @@
       grid-template: minmax(264px, auto) / repeat(4, 1fr);
       gap: 20px;
       &-row {
-        grid-template: minmax(264px, auto) / 1fr;
+        grid-template: auto / 1fr;
       }
     }
   }

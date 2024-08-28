@@ -173,6 +173,7 @@ document.querySelectorAll('.like-trigger').forEach((item, index) => {
 const sortRow = document.querySelector('.sort-view-row');
 const sortGrid = document.querySelector('.sort-view-grid');
 const catalogCards = document.querySelector('.catalog-content__cards')
+const cards = catalogCards.querySelectorAll('.card')
 
 if (sortRow) {
     sortRow.addEventListener('click', function() {
@@ -181,6 +182,10 @@ if (sortRow) {
             sortRow.classList.add('sort-view-item-active')
 
             catalogCards.classList.add('catalog-content__cards-row')
+
+            cards.forEach(item => {
+                item.classList.add('card-row')
+            })
         }
     })
 }
@@ -192,6 +197,10 @@ if (sortGrid) {
             sortGrid.classList.add('sort-view-item-active')
 
             catalogCards.classList.remove('catalog-content__cards-row')
+
+            cards.forEach(item => {
+                item.classList.remove('card-row')
+            })
         }
     })
 }
