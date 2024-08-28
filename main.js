@@ -173,7 +173,9 @@ document.querySelectorAll('.like-trigger').forEach((item, index) => {
 const sortRow = document.querySelector('.sort-view-row');
 const sortGrid = document.querySelector('.sort-view-grid');
 const catalogCards = document.querySelector('.catalog-content__cards')
-const cards = catalogCards.querySelectorAll('.card')
+if (catalogCards) {
+    const cards = catalogCards.querySelectorAll('.card')
+}
 
 if (sortRow) {
     sortRow.addEventListener('click', function() {
