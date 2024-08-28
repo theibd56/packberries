@@ -175,37 +175,39 @@ const sortGrid = document.querySelector('.sort-view-grid');
 const catalogCards = document.querySelector('.catalog-content__cards')
 if (catalogCards) {
     const cards = catalogCards.querySelectorAll('.card')
+
+    if (sortRow) {
+        sortRow.addEventListener('click', function() {
+            if(sortGrid.classList.contains('sort-view-item-active')) {
+                sortGrid.classList.remove('sort-view-item-active')
+                sortRow.classList.add('sort-view-item-active')
+
+                catalogCards.classList.add('catalog-content__cards-row')
+
+                cards.forEach(item => {
+                    item.classList.add('card-row')
+                })
+            }
+        })
+    }
+
+    if (sortGrid) {
+        sortGrid.addEventListener('click', function() {
+            if (sortRow.classList.contains('sort-view-item-active')) {
+                sortRow.classList.remove('sort-view-item-active')
+                sortGrid.classList.add('sort-view-item-active')
+
+                catalogCards.classList.remove('catalog-content__cards-row')
+
+                cards.forEach(item => {
+                    item.classList.remove('card-row')
+                })
+            }
+        })
+    }
 }
 
-if (sortRow) {
-    sortRow.addEventListener('click', function() {
-        if(sortGrid.classList.contains('sort-view-item-active')) {
-            sortGrid.classList.remove('sort-view-item-active')
-            sortRow.classList.add('sort-view-item-active')
 
-            catalogCards.classList.add('catalog-content__cards-row')
-
-            cards.forEach(item => {
-                item.classList.add('card-row')
-            })
-        }
-    })
-}
-
-if (sortGrid) {
-    sortGrid.addEventListener('click', function() {
-        if (sortRow.classList.contains('sort-view-item-active')) {
-            sortRow.classList.remove('sort-view-item-active')
-            sortGrid.classList.add('sort-view-item-active')
-
-            catalogCards.classList.remove('catalog-content__cards-row')
-
-            cards.forEach(item => {
-                item.classList.remove('card-row')
-            })
-        }
-    })
-}
 
 //----------------- установка заполнения прогресс бара в коутере отзывов -----------------//
 let totalRating = 0
