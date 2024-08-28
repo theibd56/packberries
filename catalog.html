@@ -636,12 +636,20 @@
                     <div class="sort">
                         <div class="sort-dropdown">
                             <label for="sort">Сортировка:</label>
-                            <select id="sort" name="sort">
-                                <option value="popular" selected>Популярные</option>
-                                <option value="new">Новинки</option>
-                                <option value="price_asc">По возрастанию</option>
-                                <option value="price_desc">По убыванию </option>
-                            </select>
+                            <div class="dropdown">
+                                <input name="sort" type="text" readonly />
+                                <ul class="options">
+                                    <li class="option">Популярные</li>
+                                    <li class="option">Новинки</li>
+                                    <li class="option">По возрастанию</li>
+                                    <li class="option">По убыванию</li>
+                                </ul>
+                                <div class="dropdown-arrow">
+                                    <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 1L8 8L1 0.999999" stroke="#290718" />
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="sort-view">
                             <button class="sort-view-item sort-view-item-active sort-view-grid">
