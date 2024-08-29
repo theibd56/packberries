@@ -350,35 +350,73 @@ if (characteristicWrapper) {
 //----------------- custom select -----------------//
 // Variables
 const dropdown = document.querySelector('.dropdown');
-const input = dropdown.querySelector('input');
-const listOfOptions = dropdown.querySelectorAll('.option');
-const body = document.body;
+if (dropdown) {
+    const input = dropdown.querySelector('input');
+    const listOfOptions = dropdown.querySelectorAll('.option');
+    const body = document.body;
 
-if(input.value === '') {
-    input.value = listOfOptions[0].textContent;
-}
+    if(input.value === '') {
+        input.value = listOfOptions[0].textContent;
+    }
 
 // Functions
-const toggleDropdown = (event) => {
-    event.stopPropagation();
-    dropdown.classList.toggle('opened');
-};
+    const toggleDropdown = (event) => {
+        event.stopPropagation();
+        dropdown.classList.toggle('opened');
+    };
 
-const selectOption = (event) => {
-    input.value = event.currentTarget.textContent;
-};
+    const selectOption = (event) => {
+        input.value = event.currentTarget.textContent;
+    };
 
-const closeDropdownFromOutside = () => {
-    if (dropdown.classList.contains('opened')) {
-        dropdown.classList.remove('opened');
-    }
-};
+    const closeDropdownFromOutside = () => {
+        if (dropdown.classList.contains('opened')) {
+            dropdown.classList.remove('opened');
+        }
+    };
 // Event Listeners
 
-body.addEventListener('click', closeDropdownFromOutside);
+    body.addEventListener('click', closeDropdownFromOutside);
 
-listOfOptions.forEach((option) => {
-    option.addEventListener('click', selectOption);
-});
+    listOfOptions.forEach((option) => {
+        option.addEventListener('click', selectOption);
+    });
 
-dropdown.addEventListener('click', toggleDropdown);
+    dropdown.addEventListener('click', toggleDropdown);
+}
+
+//----------------- catalog dropdown trigger -----------------//
+const catalogTrigger = document.querySelector('.header__catalog');
+const catalogDropdown = document.querySelector('.header-catalog');
+
+catalogTrigger.addEventListener('click', function(e) {
+    e.preventDefault();
+    catalogDropdown.classList.toggle('active')
+    catalogTrigger.classList.toggle('active')
+})
+
+
+//----------------- catalog dropdown -----------------//
+
+const catalogTab = document.querySelectorAll('.header-catalog__tabs_item');
+const catalogContent = document.querySelectorAll('.header-catalog__menu');
+
+for (let i = 0; i < catalogTab.length; i++) {
+    catalogTab[i].addEventListener("click", function(e){
+        e.preventDefault();
+        const activeTabAttr = e.target.getAttribute("data-tab");
+
+        for (let j = 0; j < catalogTab.length; j++) {
+            let contentAttr = catalogContent[j].getAttribute("data-tab-content");
+
+            if (activeTabAttr === contentAttr) {
+                catalogTab[j].classList.add("active");
+                catalogContent[j].classList.add("active");
+            } else {
+                catalogTab[j].classList.remove("active");
+                catalogContent[j].classList.remove("active");
+            }
+        }
+    })
+}
+

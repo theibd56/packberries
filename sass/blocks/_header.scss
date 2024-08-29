@@ -3,6 +3,8 @@
   background: #fff;
 
   padding: 20px 0;
+
+  position: relative;
   &__logo {
     cursor: pointer;
     display: block;
@@ -34,6 +36,13 @@
     border-radius: 50px;
 
     cursor: pointer;
+
+    height: 46px;
+
+    max-width: 129px;
+    max-height: 46px;
+
+    transition: all .2s;
     &_ico {
       width: 18px;
       height: 18px;
@@ -43,10 +52,153 @@
       font-size: 15px;
       color: #f6f4f5;
     }
+    .when-active {
+      display: none;
+    }
     * {
       cursor: pointer;
     }
   }
+  &__catalog.active {
+    padding: 5px 19px 5px 4px;
+    background: #290718;
+    font-weight: 700;
+    font-size: 15px;
+    color: #f6f4f5;
+    svg {
+      display: none;
+    }
+    .header__catalog_ico {
+      width: auto;
+      height: auto;
+    }
+    .when-active {
+      display: block;
+    }
+  }
+
+  &-catalog {
+    position: absolute;
+    top: 85px;
+    z-index: 5;
+
+    border-top: 1px solid #e8e3e6;;
+
+    box-shadow: 0px 12px 30px 0px rgba(0, 0, 0, 0.05  );
+    background: #fff;
+
+    width: 100%;
+    padding: 30px 0 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    visibility: hidden;
+    transition: all 0.2s linear;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(150% );
+    &__container {
+      width: 100%;
+      height: 100%;
+
+      display: grid;
+      grid-template: auto / 295px 1fr;
+      gap: 30px;
+    }
+    &__tabs {
+      padding-right: 11px;
+      border-right: 1px solid #e8e3e6;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      &_item {
+        width: 100%;
+        padding: 13px 20px;
+        border-radius: 10px;
+
+        font-weight: 400;
+        font-size: 13px;
+        color: #776e73;
+
+        cursor:pointer;
+
+        transition: all .3s;
+        &:hover {
+          font-weight: 500;
+          color: #290718;
+          background: rgba(246, 244, 245, 0.7);
+        }
+      }
+      &_item.active {
+        background: #f6f4f5;
+        font-weight: 500;
+        color: #290718;
+      }
+    }
+    &__menu {
+        display: none;
+      &_item {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+      }
+      &_title {
+        font-weight: 500;
+        font-size: 15px;
+        color: #290718;
+      }
+      &_wrapper {
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      &_link {
+        display: inline-block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+
+        font-weight: 400;
+        font-size: 13px;
+        color: #776e73;
+
+        transition: all .3s;
+
+        &:hover {
+          color: #c2025e;
+          border-bottom: 1px solid rgba(194, 2, 94, 0.5);
+        }
+      }
+      &_more {
+        font-weight: 500;
+        font-size: 13px;
+        color: #c2025e;
+
+        display: none;
+      }
+      &_more.active {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+    }
+    &__menu.active {
+      display: grid;
+      grid-template: repeat(2, auto) / repeat(4, 1fr);
+      grid-auto-rows: 264px;
+      column-gap: 6px;
+      row-gap: 40px;
+    }
+  }
+  &-catalog.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
   &__search {
     &_form {
       display: flex;
