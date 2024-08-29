@@ -34,8 +34,9 @@
           margin-left: auto;
 
           svg, path {
+            fill: transparent;
             cursor: pointer;
-            transition: all .3s;
+            transition: all .2s;
           }
         }
       }
