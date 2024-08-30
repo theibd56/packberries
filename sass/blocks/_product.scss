@@ -383,6 +383,13 @@
     &_left {
       margin-top: 30px;
     }
+    &_right {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+
     &_counter {
       border-radius: 10px;
       padding: 30px;
@@ -450,6 +457,38 @@
           font-size: 13px;
           text-align: right;
           color: #290718;
+        }
+      }
+    }
+    &_feedback {
+      border: 1px solid rgba(194, 2, 94, 0.2);
+      border-radius: 10px;
+      height: 50px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      font-weight: 500;
+      font-size: 15px;
+      text-align: center;
+      color: #c2025e;
+
+      cursor: pointer;
+
+      transition: all .3s;
+      * {
+        cursor: pointer;
+      }
+      svg, path {
+        transition: all .3s;
+      }
+      &:hover {
+        color: #fff;
+        background: #c2025e;
+        path {
+          fill: #fff;
         }
       }
     }
