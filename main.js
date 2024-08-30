@@ -449,33 +449,53 @@ catalogMenu.forEach(item => {
             catalogMoreTrigger.querySelector('span').innerText = 'Скрыть' :
             catalogMoreTrigger.querySelector('span').innerText = 'Показать все';
     })
-
-
-    // if (characteristicItem.length > 5) {
-    //     characteristicItem.forEach((item, index) => {
-    //         if(index > 4) {
-    //             item.classList.add('hidden')
-    //         }
-    //     })
-    //
-    //     characteristicMore.classList.remove('hidden')
-    // }
-    //
-    // characteristicMore.addEventListener('click', () => {
-    //     characteristicItem.forEach((item, index) => {
-    //         if(index > 4) {
-    //             item.classList.toggle('hidden')
-    //         }
-    //     })
-    //     characteristicMore.classList.toggle('show')
-    //
-    //     characteristicMoreSpan.innerText === 'Показать все' ?
-    //         characteristicMoreSpan.innerText = 'Скрыть' :
-    //         characteristicMoreSpan.innerText = 'Показать все';
-    //
-    //     characteristicWrapper.classList.toggle('characteristic-active')
-    // })
-
 })
+
+//----------------- product review more -----------------//
+const reviewWrapper = document.querySelector('.product__review_wrapper');
+if (reviewWrapper) {
+    const reviewItems = reviewWrapper.querySelectorAll('.product__review_item');
+    const reviewMoreTrigger = reviewWrapper.querySelector('.product__review_more');
+    const reviewLessTrigger = reviewWrapper.querySelector('.product__review_less');
+
+    if (reviewItems.length > 4) {
+        reviewItems.forEach((item, index) => {
+            if(index > 3) {
+                item.classList.add('hidden')
+            }
+        })
+        reviewMoreTrigger.classList.add('active')
+    }
+
+    let showsItem = 0;
+    reviewMoreTrigger.addEventListener("click", function() {
+        showsItem += 10
+        reviewItems.forEach((item, index) => {
+            if(index <= showsItem) {
+                item.classList.remove('hidden')
+            }
+
+            if(showsItem >= reviewItems.length - 1) {
+                reviewLessTrigger.classList.add('active')
+                reviewMoreTrigger.classList.remove('active')
+            }
+        })
+    })
+
+    reviewLessTrigger.addEventListener("click", function() {
+        showsItem = 0
+
+        if (reviewItems.length > 4) {
+            reviewItems.forEach((item, index) => {
+                if(index > 3) {
+                    item.classList.add('hidden')
+                }
+            })
+        }
+
+        reviewLessTrigger.classList.remove('active')
+        reviewMoreTrigger.classList.add('active')
+    })
+}
 
 

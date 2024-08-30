@@ -606,6 +606,7 @@
 
       padding-bottom: 30px;
       border-bottom: 1px solid rgba(232, 227, 230, 0.5);
+      animation: fade-in .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
       &-content {
         display: flex;
         flex-direction: column;
@@ -657,6 +658,35 @@
         font-size: 15px;
         color: #776e73;
       }
+    }
+    &_item.hidden {
+      animation: fade-out .2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    &_more, &_less {
+      display: none;
+
+      font-weight: 500;
+      font-size: 13px;
+      color: #c2025e;
+
+      width: 101px;
+      margin: 0 auto;
+
+      cursor: pointer;
+      transition: all .3s;
+      * {
+        cursor: pointer;
+      }
+      svg {
+        transition: all .3s;
+      }
+    }
+    &_more.active, &_less.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
     }
   }
 
