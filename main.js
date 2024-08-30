@@ -420,3 +420,62 @@ for (let i = 0; i < catalogTab.length; i++) {
     })
 }
 
+//----------------- catalog dropdown more -----------------//
+const catalogMenu = document.querySelectorAll('.header-catalog__menu_item')
+
+catalogMenu.forEach(item => {
+    const catalogMenuItems = item.querySelectorAll('.header-catalog__menu_wrapper li');
+    const catalogMoreTrigger = item.querySelector('.header-catalog__menu_more');
+
+    if (catalogMenuItems.length > 5) {
+        catalogMenuItems.forEach((item, index) => {
+            if(index > 4) {
+                item.classList.add('hidden')
+            }
+        })
+
+        catalogMoreTrigger.classList.add('active')
+    }
+
+    catalogMoreTrigger.addEventListener('click', () => {
+        catalogMenuItems.forEach((item, index) => {
+            if(index > 4) {
+                item.classList.toggle('hidden')
+            }
+        })
+        catalogMoreTrigger.querySelector('svg').classList.toggle('show')
+
+        catalogMoreTrigger.querySelector('span').innerText === 'Показать все' ?
+            catalogMoreTrigger.querySelector('span').innerText = 'Скрыть' :
+            catalogMoreTrigger.querySelector('span').innerText = 'Показать все';
+    })
+
+
+    // if (characteristicItem.length > 5) {
+    //     characteristicItem.forEach((item, index) => {
+    //         if(index > 4) {
+    //             item.classList.add('hidden')
+    //         }
+    //     })
+    //
+    //     characteristicMore.classList.remove('hidden')
+    // }
+    //
+    // characteristicMore.addEventListener('click', () => {
+    //     characteristicItem.forEach((item, index) => {
+    //         if(index > 4) {
+    //             item.classList.toggle('hidden')
+    //         }
+    //     })
+    //     characteristicMore.classList.toggle('show')
+    //
+    //     characteristicMoreSpan.innerText === 'Показать все' ?
+    //         characteristicMoreSpan.innerText = 'Скрыть' :
+    //         characteristicMoreSpan.innerText = 'Показать все';
+    //
+    //     characteristicWrapper.classList.toggle('characteristic-active')
+    // })
+
+})
+
+

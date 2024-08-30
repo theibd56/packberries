@@ -156,6 +156,10 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
+        .hidden {
+          opacity: 0;
+          display: none;
+        }
       }
       &_link {
         display: inline-block;
@@ -177,12 +181,23 @@
         font-size: 13px;
         color: #c2025e;
 
+        cursor: pointer;
+
         display: none;
+        svg {
+          transition: all .3s;
+        }
+        * {
+          cursor: pointer;
+        }
       }
       &_more.active {
         display: flex;
         align-items: center;
         gap: 7px;
+        .show {
+          transform: rotate(180deg);
+        }
       }
     }
     &__menu.active {
