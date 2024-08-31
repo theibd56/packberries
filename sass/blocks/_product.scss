@@ -53,48 +53,6 @@
         box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.08);
         background: #fff;
       }
-
-      //удалить при интеграция виджета ДОЛЯМИ
-      &-dolyame {
-        border-radius: 8px;
-        padding: 12px;
-        height: 44px;
-
-        background: #000;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-
-        cursor: pointer;
-        &__icon {
-          border-radius: 4px;
-          padding: 6px;
-          width: 68px;
-          height: 20px;
-
-          background: #fff;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        &__text {
-          font-weight: 400;
-          font-size: 13px;
-          text-align: left;
-          width: 100%;
-
-          /* line-height: 24px; */
-          line-height: 1.84615;
-          color: #fff;
-        }
-        * {
-          cursor: pointer;
-        }
-      }
-      //удалить при интеграция виджета ДОЛЯМИ
     }
     &_code {
       font-weight: 400;
@@ -284,19 +242,6 @@
           margin: 0;
         }
       }
-      &-delivery {
-        font-weight: 400;
-        font-size: 13px;
-        color: #776e73;
-
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        &__text {
-          display: flex;
-          flex-direction: column;
-        }
-      }
     }
     &_buttons {
       margin-top: 30px;
@@ -309,6 +254,12 @@
         align-items: center;
         gap: 10px;
       }
+      &-bottom {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
       &-cart {
         background: #c2025e;
         border-radius: 10px;
@@ -348,12 +299,53 @@
         font-size: 15px;
         text-align: center;
         color: #c2025e;
+
+        flex: 182px;
       }
+      &-installment {
+        height: 50px;
+        background: none;
+        border: 1px solid transparent;
+        border-radius: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        transition: all .3s;
+        span {
+          font-weight: 500;
+          font-size: 15px;
+          color: #290718;
+        }
+
+        &:hover {
+          border: 1px solid rgba(194, 2, 94, 0.2);
+        }
+      }
+
       button {
         cursor: pointer;
         * {
           cursor: pointer;
         }
+      }
+    }
+    &_delivery {
+      margin-top: 20px;
+
+      font-weight: 400;
+      font-size: 13px;
+      color: #776e73;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      &__text {
+        display: flex;
+        flex-direction: column;
       }
     }
 
