@@ -131,10 +131,11 @@ document.querySelectorAll('.card').forEach((item, index) => {
         cardPriceNew.style.color = '#f0371e'
 
         //расчет скидки в %
-        const saleProcent = Math.round(
+        const saleProcent = Math.round( 100 -
             (cardPriceNew.innerText.replace(/[\s.,₽]/g, '') /
                 cardPriceOld.innerText.replace(/[\s.,₽]/g, '') * 100)
         )
+        cardSale.classList.add('show');
         cardSale.innerText = saleProcent + '%'
     } else {
         //смена новой цены на дефолтный цвет
@@ -314,7 +315,6 @@ if (productCounterToCart) {
     productCounterInc.addEventListener('click', incrementCart)
 }
 //----------------- кнопка показать еще в характеристиках -----------------//
-
 const characteristicWrapper = document.querySelector('.product__info_characteristic-wrapper')
 if (characteristicWrapper) {
     const characteristicItem = characteristicWrapper.querySelectorAll('.product__info_characteristic-item')
@@ -346,7 +346,6 @@ if (characteristicWrapper) {
         characteristicWrapper.classList.toggle('characteristic-active')
     })
 }
-
 //----------------- custom select -----------------//
 // Variables
 const dropdown = document.querySelector('.dropdown');
@@ -384,7 +383,6 @@ if (dropdown) {
 
     dropdown.addEventListener('click', toggleDropdown);
 }
-
 //----------------- catalog dropdown trigger -----------------//
 const catalogTrigger = document.querySelector('.header__catalog');
 const catalogDropdown = document.querySelector('.header-catalog');
@@ -397,7 +395,6 @@ catalogTrigger.addEventListener('click', function(e) {
 
 
 //----------------- catalog dropdown -----------------//
-
 const catalogTab = document.querySelectorAll('.header-catalog__tabs_item');
 const catalogContent = document.querySelectorAll('.header-catalog__menu');
 
@@ -419,7 +416,6 @@ for (let i = 0; i < catalogTab.length; i++) {
         }
     })
 }
-
 //----------------- catalog dropdown more -----------------//
 const catalogMenu = document.querySelectorAll('.header-catalog__menu_item')
 
@@ -450,7 +446,6 @@ catalogMenu.forEach(item => {
             catalogMoreTrigger.querySelector('span').innerText = 'Показать все';
     })
 })
-
 //----------------- product review more -----------------//
 const reviewWrapper = document.querySelector('.product__review_wrapper');
 if (reviewWrapper) {
