@@ -1,0 +1,78 @@
+.buy-now {
+  max-width: 375px;
+  border-radius: 10px;
+  padding: 40px 60px;
+
+  background: #fff;
+  &__title {
+    font-weight: 700;
+    font-size: 23px;
+    text-align: center;
+    color: #2b2b2b;
+  }
+  &__form {
+    margin-top: 36px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &__field {
+    input {
+      width: 100%;
+      height: 50px;
+      border: none;
+      border-radius: 10px;
+
+      padding: 0 20px;
+
+      outline: none;
+
+      background: #f8f7f7;
+
+      color: #655d61;
+      font-weight: 400;
+      font-size: 15px;
+      &::placeholder {
+        color: #776e73;
+      }
+    }
+  }
+  &__btn {
+    padding: 15px 20px;
+    width: 100%;
+
+    border-radius: 10px;
+    border: 1px solid #c2025e;
+    background: #c2025e;
+
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: all .3s;
+    &:hover {
+      background: none;
+      color: #c2025e;
+    }
+  }
+  &__policy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      font-weight: 400;
+      font-size: 13px;
+      text-align: center;
+      color: #776e73;
+    }
+  }
+
+  .f-button.is-close-btn {
+    top: 10px;
+    right: 10px;
+  }
+}

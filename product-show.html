@@ -1199,7 +1199,7 @@
                                     </svg>
                                 </button>
                             </div>
-                                <a href="#" class="product__info_buttons-now">
+                                <a data-fancybox href="#buy-now" class="product__info_buttons-now">
                                     Купить сейчас
                                 </a>
                             </div>
@@ -2323,6 +2323,23 @@
         <div style="display: none; width: 500px;" id="modal">
             <h3>Пример модальное окна</h3>
         </div>
+
+        <div style="display: none;" id="buy-now" class="buy-now">
+            <div class="buy-now__title">Заполните данные</div>
+            <form action="" class="buy-now__form">
+                <div class="buy-now__field">
+                    <input placeholder="Имя" type="text">
+                </div>
+                <div class="buy-now__field">
+                    <input placeholder="Номер телефона" type="text">
+                </div>
+                <button type="submit" class="buy-now__btn">Купить сейчас</button>
+                <div class="buy-now__policy">
+                    <a href="#">Политика конфиденциальной информации</a>
+                </div>
+            </form>
+        </div>
+
     </main>
     <footer class="footer">
         <div class="footer__top">
