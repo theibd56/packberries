@@ -150,7 +150,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 30px;
+        gap: 28px;
 
         padding: 10px 0;
         &:not(:first-child) {
@@ -180,6 +180,9 @@
         gap: 7px;
 
         cursor: pointer;
+        .show {
+          transform: rotate(180deg);
+        }
         span {
           font-weight: 500;
           font-size: 13px;
@@ -205,11 +208,6 @@
 
       .hidden {
         display: none;
-      }
-      .show {
-        svg {
-          transform: rotate(180deg);
-        }
       }
     }
 
@@ -376,12 +374,14 @@
           font-weight: 400;
           font-size: 15px;
           color: #776e73;
+          animation: fade-in .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
           &:not(:last-child) {
             margin-bottom: 10px;
           }
         }
         .hidden {
           display: none;
+          animation: fade-out .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         }
       }
       &-more {

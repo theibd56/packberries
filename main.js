@@ -116,6 +116,22 @@ productSliderNavigate.on('transitionStart', function(){
 });
 
 //----------------- OTHER SCRIPTS -----------------//
+//----------------- function -----------------//
+function createdMore (eachedElem, indexNum, trigger) {
+    eachedElem.forEach((item, index) => {
+        if(index > indexNum) {
+            item.classList.toggle('hidden')
+        }
+    })
+    trigger.querySelector('svg').classList.toggle('show')
+
+    trigger.querySelector('span').innerText === 'Показать все' ?
+        trigger.querySelector('span').innerText = 'Скрыть' :
+        trigger.querySelector('span').innerText = 'Показать все';
+}
+//----------------- function end -----------------//
+
+
 //----------------- смена стилей если нет скидки -----------------//
 (function () {
     document.querySelectorAll('.card').forEach((item, index) => {
@@ -338,17 +354,7 @@ productSliderNavigate.on('transitionStart', function(){
         }
 
         characteristicMore.addEventListener('click', () => {
-            characteristicItem.forEach((item, index) => {
-                if(index > 4) {
-                    item.classList.toggle('hidden')
-                }
-            })
-            characteristicMore.classList.toggle('show')
-
-            characteristicMoreSpan.innerText === 'Показать все' ?
-                characteristicMoreSpan.innerText = 'Скрыть' :
-                characteristicMoreSpan.innerText = 'Показать все';
-
+            createdMore(characteristicItem, 4, characteristicMore)
             characteristicWrapper.classList.toggle('characteristic-active')
         })
     }
@@ -403,6 +409,30 @@ productSliderNavigate.on('transitionStart', function(){
         catalogTrigger.classList.toggle('active')
     })
 }());
+//----------------- catalog dropdown -----------------//
+(function() {
+    const catalogTab = document.querySelectorAll('.header-catalog__tabs_item');
+    const catalogContent = document.querySelectorAll('.header-catalog__menu');
+
+    for (let i = 0; i < catalogTab.length; i++) {
+        catalogTab[i].addEventListener("click", function(e){
+            e.preventDefault();
+            const activeTabAttr = e.target.getAttribute("data-tab");
+
+            for (let j = 0; j < catalogTab.length; j++) {
+                let contentAttr = catalogContent[j].getAttribute("data-tab-content");
+
+                if (activeTabAttr === contentAttr) {
+                    catalogTab[j].classList.add("active");
+                    catalogContent[j].classList.add("active");
+                } else {
+                    catalogTab[j].classList.remove("active");
+                    catalogContent[j].classList.remove("active");
+                }
+            }
+        })
+    }
+}());
 //----------------- catalog dropdown more -----------------//
 (function() {
     const catalogMenu = document.querySelectorAll('.header-catalog__menu_item')
@@ -421,18 +451,8 @@ productSliderNavigate.on('transitionStart', function(){
             catalogMoreTrigger.classList.add('active')
         }
 
-        catalogMoreTrigger.addEventListener('click', () => {
-            catalogMenuItems.forEach((item, index) => {
-                if(index > 4) {
-                    item.classList.toggle('hidden')
-                }
-            })
-            catalogMoreTrigger.querySelector('svg').classList.toggle('show')
-
-            catalogMoreTrigger.querySelector('span').innerText === 'Показать все' ?
-                catalogMoreTrigger.querySelector('span').innerText = 'Скрыть' :
-                catalogMoreTrigger.querySelector('span').innerText = 'Показать все';
-        })
+        catalogMoreTrigger.addEventListener('click', () =>
+            createdMore(catalogMenuItems, 4, catalogMoreTrigger))
     })
 }());
 //----------------- product review more -----------------//
@@ -507,7 +527,6 @@ productSliderNavigate.on('transitionStart', function(){
     const productDescr = document.querySelectorAll('.product__info_description-text p'),
         productDescrTrigger = document.querySelector('.product__info_description-more')
 
-
     if (productDescr.length > 2) {
         productDescr.forEach((item, index) => {
             if(index > 1) {
@@ -518,16 +537,6 @@ productSliderNavigate.on('transitionStart', function(){
         productDescrTrigger.classList.add('active')
     }
 
-    productDescrTrigger.addEventListener('click', () => {
-        productDescr.forEach((item, index) => {
-            if(index > 1) {
-                item.classList.toggle('hidden')
-            }
-        })
-        productDescrTrigger.querySelector('svg').classList.toggle('show')
-
-        productDescrTrigger.querySelector('span').innerText === 'Показать все' ?
-            productDescrTrigger.querySelector('span').innerText = 'Скрыть' :
-            productDescrTrigger.querySelector('span').innerText = 'Показать все';
-    })
+    productDescrTrigger.addEventListener('click', () =>
+        createdMore(productDescr, 1, productDescrTrigger))
 }());
