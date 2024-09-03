@@ -380,6 +380,31 @@
             margin-bottom: 10px;
           }
         }
+        .hidden {
+          display: none;
+        }
+      }
+      &-more {
+        display: none;
+        font-weight: 500;
+        font-size: 13px;
+        color: #c2025e;
+        width: 110px;
+        cursor: pointer;
+        transition: all 0.3s;
+        .show {
+          transform: rotate(180deg);
+        }
+        * {
+          cursor: pointer;
+        }
+      }
+      &-more.active {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 7px;
       }
     }
   }

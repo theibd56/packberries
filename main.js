@@ -502,3 +502,32 @@ productSliderNavigate.on('transitionStart', function(){
             }
         }else{stop(e)}  }
 }());
+//----------------- кнопка показать еще в описании продукта -----------------//
+(function() {
+    const productDescr = document.querySelectorAll('.product__info_description-text p'),
+        productDescrTrigger = document.querySelector('.product__info_description-more')
+
+
+    if (productDescr.length > 2) {
+        productDescr.forEach((item, index) => {
+            if(index > 1) {
+                item.classList.add('hidden')
+            }
+        })
+
+        productDescrTrigger.classList.add('active')
+    }
+
+    productDescrTrigger.addEventListener('click', () => {
+        productDescr.forEach((item, index) => {
+            if(index > 1) {
+                item.classList.toggle('hidden')
+            }
+        })
+        productDescrTrigger.querySelector('svg').classList.toggle('show')
+
+        productDescrTrigger.querySelector('span').innerText === 'Показать все' ?
+            productDescrTrigger.querySelector('span').innerText = 'Скрыть' :
+            productDescrTrigger.querySelector('span').innerText = 'Показать все';
+    })
+}());
