@@ -7,6 +7,10 @@
   transition: all .3s;
 
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
     &__top {
       margin-bottom: 35px;
       &_heading {
@@ -68,6 +72,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      height: auto;
     }
 
     &__star {
@@ -153,6 +159,7 @@
 .card-row {
   display: flex;
   align-items: center;
+  flex-direction: row;
   gap: 20px;
   justify-content: space-between;
 
@@ -200,12 +207,17 @@
 
     width: 408px;
     min-width: 408px;
+
+    margin: 0;
   }
   .card__price {
-    width: 180px;
+    min-width: 180px;
+    max-width: 250px;
+    margin: 0;
   }
   .card__button {
     margin: 0;
+    min-width: 224px;
     max-width: 224px;
     height: 50px;
   }
@@ -215,6 +227,12 @@
     * {
       cursor: pointer;
     }
+  }
+
+  .card__content, .card__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
   }
 }
 
@@ -281,6 +299,12 @@
 .card__slider.swiper {
   padding: 30px 10px;
   margin-bottom: -30px;
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+  .swiper-slide {
+    height: auto;
+  }
 }
 .card__arrow {
   width: 100%;
