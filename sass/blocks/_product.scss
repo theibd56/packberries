@@ -171,13 +171,15 @@
       }
 
       &-more {
-        margin-top: 10px;
+        margin-top: 26px;
 
         border: none;
         background: none;
         display: flex;
         align-items: center;
         gap: 7px;
+
+        padding: 0;
 
         cursor: pointer;
         .show {
@@ -363,23 +365,28 @@
     }
 
     &_description {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       &-title {
         font-weight: 700;
         font-size: 18px;
         color: #290718;
+
+        margin-bottom: 20px;
       }
       &-text {
-        p {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        font-weight: 400;
+        font-size: 15px;
+        color: #776e73;
+
+        animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        p, ul, li, a {
           font-weight: 400;
           font-size: 15px;
           color: #776e73;
-          animation: fade-in .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-          &:not(:last-child) {
-            margin-bottom: 10px;
-          }
+          animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         }
         .hidden {
           display: none;

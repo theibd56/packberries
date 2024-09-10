@@ -12,6 +12,7 @@
   box-sizing: border-box;
   margin: 0;
   cursor: default;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -32,10 +33,6 @@ a {
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-}
-
-ul {
-  list-style-type: none;
 }
 
 .like {

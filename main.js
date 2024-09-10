@@ -265,7 +265,7 @@ function createdMore (eachedElem, indexNum, trigger) {
     })
 }());
 //----------------- тогл класса активности у кнопок сорта на странице продукта -----------------//
-(function () {
+(function ()    {
     const reviewSortItem = document.getElementsByClassName("product__review_sort-item");
     const reviewSortItemActive = document.getElementsByClassName('active');
     for (let i = 0; reviewSortItem.length > i; i++) {
@@ -524,19 +524,39 @@ function createdMore (eachedElem, indexNum, trigger) {
 }());
 //----------------- кнопка показать еще в описании продукта -----------------//
 (function() {
-    const productDescr = document.querySelectorAll('.product__info_description-text p'),
-        productDescrTrigger = document.querySelector('.product__info_description-more')
+    const productDescr = document.querySelector('.product__info_description-text') //элемент
+    const productDescrTrigger = document.querySelector('.product__info_description-more') //триггер
+    const productDescrHTML = productDescr.innerHTML //html элемента (чтобы возвращать изначальный вид)
+    const productDescrText = productDescr.textContent //текст элемента
+    const maxChar = 850;  //максимум символов
 
-    if (productDescr.length > 2) {
-        productDescr.forEach((item, index) => {
-            if(index > 1) {
-                item.classList.add('hidden')
-            }
+    //разбиваем текст на символы и добавляем ... в конце + убираем все br теги
+    function splitText() {
+        let itemRest = productDescrText.slice(0, maxChar);
+        let itemArr = itemRest.split('');
+        itemArr.splice(itemArr.length-1,1);
+        productDescr.innerText = (itemArr.join('')+'...')
+
+        productDescr.querySelectorAll('br').forEach(item => {
+            item.remove()
         })
-
-        productDescrTrigger.classList.add('active')
     }
 
-    productDescrTrigger.addEventListener('click', () =>
-        createdMore(productDescr, 1, productDescrTrigger))
+    if(productDescrText.split('').length > maxChar) {
+        productDescrTrigger.classList.add('active')
+        splitText()
+    }
+
+    productDescrTrigger.addEventListener('click', function() {
+        const span = this.querySelector('span')
+        if (span.innerText === 'Показать все') {
+            productDescr.innerHTML = productDescrHTML
+            this.querySelector('svg').classList.toggle('show')
+            this.querySelector('span').innerText = 'Скрыть'
+        } else {
+            this.querySelector('svg').classList.toggle('show')
+            this.querySelector('span').innerText = 'Показать все'
+            splitText()
+        }
+    })
 }());
