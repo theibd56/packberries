@@ -1,12 +1,69 @@
 .footer {
   margin-top: 80px;
+  &__banner {
+    background: url("/images/feedback-bg.png") center / cover no-repeat;;
+    padding: 25px 0 30px;
+    &_title {
+      font-weight: 800;
+      font-size: 30px;
+
+      /* line-height: 51px; */
+      //line-height: 1.7;
+      color: #f6f4f5;
+    }
+    &_descr {
+      font-weight: 400;
+      font-size: 16px;
+      color: #f6f4f5;
+
+      margin-bottom: 20px;
+    }
+    &_form {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      input {
+        height: 50px;
+        padding: 0 20px;
+        border-radius: 6px;
+        background: #f8f7f7;
+        border: none;
+        outline: none;
+
+        font-weight: 400;
+        font-size: 15px;
+
+        max-width: 220px;
+        &::placeholder {
+          color: #776e73;
+        }
+      }
+      button {
+        font-weight: 500;
+        font-size: 15px;
+        color: #f6f4f5;
+
+        border-radius: 6px;
+        border: 1px solid rgba(246, 244, 245, 0.5);
+        outline: none;
+
+        height: 50px;
+        padding: 0 24px;
+
+        background: none;
+        cursor: pointer;
+      }
+    }
+  }
   &__top {
     padding: 50px 0 40px;
-    box-shadow: 0 -4px 35px 0 rgba(0, 0, 0, 0.05);
+    //box-shadow: 0 -4px 35px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
     &_container {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
     }
     &_item {
       display: flex;
@@ -36,7 +93,7 @@
     .menu {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      //gap: 5px;
 
       list-style-type: none;
       padding: 0;
@@ -113,6 +170,79 @@
           font-size: 13px;
           color: #776e73;
         }
+      }
+    }
+  }
+  &__mailing {
+    padding: 24px 30px 30px;
+    border: 1px solid #e8e3e6;
+    border-radius: 10px;
+
+    width: 100%;
+    max-width: 435px;
+    &_heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      margin-bottom: 20px;
+    }
+    &_content {
+      display: flex;
+      flex-direction: column;
+      max-width: 270px;
+    }
+    &_title {
+      font-weight: 600;
+      font-size: 17px;
+
+      /* line-height: 23px; */
+      line-height: 1.35;
+      color: #290718;
+    }
+    &_descr {
+      font-weight: 400;
+      font-size: 16px;
+      color: #776e73;
+    }
+
+    &_form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      input {
+        border-radius: 6px;
+        background: #f8f7f7;
+        outline: none;
+        border: none;
+
+        width: 100%;
+        max-width: 220px;
+        height: 50px;
+
+        padding: 0 20px;
+        font-weight: 400;
+        font-size: 15px;
+
+        cursor: text;
+        &::placeholder {
+          color: #776e73;
+        }
+      }
+      button {
+        font-weight: 500;
+        font-size: 15px;
+        color: #f6f4f5;
+
+        padding: 0 24px;
+        height: 50px;
+        border-radius: 6px;
+        background: #c2025e;
+
+        border: none;
+        outline: none;
+        cursor: pointer;
       }
     }
   }
