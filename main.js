@@ -133,49 +133,49 @@ function createdMore (eachedElem, indexNum, trigger) {
 //----------------- function end -----------------//
 
 
-//----------------- расчет скидки в % в карточке товара -----------------//
-(function () {
-    document.querySelectorAll('.card').forEach((item, index) => {
-        //смена цвета прайса
-        const cardPriceNew = item.querySelector('.card__price_new');
-        const cardPriceOld = item.querySelector('.card__price_old');
-        const cardSale = item.querySelector('.card__top_heading-sale');
-
-        if (cardPriceOld) {
-            //смена новой цены на красный цвет
-            cardPriceNew.style.color = '#f0371e'
-
-            //расчет скидки в %
-            const saleProcent = Math.round( 100 -
-                (cardPriceNew.innerText.replace(/[\s.,₽]/g, '') /
-                    cardPriceOld.innerText.replace(/[\s.,₽]/g, '') * 100)
-            )
-            cardSale.classList.add('show');
-            cardSale.innerText = saleProcent + '%'
-        } else {
-            //смена новой цены на дефолтный цвет
-            cardPriceNew.style.color = '#290718'
-        }
-    })
-}());
-//----------------- расчет скидки в % на странице товара -----------------//
-(function () {
-    document.querySelectorAll('.card').forEach((item, index) => {
-        //смена цвета прайса
-        const productPriceNew = document.querySelector('.product__info_price-new');
-        const productPriceOld = document.querySelector('.product__info_price-old');
-        const productSale = document.querySelector('.product__info_left-sale');
-
-        if (productPriceOld) {
-            //расчет скидки в %
-            const saleProcent = Math.round( 100 -
-                (productPriceNew.innerText.replace(/[\s.,₽]/g, '') /
-                    productPriceOld.innerText.replace(/[\s.,₽]/g, '') * 100)
-            )
-            productSale.innerText = saleProcent + '%'
-        }
-    })
-}());
+// //----------------- расчет скидки в % в карточке товара -----------------//
+// (function () {
+//     document.querySelectorAll('.card').forEach((item, index) => {
+//         //смена цвета прайса
+//         const cardPriceNew = item.querySelector('.card__price_new');
+//         const cardPriceOld = item.querySelector('.card__price_old');
+//         const cardSale = item.querySelector('.card__top_heading-sale');
+//
+//         if (cardPriceOld) {
+//             //смена новой цены на красный цвет
+//             cardPriceNew.style.color = '#f0371e'
+//
+//             //расчет скидки в %
+//             const saleProcent = Math.round( 100 -
+//                 (cardPriceNew.innerText.replace(/[\s.,₽]/g, '') /
+//                     cardPriceOld.innerText.replace(/[\s.,₽]/g, '') * 100)
+//             )
+//             cardSale.classList.add('show');
+//             cardSale.innerText = saleProcent + '%'
+//         } else {
+//             //смена новой цены на дефолтный цвет
+//             cardPriceNew.style.color = '#290718'
+//         }
+//     })
+// }());
+// //----------------- расчет скидки в % на странице товара -----------------//
+// (function () {
+//     document.querySelectorAll('.card').forEach((item, index) => {
+//         //смена цвета прайса
+//         const productPriceNew = document.querySelector('.product__info_price-new');
+//         const productPriceOld = document.querySelector('.product__info_price-old');
+//         const productSale = document.querySelector('.product__info_left-sale');
+//
+//         if (productPriceOld) {
+//             //расчет скидки в %
+//             const saleProcent = Math.round( 100 -
+//                 (productPriceNew.innerText.replace(/[\s.,₽]/g, '') /
+//                     productPriceOld.innerText.replace(/[\s.,₽]/g, '') * 100)
+//             )
+//             productSale.innerText = saleProcent + '%'
+//         }
+//     })
+// }());
 //----------------- триггер на кнопку -----------------//
 (function () {
     document.querySelectorAll('.card').forEach((item, index) => {

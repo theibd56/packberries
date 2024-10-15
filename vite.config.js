@@ -10,6 +10,7 @@ export default defineConfig({
                 catalog: resolve(__dirname, 'catalog.html'),
                 category: resolve(__dirname, 'category.html'),
                 product: resolve(__dirname, 'product-show.html'),
+                orderThanks: resolve(__dirname, 'order-thanks.html'),
             },
         },
     },

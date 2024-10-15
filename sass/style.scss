@@ -35,6 +35,10 @@ a {
   cursor: pointer;
 }
 
+main {
+  min-height: 100vh;
+}
+
 .like {
   svg {
     path {
