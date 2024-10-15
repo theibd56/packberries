@@ -11,6 +11,7 @@ export default defineConfig({
                 category: resolve(__dirname, 'category.html'),
                 product: resolve(__dirname, 'product-show.html'),
                 orderThanks: resolve(__dirname, 'order-thanks.html'),
+                favorite: resolve(__dirname, 'favorite.html'),
             },
         },
     },

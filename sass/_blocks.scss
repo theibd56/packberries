@@ -8,12 +8,18 @@
 @import './blocks/special';
 @import './blocks/footer';
 
+//страница каталога
 @import './blocks/catalog';
 
+//страница товара / продукта
 @import './blocks/product';
 @import './blocks/recently';
 
+//страница спасибо за заказ
 @import './blocks/order';
+
+//страница избранное
+@import "./blocks/favorite";
 
 //компоненты
 @import 'blocks/components/card';

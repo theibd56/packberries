@@ -1,0 +1,22 @@
+.favorite {
+  &__wrapper {
+    margin-top: 30px;
+
+    display: grid;
+    grid-template: auto / repeat(5, 1fr);
+    gap: 20px;
+    .card {
+      .card__price_new {
+        color: #290718;
+      }
+      &.card-favorite {
+        .card__top_heading-like {
+          svg path {
+            stroke: #c2025e;
+            fill: #c2025e;
+          }
+        }
+      }
+    }
+  }
+}
