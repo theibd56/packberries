@@ -12,6 +12,7 @@ export default defineConfig({
                 product: resolve(__dirname, 'product-show.html'),
                 orderThanks: resolve(__dirname, 'order-thanks.html'),
                 favorite: resolve(__dirname, 'favorite.html'),
+                cart: resolve(__dirname, 'cart.html'),
             },
         },
     },
