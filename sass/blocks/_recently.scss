@@ -2,5 +2,13 @@
   margin-top: 50px;
   &__slider {
     position: relative;
+    .card__slider.swiper {
+      padding: 20px 10px;
+    }
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #290718;
   }
 }
