@@ -91,6 +91,42 @@
     font-size: 26px;
     color: #2b2b2b;
   }
+  &__stars {
+    display: flex;
+    direction: rtl;
+    justify-content: space-between;
+    gap: 9px;
+    overflow: hidden;
+    &_label {
+      position: relative;
+      width: 22px;
+      height: 22px;
+      filter: grayscale(1);
+      transition: all .2s linear;
+      overflow: hidden;
+      background: url(/public/review-star.svg) center / cover no-repeat;
+      cursor: pointer;
+      &:hover,
+      &:hover ~ .review-modal__stars_label,
+      &.checked,
+      &.checked ~.review-modal__stars_label {
+        filter: grayscale(0);
+      }
+    }
+
+    &_input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      border-radius: 0;
+      opacity: 0;
+
+      cursor: pointer;
+    }
+  }
   &__form {
     input, textarea {
       font-weight: 400;

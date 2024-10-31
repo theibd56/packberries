@@ -579,3 +579,30 @@ function createdMore (eachedElem, indexNum, trigger) {
         }
     })
 }());
+//----------------- скрипт для оценки товара в модалке отзыва -----------------//
+(function () {
+    document.addEventListener('DOMContentLoaded', function() {
+        const reviewStars = document.querySelectorAll('.review-modal__stars_label');
+        const reviewStarCount = document.querySelector('#js-star-count');
+
+        reviewStars.forEach(function(star) {
+            star.addEventListener('click', function() {
+                // Убираем класс checked у всех звезд
+                reviewStars.forEach(function(s) {
+                    s.classList.remove('checked');
+                });
+
+                // Добавляем класс checked к текущей звезде
+                star.classList.add('checked');
+
+                // Получаем input внутри текущей звезды
+                const reviewStarInput = star.querySelector('input');
+                if (reviewStarInput) {
+                    const reviewStarValue = reviewStarInput.value;
+                    reviewStarCount.value = reviewStarValue;
+                    console.log('Поставленных звезд - ' + reviewStarValue);
+                }
+            });
+        });
+    });
+}());
