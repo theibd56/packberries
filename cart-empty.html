@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корзина</title>
+</head>
+<body>
+{{> _header}}
+
+<main class="main">
+    <div class="breadcrumbs">
+        <div class="breadcrumbs-container container">
+            <div class="breadcrumbs-item">
+                <a href="/catalog.html" class="breadcrumbs-item-link">
+                    <span>Каталог</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <section class="cart">
+        <div class="cart__container container">
+            <h3 class="cart__title">Корзина</h3>
+            <div class="cart-empty">
+                <div class="cart-empty__wrapper">
+                    <div class="cart-empty__ico">
+                        <svg width="106" height="100" viewBox="0 0 106 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M51.0561 65.5144C50.4388 66.1317 50.4388 67.6132 51.0561 68.2305C51.3442 68.5185 52.0438 68.7243 52.6199 68.7243C53.8956 68.7243 54.6775 68.0247 54.6775 66.8725C54.6775 66.3786 54.4718 65.8025 54.1837 65.5144C53.5664 64.8971 51.6734 64.8971 51.0561 65.5144Z" fill="#E8E3E6"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.78 10.7819C3.85403 19.5885 0.27378 21.7284 0.0680186 22.5514C-0.137743 23.4156 0.602998 24.321 5.74703 29.465L11.6318 35.3909L5.78818 41.2757C-0.137743 47.2428 -0.755027 48.2716 0.602998 49.4239C0.973368 49.7531 3.81287 51.3992 6.89929 53.0864L12.496 56.214L12.9075 78.7243L32.2491 89.3827C42.9898 95.2675 52.0433 100 52.6195 100C53.1956 100 62.2491 95.2675 72.9898 89.3827L92.3314 78.7243L92.7429 56.214L98.3396 53.0864C101.426 51.3992 104.266 49.7531 104.636 49.4239C105.994 48.2716 105.377 47.2428 99.4507 41.2757L93.6071 35.3909L99.4919 29.465C104.595 24.3621 105.377 23.4156 105.171 22.5514C104.965 21.7695 103.319 20.6996 97.6812 17.572C93.7306 15.3909 90.1092 13.5802 89.6976 13.5802C88.6277 13.5802 87.9281 14.5679 88.0927 15.9259C88.2162 16.9136 88.9157 17.4486 93.5659 20.0412C94.8132 20.7168 95.9949 21.3632 96.9605 21.8915L96.9608 21.8916C98.2888 22.6181 99.2081 23.1211 99.3273 23.1687C99.5742 23.2922 97.5989 25.5144 95.0063 28.1481L90.2738 32.9218L73.4013 23.6625C64.1421 18.6008 56.4878 14.2798 56.4466 14.1152C56.3643 13.9095 58.4219 11.7284 60.9322 9.17695L65.5824 4.60905L70.8499 7.48971C75.9528 10.2881 76.1174 10.3704 77.105 9.71193C78.2162 8.97119 78.5042 7.36625 77.64 6.66667C76.4055 5.67901 65.7059 0 65.0474 0C64.6771 0 61.7141 2.63374 58.5042 5.84362L52.6195 11.7284L46.7347 5.84362C42.9487 2.09877 40.603 0 40.068 0.0411523C39.6153 0.0411523 30.4795 4.89712 19.78 10.7819ZM48.7923 14.1152C48.7511 14.2798 41.0968 18.6008 31.8376 23.6625L14.9651 32.9218L10.2738 28.2304C7.68119 25.5967 5.62357 23.4156 5.70588 23.3333C5.82933 23.2099 13.4837 18.9712 22.7841 13.8683L39.6565 4.5679L44.3067 9.17695C46.817 11.7284 48.8746 13.9095 48.7923 14.1152ZM69.8211 26.4198C85.2532 34.8971 86.3643 35.5556 85.459 36.0494C85.2397 36.1773 83.6246 37.0599 81.1364 38.4197L81.1329 38.4216C78.0178 40.1239 73.5355 42.5735 68.71 45.2263C60.0269 50 52.7841 53.9095 52.6195 53.9095C52.4548 53.9095 45.212 50 36.5289 45.2263C31.7038 42.5736 27.2217 40.1243 24.1067 38.422L24.1063 38.4217C21.6159 37.0608 19.9994 36.1774 19.78 36.0494C18.8746 35.5556 19.9857 34.8971 35.4178 26.4198C44.5125 21.3992 52.2491 17.2839 52.5783 17.2839C52.9075 17.2839 60.6441 21.3992 69.8211 26.4198ZM31.5906 47.2016C40.5618 52.0988 48.175 56.3374 48.5042 56.6667C48.9981 57.1193 48.5042 57.8189 44.5948 61.7284C42.1256 64.2387 39.9034 66.2551 39.7388 66.2551C39.3273 66.2551 7.35197 48.7654 6.24086 47.9424C5.54127 47.4074 5.87049 46.9959 10.0269 42.8395C12.496 40.3292 14.7182 38.2716 14.924 38.2716C15.1297 38.2716 22.6195 42.2634 31.5906 47.2016ZM95.212 42.8395C99.3684 46.9959 99.6976 47.4074 98.9981 47.9424C97.8869 48.7654 65.9116 66.2551 65.5001 66.2551C65.3355 66.2551 63.1133 64.2387 60.6441 61.7284C57.4343 58.5185 56.282 57.0782 56.5701 56.7901C57.1874 56.1728 89.7799 38.2716 90.2738 38.2716C90.5207 38.2716 92.7429 40.3292 95.212 42.8395ZM28.5042 64.9794C34.2655 68.1481 39.2038 70.7819 39.533 70.823C40.8911 70.9876 41.5495 70.4527 46.9404 65.144L52.6195 59.5062L58.2985 65.144C63.6894 70.4527 64.3478 70.9876 65.7059 70.823C66.0351 70.7819 70.9734 68.1481 76.7347 64.9794C82.496 61.8107 87.5166 59.0946 87.8458 58.9712C88.3396 58.7654 88.4219 59.9588 88.3396 67.5309L88.2162 76.2963L71.5495 85.4732L54.8828 94.609L54.7594 83.8683C54.6771 74.5679 54.5536 73.0041 53.9775 72.3457C53.1133 71.3992 52.1256 71.3992 51.2614 72.3457C50.6853 73.0041 50.5618 74.5679 50.4795 83.8683L50.3561 94.609L33.6894 85.4732L17.0228 76.2963L16.8993 67.5309C16.817 59.9588 16.8993 58.7654 17.3931 58.9712C17.7223 59.0946 22.7429 61.8107 28.5042 64.9794Z" fill="#E8E3E6"/>
+                            <path d="M81.6728 13.1276C81.0143 12.1811 81.179 11.1934 82.1666 10.3704C82.9485 9.7531 83.3189 9.7531 84.3477 10.2881C85.253 10.7819 85.4176 12.7161 84.6357 13.498C83.8539 14.2799 82.3724 14.0741 81.6728 13.1276Z" fill="#E8E3E6"/>
+                        </svg>
+                    </div>
+                    <div class="cart-empty__content">
+                        <div class="cart-empty__title">
+                            В корзине пусто
+                        </div>
+                        <p class="cart-empty__text">
+                            Еще не определились с выбором? Перейдите
+                            в каталог и добавьте что-нибуть
+                        </p>
+                    </div>
+                    <a href="/" class="cart-empty__button">
+                        Перейти в каталог
+                    </a>
+                </div>
+            </div>
+            <div class="cart__bottom">
+                <div class="product-special special">
+                    <div class="special__container container">
+                        <h3 class="special__title">
+                            Специальное предложение!
+                        </h3>
+                        <div class="special__slider">
+                            <div class="card__slider swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__arrow">
+                                <div class="card__arrow_item card__arrow_prev">
+                                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 15L1 8L8 1" stroke="#290718" />
+                                    </svg>
+                                </div>
+                                <div class="card__arrow_item card__arrow_next">
+                                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L8 8L1 15" stroke="#290718" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-recently recently">
+                    <div class="recently__container container">
+                        <h3 class="recently__title">
+                            Вы недавно смотрели
+                        </h3>
+                        <div class="recently__slider">
+                            <div class="card__slider swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                    <div class="card swiper-slide">
+                                        <div class="card__content">
+                                            <div class="card__top">
+                                                <div class="card__top_heading">
+                                                    <div class="card__top_heading-sale"></div>
+                                                    <div class="card__top_heading-like like-trigger">
+                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11.6974 2.90047L12.046 2.53946C12.5304 2.05083 13.1069 1.66317 13.7422 1.3989C14.3793 1.1339 15.0627 0.998303 15.7528 1.00003L15.7577 1.00002C16.4477 0.998303 17.1312 1.1339 17.7683 1.3989C18.4054 1.6639 18.9834 2.05301 19.4686 2.5436C20.4461 3.53246 20.9961 4.86567 21 6.25601C21.0039 7.64498 20.4628 8.97995 19.493 9.97399L11.0032 18.4888L2.51287 9.97342C1.54313 8.98261 1 7.65126 1 6.26466C1 4.8784 1.54287 3.54735 2.51222 2.55654C3.49445 1.57628 4.8255 1.02567 6.21333 1.02567C7.60278 1.02567 8.93535 1.57759 9.91793 2.56002C9.91795 2.56004 9.91796 2.56006 9.91798 2.56008L10.2709 2.91297L10.9905 3.63262L11.6974 2.90047Z" stroke="black" stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <a href="product-show.html" class="card__top_image">
+                                                    <img src="/images/product-card/card-img-1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="card__bottom">
+                                                <div class="card__bottom_top">
+                                                    <a href="#" class="card__star">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star.svg" alt="">
+                                                        <img src="/images/product-card/card-star-gray.svg" alt="">
+                                                        <span class="card__star_count">
+                    25
+                  </span>
+                                                    </a>
+                                                    <a href="product-show.html" class="card__title">
+                                                        Вакуумный массажер GRZK200
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="card__price">
+                                            <span class="card__price_new">494 929₽</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__arrow">
+                                <div class="card__arrow_item card__arrow_prev">
+                                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 15L1 8L8 1" stroke="#290718" />
+                                    </svg>
+                                </div>
+                                <div class="card__arrow_item card__arrow_next">
+                                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L8 8L1 15" stroke="#290718" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</main>
+
+{{> _footer}}
+<script type="module" src="/main.js"></script>
+</body>
+</html>

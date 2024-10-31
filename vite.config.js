@@ -13,6 +13,8 @@ export default defineConfig({
                 orderThanks: resolve(__dirname, 'order-thanks.html'),
                 favorite: resolve(__dirname, 'favorite.html'),
                 cart: resolve(__dirname, 'cart.html'),
+                favoriteEmpty: resolve(__dirname, 'favorite-empty.html'),
+                cartEmpty: resolve(__dirname, 'cart-empty.html'),
             },
         },
     },
