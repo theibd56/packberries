@@ -269,6 +269,7 @@
     &_ico {
       min-width: 24px;
       min-height: 24px;
+      position: relative;
     }
     &_title {
       font-weight: 400;
@@ -276,6 +277,22 @@
       text-align: center;
       color: #a9a2a6;
       cursor: pointer;
+    }
+    &_count {
+      font-weight: 500;
+      font-size: 10px;
+      color: #290718;
+      background: #ffcc16;
+      border-radius: 50%;
+      padding: 2px 0;
+
+      position: absolute;
+      top: -5px;
+      right: -5px;
+
+      min-width: 16px;
+
+      text-align: center;
     }
   }
 
