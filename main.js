@@ -583,7 +583,7 @@ function createdMore (eachedElem, indexNum, trigger) {
 (function () {
     document.addEventListener('DOMContentLoaded', function() {
         const reviewStars = document.querySelectorAll('.review-modal__stars_label');
-        const reviewStarCount = document.querySelector('#js-star-count');
+        const reviewStarCount = document.getElementById('js-star-count');
 
         reviewStars.forEach(function(star) {
             star.addEventListener('click', function() {
@@ -604,5 +604,100 @@ function createdMore (eachedElem, indexNum, trigger) {
                 }
             });
         });
+    });
+}());
+
+//----------------- скрипт для мульти загрузки в модалке отзыва -----------------//
+(function () {
+    document.addEventListener('DOMContentLoaded', function(event) {
+        const fileMulti = document.getElementById('fileMulti');
+        const maxFiles = 10;
+        let totalFilesCount = 0;
+
+        fileMulti.addEventListener('change', function(event) {
+            const files = event.target.files;
+            const outputElement = document.getElementById('outputMulti');
+            const outputLabel = document.querySelector('.review-modal__images_download');
+
+            // Проверяем, не превышает ли количество загружаемых файлов максимальное значение
+            if (totalFilesCount + files.length > maxFiles) {
+                alert(`Вы можете загрузить не более ${maxFiles} файлов.`);
+                // Очищаем input, чтобы пользователь мог попробовать снова
+                fileMulti.value = '';
+                return; // Прерываем выполнение, если превышено количество файлов
+            }
+
+            if (outputElement) {
+                const spans = outputElement.getElementsByTagName('span');
+
+                Array.from(spans).forEach(span => {
+                    span.remove();
+                });
+            }
+
+            for (let i = 0, f; f = files[i]; i++) {
+                // Проверяем тип файла
+                if (!f.type.match('image.*') && !f.type.match('video.*')) {
+                    alert("Только изображения и видео");
+                    continue; // пропускаем итерацию, если файл не подходит
+                }
+
+                const reader = new FileReader();
+
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                        // рендерим thumbnail
+                        const thumb = document.createElement('a');
+                        const videoThumbs = document.createElement('div');
+                        const videoClose = document.createElement('div');
+                        thumb.href = e.target.result;
+
+                        if (f.type.match('image.*')) {
+                            thumb.setAttribute('data-fancybox', 'reviewThumb');
+                            // если это фото
+                            thumb.innerHTML = ['<img class="review-modal__file_thumb" src="', e.target.result,
+                                '" title="', encodeURIComponent(theFile.name), '"/>'].join('');
+
+                            outputElement.insertBefore(thumb, outputLabel);
+                        } else if (f.type.match('video.*')) {
+
+                            videoThumbs.classList.add('thumb-video');
+                            // убираем controls
+                            videoThumbs.innerHTML = ['<video class="review-modal__file_thumb">',
+                                '<source src="', e.target.result, '" type="', f.type, '">',
+                                'Ваш браузер не поддерживает видео.',
+                                '</video>'].join('');
+                            outputElement.insertBefore(videoThumbs, outputLabel);
+
+                            // кнопка закрытия просмотра видео
+                            const video = videoThumbs.querySelector('video');
+                            videoThumbs.insertBefore(videoClose, video);
+
+                            const videoThumb = document.querySelectorAll('.thumb-video')
+                            videoThumb.forEach(video => {
+                                const videoClose = video.querySelector('div');
+                                const videoTag = video.querySelector('video')
+                                video.addEventListener('click', function(e) {
+                                    video.classList.add('video-open')
+                                    videoTag.play()
+                                    videoTag.setAttribute('controls', 'controls');
+                                    if(e.target === videoClose) {
+                                        video.classList.remove('video-open')
+                                        videoTag.removeAttribute('controls');
+                                        videoTag.pause();
+                                        videoTag.currentTime = 0;
+                                    }
+                                });
+                            });
+                        }
+                        totalFilesCount++;
+
+                        Fancybox.bind('[data-fancybox="reviewThumb"]', {});
+                    };
+                })(f);
+
+                reader.readAsDataURL(f);
+            }
+        }, false);
     });
 }());

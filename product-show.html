@@ -1779,7 +1779,18 @@
                         </div>
                         <textarea name="comment" id="reviewComment" placeholder="Комментарий"></textarea>
                     </div>
-                    <div class="review-modal__images"></div>
+                    <div class="review-modal__images">
+                        <div class="review-modal__images_title">
+                            Добавить фото \ видео
+                        </div>
+                        <div class="review-modal__images_wrapper">
+                            <div id="outputMulti" class="review-modal__images_files">
+                                <label for="fileMulti" class="review-modal__images_download">
+                                    <input type="file" id="fileMulti" name="fileMulti[]" multiple />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                     <button class="review-modal__btn" type="submit">Оставить отзыв</button>
                     <p class="review-modal__privacy">
                         Нажимая на кнопку вы даете согласие на обработку <a href="#">персональных данных</a>
