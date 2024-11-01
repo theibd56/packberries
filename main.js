@@ -611,7 +611,8 @@ function createdMore (eachedElem, indexNum, trigger) {
 (function () {
     document.addEventListener('DOMContentLoaded', function(event) {
         const fileMulti = document.getElementById('fileMulti');
-        const maxFiles = 10;
+        const maxFiles = 10; // максимальное количество загружаемых файлов
+        const maxFileSize = 60 * 1024 * 1024; // максимальный размер файла (60 МБ)
         let totalFilesCount = 0;
 
         fileMulti.addEventListener('change', function(event) {
@@ -619,76 +620,52 @@ function createdMore (eachedElem, indexNum, trigger) {
             const outputElement = document.getElementById('outputMulti');
             const outputLabel = document.querySelector('.review-modal__images_download');
 
-            // Проверяем, не превышает ли количество загружаемых файлов максимальное значение
             if (totalFilesCount + files.length > maxFiles) {
                 alert(`Вы можете загрузить не более ${maxFiles} файлов.`);
-                // Очищаем input, чтобы пользователь мог попробовать снова
                 fileMulti.value = '';
-                return; // Прерываем выполнение, если превышено количество файлов
+                return;
             }
 
             if (outputElement) {
                 const spans = outputElement.getElementsByTagName('span');
-
                 Array.from(spans).forEach(span => {
                     span.remove();
                 });
             }
 
             for (let i = 0, f; f = files[i]; i++) {
-                // Проверяем тип файла
+                // проверка типа файла
                 if (!f.type.match('image.*') && !f.type.match('video.*')) {
                     alert("Только изображения и видео");
-                    continue; // пропускаем итерацию, если файл не подходит
+                    continue; // пропуск итерации
+                }
+
+                // проверка размера файла
+                if (f.size > maxFileSize) {
+                    alert(`Размер файла "${f.name}" превышает максимальный размер в 60 МБ.`);
+                    continue; // пропуск итерации
                 }
 
                 const reader = new FileReader();
 
                 reader.onload = (function(theFile) {
                     return function(e) {
-                        // рендерим thumbnail
-                        const thumb = document.createElement('a');
-                        const videoThumbs = document.createElement('div');
-                        const videoClose = document.createElement('div');
-                        thumb.href = e.target.result;
+                        // рендер thumbnail
+                        const thumb = document.createElement('div');
 
                         if (f.type.match('image.*')) {
-                            thumb.setAttribute('data-fancybox', 'reviewThumb');
-                            // если это фото
                             thumb.innerHTML = ['<img class="review-modal__file_thumb" src="', e.target.result,
                                 '" title="', encodeURIComponent(theFile.name), '"/>'].join('');
 
                             outputElement.insertBefore(thumb, outputLabel);
                         } else if (f.type.match('video.*')) {
-
-                            videoThumbs.classList.add('thumb-video');
-                            // убираем controls
-                            videoThumbs.innerHTML = ['<video class="review-modal__file_thumb">',
+                            thumb.classList.add('thumb-video');
+                            // Убираем controls
+                            thumb.innerHTML = ['<video class="review-modal__file_thumb" style="cursor: pointer;">',
                                 '<source src="', e.target.result, '" type="', f.type, '">',
                                 'Ваш браузер не поддерживает видео.',
                                 '</video>'].join('');
-                            outputElement.insertBefore(videoThumbs, outputLabel);
-
-                            // кнопка закрытия просмотра видео
-                            const video = videoThumbs.querySelector('video');
-                            videoThumbs.insertBefore(videoClose, video);
-
-                            const videoThumb = document.querySelectorAll('.thumb-video')
-                            videoThumb.forEach(video => {
-                                const videoClose = video.querySelector('div');
-                                const videoTag = video.querySelector('video')
-                                video.addEventListener('click', function(e) {
-                                    video.classList.add('video-open')
-                                    videoTag.play()
-                                    videoTag.setAttribute('controls', 'controls');
-                                    if(e.target === videoClose) {
-                                        video.classList.remove('video-open')
-                                        videoTag.removeAttribute('controls');
-                                        videoTag.pause();
-                                        videoTag.currentTime = 0;
-                                    }
-                                });
-                            });
+                            outputElement.insertBefore(thumb, outputLabel);
                         }
                         totalFilesCount++;
 
