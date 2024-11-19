@@ -47,3 +47,9 @@ main {
     }
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: 0 20px;
+  }
+}

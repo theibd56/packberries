@@ -4,25 +4,32 @@
 
   padding: 20px 0;
 
-  position: relative;
+  //position: relative;
   &__logo {
     cursor: pointer;
     display: block;
+    width: 151px;
     height: 100%;
-    width: 100%;
-
+    position: relative;
     img {
       cursor: pointer;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 50px;
     &_right, &_middle {
       display: flex;
       align-items: center;
       gap: 30px;
+    }
+    &_middle {
+      width: 100%;
     }
   }
   &__catalog {
@@ -39,6 +46,7 @@
 
     height: 46px;
     width: 129px;
+    min-width: 129px;
     max-width: 129px;
     max-height: 46px;
 
@@ -104,7 +112,7 @@
       height: 100%;
 
       display: grid;
-      grid-template: auto / 295px 1fr;
+      grid-template: auto / 265px 1fr;
       gap: 30px;
     }
     &__tabs {
@@ -215,12 +223,14 @@
   }
 
   &__search {
+    width: 100%;
     &_form {
       display: flex;
       align-items: flex-start;
       gap: 10px;
 
-      width: 673px;
+      width: 100%;
+      max-width: 673px;
     }
     &_input {
       width: 100%;
@@ -299,7 +309,10 @@
   &__bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 20px;
 
     margin-top: 30px;
     ul {
@@ -316,10 +329,14 @@
     }
   }
   &__categories {
+    width: auto;
     &_menu {
       display: flex;
       align-items: center;
-      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 30px;
+      row-gap: 10px;
     }
   }
   &__nav {
@@ -337,10 +354,19 @@
         align-items: center;
         gap: 5px;
       }
+      &-ico {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 
   ul {
     list-style-type: none;
   }
+}
+
+.header-burger, .header-mobile__search {
+  display: none;
 }
