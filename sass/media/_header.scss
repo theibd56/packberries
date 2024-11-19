@@ -38,11 +38,14 @@
 @media screen and (max-width:992px) {
   .header {
     &__top {
-      &_middle, &_right  {
+      &_middle, &_right {
         display: none
       }
     }
     &__bottom {
+      display: none;
+    }
+    &-catalog {
       display: none;
     }
   }
