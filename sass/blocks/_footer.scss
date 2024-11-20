@@ -21,7 +21,7 @@
     &_form {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
+      //flex-wrap: wrap;
       gap: 20px;
       input {
         height: 50px;
@@ -53,6 +53,8 @@
 
         background: none;
         cursor: pointer;
+
+        white-space: nowrap;
       }
     }
   }
