@@ -36,6 +36,7 @@
 @media screen and (max-width:768px) {
   .footer {
     &__banner {
+      background: url(/images/feedback-bg.png) 63% / cover no-repeat;
       &_form {
         display: grid;
         grid-template: auto / 1fr;
@@ -106,7 +107,7 @@
     }
     &__banner {
       padding: 30px 0;
-      background: url(/images/feedback-bg.png) 63% / cover no-repeat;
+
       &_title {
         font-size: 20px;
         margin-bottom: 6px;
