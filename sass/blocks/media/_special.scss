@@ -1,0 +1,15 @@
+@media screen and (max-width: 576px) {
+  .special {
+    &__title {
+      font-size: 16px;
+    }
+    &__slider {
+      .card__slider.swiper {
+        padding: 10px 0;
+      }
+      .card__arrow {
+        display: none;
+      }
+    }
+  }
+}

@@ -61,6 +61,22 @@ cardSliders.forEach((slider, index) => {
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
         },
+        breakpoints: {
+            320: {
+                slidesPerView: 2.2,
+                spaceBetween: 12,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            992: {
+                slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 5,
+            },
+        },
     });
 })
 
