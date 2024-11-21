@@ -1,5 +1,93 @@
+@media screen and (max-width:1550px) {
+  .card__slider.swiper {
+    padding: 30px;
+  }
+  .card__arrow {
+    z-index: 20;
+    &_prev {
+      left: 5px;
+      background: #fff;
+    }
+    &_next {
+      right: 5px;
+      background: #fff;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .card {
+    &__arrow {
+      display: none;
+    }
+  }
+}
+
 @media screen and (max-width: 576px) {
   .card {
+    &__top {
+      margin-bottom: 8px;
+      &_image {
+        img {
+          width: 125px;
+          height: 125px;
+        }
+      }
+    }
+    &__bottom {
 
+    }
+    &__star {
+      gap: 3px;
+      img {
+        width: 12px;
+        height: 12px;
+      }
+      &_count {
+        font-size: 10px;
+      }
+    }
+    &__title {
+      font-size: 13px;
+      min-height: 32px;
+      margin-top: 5px;
+
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    &__price {
+      column-gap: 5px;
+      &_new {
+        font-size: 13px;
+      }
+      &_old {
+        font-size: 11px;
+      }
+    }
+
+    &-banner {
+      padding: 10px;
+      &__title {
+        font-size: 14px;
+      }
+      &__descr {
+        max-width: 108px;
+        margin-top: 8px;
+        font-size: 12px;
+      }
+    }
+    &-video {
+      &__link {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    &__slider.swiper {
+      padding: 10px 0;
+    }
   }
 }

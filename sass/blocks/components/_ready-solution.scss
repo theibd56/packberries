@@ -82,8 +82,8 @@
 
       margin-top: 8px;
 
-      width: 226px;
-      height: 34px;
+      max-width: 226px;
+      min-height: 34px;
     }
     &_price {
       font-weight: 500;

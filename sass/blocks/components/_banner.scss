@@ -58,9 +58,9 @@
     transform-style: preserve-3d;
     img {
       position: absolute;
-      top: 22px;
-      right: 22%;
-
+      bottom: -33%;
+      //right: 22%;
+      left: 60%;
       transform: translateZ(2px);
     }
     svg {

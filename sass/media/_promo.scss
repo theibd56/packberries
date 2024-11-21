@@ -1,0 +1,143 @@
+@media screen and (max-width:1550px) {
+  .promo {
+    &__arrow {
+      z-index: 20;
+      &_prev {
+        left: 5px;
+        background: #fff;
+      }
+      &_next {
+        right: 5px;
+        background: #fff;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1400px) {
+  .promo {
+    &__arrow {
+      width: calc(100% - 40px);
+    }
+  }
+}
+
+@media screen and (max-width:1200px) {
+  .promo {
+    &__slide {
+      &_bg {
+        &-img {
+          &_big {
+            left: 665px;
+          }
+          &-2 {
+            left: 880px;
+          }
+          &-3 {
+            left: 580px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .promo {
+    &__slide {
+      padding: 30px;
+      min-height: 400px;
+      &_title {
+        font-size: 38px;
+      }
+      &_heading {
+        gap: 10px;
+      }
+      .promo__slide_bg-svg {
+        &_rt, &_rt-b {
+          display: none;
+        }
+        &_rb {
+          left: 0;
+          bottom: -25%;
+        }
+      }
+      .promo__slide_bg-img {
+        &_big {
+          width: 210px;
+          height: 210px;
+          left: auto;
+          top: auto;
+          right: 10px;
+          bottom: 0;
+        }
+        &-2 {
+          width: 139px;
+          height: 139px;
+          left: auto;
+          bottom: -30px;
+          right: -30px;
+        }
+        &-3 {
+          width: 139px;
+          height: 139px;
+          left: auto;
+          right: 150px;
+        }
+      }
+    }
+    &__arrow {
+      display: none;
+    }
+
+    &__pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      .swiper-pagination-bullet {
+        width: 7px;
+        height: 7px;
+        background: #E8E3E6;
+        &-active {
+          background: #C2025E;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:576px) {
+  .promo {
+    &__slide {
+      padding: 30px;
+      min-height: 420px;
+      &_title {
+        font-size: 32px;
+      }
+      &_descr {
+        font-size: 18px;
+      }
+      &_btn {
+        font-size: 13px;
+      }
+      &_video {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:476px) {
+  .promo {
+    &__slide {
+      &_title {
+        font-size: 20px;
+      }
+      &_descr {
+        font-size: 16px;
+      }
+    }
+  }
+}

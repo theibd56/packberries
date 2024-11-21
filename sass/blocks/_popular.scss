@@ -4,7 +4,7 @@
     margin-top: 21px;
 
     display: grid;
-    grid-template: auto / 832px 548px;
+    grid-template: auto / calc(60% - 10px) calc(40% - 10px);
     gap: 20px;
   }
   &__cards {

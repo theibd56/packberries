@@ -1,0 +1,36 @@
+@media screen and (max-width: 1250px) {
+  .popular {
+    &__wrapper {
+      grid-template: auto / 1fr
+    }
+    &__cards {
+      grid-template: auto / repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .popular {
+    &__cards {
+      gap: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 878px) {
+  .popular {
+    &__cards {
+      grid-template: auto / repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .popular {
+    margin-top: 30px;
+    &__cards {
+      gap: 10px;
+    }
+  }
+}

@@ -102,8 +102,9 @@
   }
   &__price {
     display: flex;
-    gap: 10px;
-
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 5px;
     margin-top: 10px;
     &_old {
       font-weight: 400;
@@ -267,7 +268,7 @@
 .card-banner {
   padding: 30px;
   border-radius: 10px;
-  background: url("/images/product-card/card-banner.png");
+  background: url("/images/product-card/card-banner.png") center / cover no-repeat;
   &__title {
     font-weight: 800;
     font-size: 22px;

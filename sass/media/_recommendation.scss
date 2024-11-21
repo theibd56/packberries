@@ -1,0 +1,35 @@
+@media screen and (max-width: 1250px) {
+  .recommendation {
+    &__wrapper {
+      grid-template: auto / 1fr
+    }
+    &__cards {
+      grid-template: auto / repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .recommendation {
+    &__cards {
+      gap: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 878px) {
+  .recommendation {
+    &__cards {
+      grid-template: auto / repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .recommendation {
+    &__cards {
+      gap: 10px;
+    }
+  }
+}

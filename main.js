@@ -26,6 +26,11 @@ const promoSlider = new Swiper('.promo__slider', {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
     },
+    pagination: {
+        el: '.promo__pagination',
+        type: 'bullets',
+        clickable: true,
+    }
 });
 
 //----------------- слайдер для блока с брендами -----------------//
@@ -39,6 +44,22 @@ const brandSlider = new Swiper('.brand__slider', {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+        },
+        576: {
+            slidesPerView: 2.2,
+        },
+        768: {
+            slidesPerView: 3.3,
+            spaceBetween: 20,
+        },
+        992: {
+            slidesPerView: 4,
+        }
+    }
 });
 
 //----------------- слайдер для блока с карточками товаров -----------------//
@@ -64,7 +85,7 @@ cardSliders.forEach((slider, index) => {
         breakpoints: {
             320: {
                 slidesPerView: 2.2,
-                spaceBetween: 12,
+                spaceBetween: 10,
             },
             768: {
                 slidesPerView: 3,
