@@ -32,7 +32,7 @@
                     <h3 class="catalog__title">
                         Блистер упаковочная машина
                     </h3>
-                    <div class="catalog-mobile__filter ">
+                    <a data-fancybox href="#mobile-filter"  class="catalog-mobile__filter ">
                         <div class="catalog-mobile__filter_title">
                             Фильтр
                             <span id="js-filter-count">5</span>
@@ -43,7 +43,7 @@
                         <button class="catalog-mobile__filter_reset">
                             Сбросить
                         </button>
-                    </div>
+                    </a>
                     <div class="catalog-content">
                         <div class="filter">
                             <form action="" class="filter__content">
@@ -792,6 +792,215 @@
                 </div>
             </section>
         </main>
+
+        <div style="display: none;" id="mobile-filter" class="mobile-filter">
+            <div class="filter">
+                <div class="filter__title">
+                    Фильтр
+                    <span>5</span>
+                </div>
+                <form action="" class="filter__content">
+                    <div class="filter__category filter__category-categories">
+                        <div class="filter__category_title">
+                            Категория:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Блистер упаковочная машина</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Горизонтальные упаковочные машины</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Горячие столы</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Индукционные запайщики</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Клипсаторы для пакетов</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Укупорочное оборудование</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-price">
+                        <div class="filter__category_title">
+                            Цена:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item-num">
+                                <input type="number" placeholder="Минимум">
+                                <input type="number" placeholder="Максимум">
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>до 100 000₽</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>от 200 000₽ до 500 000₽</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Неважно</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-manufacturer">
+                        <div class="filter__category_title">
+                            Производитель:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Hualian</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Robopac</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Minipack</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Xiaojin</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-delivery">
+                        <div class="filter__category_title">
+                            Сроки доставки:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Неважно</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Сегодня</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Завтра</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>До 3 дней</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>До 7 дней</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-condition">
+                        <div class="filter__category_title">
+                            Состояние товара:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Новое</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Уценка</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-power">
+                        <div class="filter__category_title">
+                            Мощность:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>220</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>1200</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>2400</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>2500</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__buttons">
+                        <button type="reset" id="filter-reset">
+                            Сбросить
+                        </button>
+                        <button type="submit" id="filter-send">
+                            Применить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         {{> _footer}}
         <script type="module" src="/main.js"></script>
