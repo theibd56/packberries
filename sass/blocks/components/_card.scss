@@ -79,6 +79,12 @@
     height: auto;
   }
 
+  &__content {
+    .card-mobile__price {
+      display: none;
+    }
+  }
+
   &__star {
     display: flex;
     align-items: center;
@@ -231,15 +237,20 @@
   .card__title {
     height: auto;
 
-    width: 408px;
-    min-width: 408px;
+    //width: 408px;
+    min-width: 210px;
 
     margin: 0;
   }
   .card__price {
-    min-width: 180px;
+    //min-width: 180px;
     max-width: 250px;
     margin: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    span {
+      white-space: nowrap;
+    }
   }
   .card__button {
     margin: 0;
