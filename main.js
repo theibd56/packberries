@@ -494,28 +494,6 @@ function createdMore (eachedElem, indexNum, trigger) {
         })
     }
 }());
-//----------------- catalog dropdown more -----------------//
-(function() {
-    const catalogMenu = document.querySelectorAll('.header-catalog__menu_item')
-
-    catalogMenu.forEach(item => {
-        const catalogMenuItems = item.querySelectorAll('.header-catalog__menu_wrapper li');
-        const catalogMoreTrigger = item.querySelector('.header-catalog__menu_more');
-
-        if (catalogMenuItems.length > 5) {
-            catalogMenuItems.forEach((item, index) => {
-                if(index > 4) {
-                    item.classList.add('hidden')
-                }
-            })
-
-            catalogMoreTrigger.classList.add('active')
-        }
-
-        catalogMoreTrigger.addEventListener('click', () =>
-            createdMore(catalogMenuItems, 4, catalogMoreTrigger))
-    })
-}());
 //----------------- product review more -----------------//
 (function() {
     const reviewWrapper = document.querySelector('.product__review_wrapper');

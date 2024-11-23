@@ -27,8 +27,7 @@
       }
       &__menu {
         &.active {
-          column-gap: 10px;
-          grid-template: repeat(2, auto) / repeat(3, 1fr);
+          column-gap: 15px;
         }
       }
     }
