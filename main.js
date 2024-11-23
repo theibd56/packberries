@@ -371,24 +371,29 @@ function createdMore (eachedElem, indexNum, trigger) {
 }());
 //----------------- inc / dec в input при добавление товара в корзину -----------------//
 (function () {
-    const productCounterToCart = document.querySelector('.product__info_counter-cart')
+    const productCounterToCart = document.querySelectorAll('.product__info_counter-cart')
     if (productCounterToCart) {
-        const productCounterInput = productCounterToCart.querySelector('input')
-        const productCounterDec = productCounterToCart.querySelector('#product__cart_dec')
-        const productCounterInc = productCounterToCart.querySelector('#product__cart_inc')
 
-        function decrementCart() {
-            productCounterInput.value <= 1 ? // ограничение в 1 ед. товара
-                productCounterInput.value = productCounterInput.value :
-                productCounterInput.value = --productCounterInput.value
-        }
-        productCounterDec.addEventListener('click', decrementCart)
-        function incrementCart() {
-            productCounterInput.value >= 999 ? // ограничение в 999 ед. товара
-                productCounterInput.value = productCounterInput.value :
-                productCounterInput.value = ++productCounterInput.value
-        }
-        productCounterInc.addEventListener('click', incrementCart)
+        productCounterToCart.forEach(counter => {
+            const productCounterInput = counter.querySelector('input')
+            const productCounterDec = counter.querySelector('.js-product-cart-dec')
+            const productCounterInc = counter.querySelector('.js-product-cart-inc')
+
+            function decrementCart() {
+                productCounterInput.value <= 1 ? // ограничение в 1 ед. товара
+                    productCounterInput.value = productCounterInput.value :
+                    productCounterInput.value = --productCounterInput.value
+            }
+
+            function incrementCart() {
+                productCounterInput.value >= 999 ? // ограничение в 999 ед. товара
+                    productCounterInput.value = productCounterInput.value :
+                    productCounterInput.value = ++productCounterInput.value
+            }
+
+            productCounterDec.addEventListener('click', decrementCart);
+            productCounterInc.addEventListener('click', incrementCart);
+        })
     }
 }());
 //----------------- кнопка показать еще в характеристиках -----------------//
@@ -515,36 +520,10 @@ function createdMore (eachedElem, indexNum, trigger) {
 (function() {
     const reviewWrapper = document.querySelector('.product__review_wrapper');
 
-    const reviewItems = reviewWrapper.querySelectorAll('.product__review_item');
-    const reviewMoreTrigger = reviewWrapper.querySelector('.product__review_more');
-    const reviewLessTrigger = reviewWrapper.querySelector('.product__review_less');
-
-    if (reviewItems.length > 4) {
-        reviewItems.forEach((item, index) => {
-            if(index > 3) {
-                item.classList.add('hidden')
-            }
-        })
-        reviewMoreTrigger.classList.add('active')
-    }
-
-    let showsItem = 0;
-    reviewMoreTrigger.addEventListener("click", function() {
-        showsItem += 10
-        reviewItems.forEach((item, index) => {
-            if(index <= showsItem) {
-                item.classList.remove('hidden')
-            }
-
-            if(showsItem >= reviewItems.length - 1) {
-                reviewLessTrigger.classList.add('active')
-                reviewMoreTrigger.classList.remove('active')
-            }
-        })
-    })
-
-    reviewLessTrigger.addEventListener("click", function() {
-        showsItem = 0
+    if(reviewWrapper) {
+        const reviewItems = reviewWrapper.querySelectorAll('.product__review_item');
+        const reviewMoreTrigger = reviewWrapper.querySelector('.product__review_more');
+        const reviewLessTrigger = reviewWrapper.querySelector('.product__review_less');
 
         if (reviewItems.length > 4) {
             reviewItems.forEach((item, index) => {
@@ -552,69 +531,110 @@ function createdMore (eachedElem, indexNum, trigger) {
                     item.classList.add('hidden')
                 }
             })
+            reviewMoreTrigger.classList.add('active')
         }
 
-        reviewLessTrigger.classList.remove('active')
-        reviewMoreTrigger.classList.add('active')
-    })
+        let showsItem = 0;
+        reviewMoreTrigger.addEventListener("click", function() {
+            showsItem += 10
+            reviewItems.forEach((item, index) => {
+                if(index <= showsItem) {
+                    item.classList.remove('hidden')
+                }
+
+                if(showsItem >= reviewItems.length - 1) {
+                    reviewLessTrigger.classList.add('active')
+                    reviewMoreTrigger.classList.remove('active')
+                }
+            })
+        })
+
+        reviewLessTrigger.addEventListener("click", function() {
+            showsItem = 0
+
+            if (reviewItems.length > 4) {
+                reviewItems.forEach((item, index) => {
+                    if(index > 3) {
+                        item.classList.add('hidden')
+                    }
+                })
+            }
+
+            reviewLessTrigger.classList.remove('active')
+            reviewMoreTrigger.classList.add('active')
+        })
+    }
 }());
 //----------------- маска ввода для номера телефона -----------------//
 (function () {
-    document.querySelector('#phone').onkeydown = function(e){
-        inputphone(e,document.querySelector('#phone'))
-    }
-    function inputphone(e, phone){
-        function stop(evt) {
-            evt.preventDefault();
-        }
-        let key = e.key, v = phone.value, not = key.replace(/([0-9])/, 1)
+    document.addEventListener('DOMContentLoaded', function () {
+        const phoneInput = document.querySelector('#phone');
 
-        if(not == 1 || 'Backspace' === not){
-            if('Backspace' != not){
-                if(v.length < 4 || v ===''){phone.value= '+7 ('}
-                if(v.length === 7){phone.value= v +') '}
-                if(v.length === 11){phone.value= v +'-'}
-                if(v.length === 14){phone.value= v +'-'}
+        if (phoneInput) {
+            phoneInput.onkeydown = function(e) {
+                inputphone(e, phoneInput);
+            };
+        }
+
+        function inputphone(e, phone) {
+            function stop(evt) {
+                evt.preventDefault();
             }
-        }else{stop(e)}  }
+
+            let key = e.key;
+            let v = phone.value;
+            let not = key.replace(/([0-9])/, 1);
+
+            if (not == 1 || 'Backspace' === not) {
+                if ('Backspace' != not) {
+                    if (v.length < 4 || v === '') {phone.value = '+7 ('}
+                    if (v.length === 7) {phone.value = v + ') '}
+                    if (v.length === 11) {phone.value = v + '-'}
+                    if (v.length === 14) {phone.value = v + '-'}
+                }
+            } else {stop(e)}
+        }
+    });
 }());
 //----------------- кнопка показать еще в описании продукта -----------------//
 (function() {
     const productDescr = document.querySelector('.product__info_description-text') //элемент
-    const productDescrTrigger = document.querySelector('.product__info_description-more') //триггер
-    const productDescrHTML = productDescr.innerHTML //html элемента (чтобы возвращать изначальный вид)
-    const productDescrText = productDescr.textContent //текст элемента
-    const maxChar = 850;  //максимум символов
+    if (productDescr) {
+        const productDescrTrigger = document.querySelector('.product__info_description-more') //триггер
+        const productDescrHTML = productDescr.innerHTML //html элемента (чтобы возвращать изначальный вид)
+        const productDescrText = productDescr.textContent //текст элемента
+        const maxChar = 850;  //максимум символов
 
-    //разбиваем текст на символы и добавляем ... в конце + убираем все br теги
-    function splitText() {
-        let itemRest = productDescrText.slice(0, maxChar);
-        let itemArr = itemRest.split('');
-        itemArr.splice(itemArr.length-1,1);
-        productDescr.innerText = (itemArr.join('')+'...')
+        //разбиваем текст на символы и добавляем ... в конце + убираем все br теги
+        function splitText() {
+            let itemRest = productDescrText.slice(0, maxChar);
+            let itemArr = itemRest.split('');
+            itemArr.splice(itemArr.length-1,1);
+            productDescr.innerText = (itemArr.join('')+'...')
 
-        productDescr.querySelectorAll('br').forEach(item => {
-            item.remove()
-        })
-    }
+            productDescr.querySelectorAll('br').forEach(item => {
+                item.remove()
+            })
+        }
 
-    if(productDescrText.split('').length > maxChar) {
-        productDescrTrigger.classList.add('active')
-        splitText()
-    }
-
-    productDescrTrigger.addEventListener('click', function() {
-        const span = this.querySelector('span')
-        if (span.innerText === 'Показать все') {
-            productDescr.innerHTML = productDescrHTML
-            this.querySelector('svg').classList.toggle('show')
-            this.querySelector('span').innerText = 'Скрыть'
-        } else {
-            this.querySelector('svg').classList.toggle('show')
-            this.querySelector('span').innerText = 'Показать все'
+        if(productDescrText.split('').length > maxChar) {
+            productDescrTrigger.classList.add('active')
             splitText()
         }
-    })
+
+        productDescrTrigger.addEventListener('click', function() {
+            const span = this.querySelector('span')
+            if (span.innerText === 'Показать все') {
+                productDescr.innerHTML = productDescrHTML
+                this.querySelector('svg').classList.toggle('show')
+                this.querySelector('span').innerText = 'Скрыть'
+            } else {
+                this.querySelector('svg').classList.toggle('show')
+                this.querySelector('span').innerText = 'Показать все'
+                splitText()
+            }
+        })
+    }
 }());
 //----------------- скрипт для оценки товара в модалке отзыва -----------------//
 (function () {
@@ -648,70 +668,94 @@ function createdMore (eachedElem, indexNum, trigger) {
 (function () {
     document.addEventListener('DOMContentLoaded', function(event) {
         const fileMulti = document.getElementById('fileMulti');
-        const maxFiles = 10; // максимальное количество загружаемых файлов
-        const maxFileSize = 60 * 1024 * 1024; // максимальный размер файла (60 МБ)
-        let totalFilesCount = 0;
+        if (fileMulti) {
+            const maxFiles = 10; // максимальное количество загружаемых файлов
+            const maxFileSize = 60 * 1024 * 1024; // максимальный размер файла (60 МБ)
+            let totalFilesCount = 0;
 
-        fileMulti.addEventListener('change', function(event) {
-            const files = event.target.files;
-            const outputElement = document.getElementById('outputMulti');
-            const outputLabel = document.querySelector('.review-modal__images_download');
+            fileMulti.addEventListener('change', function(event) {
+                const files = event.target.files;
+                const outputElement = document.getElementById('outputMulti');
+                const outputLabel = document.querySelector('.review-modal__images_download');
 
-            if (totalFilesCount + files.length > maxFiles) {
-                alert(`Вы можете загрузить не более ${maxFiles} файлов.`);
-                fileMulti.value = '';
-                return;
-            }
-
-            if (outputElement) {
-                const spans = outputElement.getElementsByTagName('span');
-                Array.from(spans).forEach(span => {
-                    span.remove();
-                });
-            }
-
-            for (let i = 0, f; f = files[i]; i++) {
-                // проверка типа файла
-                if (!f.type.match('image.*') && !f.type.match('video.*')) {
-                    alert("Только изображения и видео");
-                    continue; // пропуск итерации
+                if (totalFilesCount + files.length > maxFiles) {
+                    alert(`Вы можете загрузить не более ${maxFiles} файлов.`);
+                    fileMulti.value = '';
+                    return;
                 }
 
-                // проверка размера файла
-                if (f.size > maxFileSize) {
-                    alert(`Размер файла "${f.name}" превышает максимальный размер в 60 МБ.`);
-                    continue; // пропуск итерации
+                if (outputElement) {
+                    const spans = outputElement.getElementsByTagName('span');
+                    Array.from(spans).forEach(span => {
+                        span.remove();
+                    });
                 }
 
-                const reader = new FileReader();
+                for (let i = 0, f; f = files[i]; i++) {
+                    // проверка типа файла
+                    if (!f.type.match('image.*') && !f.type.match('video.*')) {
+                        alert("Только изображения и видео");
+                        continue; // пропуск итерации
+                    }
 
-                reader.onload = (function(theFile) {
-                    return function(e) {
-                        // рендер thumbnail
-                        const thumb = document.createElement('div');
+                    // проверка размера файла
+                    if (f.size > maxFileSize) {
+                        alert(`Размер файла "${f.name}" превышает максимальный размер в 60 МБ.`);
+                        continue; // пропуск итерации
+                    }
 
-                        if (f.type.match('image.*')) {
-                            thumb.innerHTML = ['<img class="review-modal__file_thumb" src="', e.target.result,
-                                '" title="', encodeURIComponent(theFile.name), '"/>'].join('');
+                    const reader = new FileReader();
 
-                            outputElement.insertBefore(thumb, outputLabel);
-                        } else if (f.type.match('video.*')) {
-                            thumb.classList.add('thumb-video');
-                            // Убираем controls
-                            thumb.innerHTML = ['<video class="review-modal__file_thumb" style="cursor: pointer;">',
-                                '<source src="', e.target.result, '" type="', f.type, '">',
-                                'Ваш браузер не поддерживает видео.',
-                                '</video>'].join('');
-                            outputElement.insertBefore(thumb, outputLabel);
-                        }
-                        totalFilesCount++;
+                    reader.onload = (function(theFile) {
+                        return function(e) {
+                            // рендер thumbnail
+                            const thumb = document.createElement('div');
 
-                        Fancybox.bind('[data-fancybox="reviewThumb"]', {});
-                    };
-                })(f);
+                            if (f.type.match('image.*')) {
+                                thumb.innerHTML = ['<img class="review-modal__file_thumb" src="', e.target.result,
+                                    '" title="', encodeURIComponent(theFile.name), '"/>'].join('');
 
-                reader.readAsDataURL(f);
-            }
-        }, false);
+                                outputElement.insertBefore(thumb, outputLabel);
+                            } else if (f.type.match('video.*')) {
+                                thumb.classList.add('thumb-video');
+                                // Убираем controls
+                                thumb.innerHTML = ['<video class="review-modal__file_thumb" style="cursor: pointer;">',
+                                    '<source src="', e.target.result, '" type="', f.type, '">',
+                                    'Ваш браузер не поддерживает видео.',
+                                    '</video>'].join('');
+                                outputElement.insertBefore(thumb, outputLabel);
+                            }
+                            totalFilesCount++;
+
+                            Fancybox.bind('[data-fancybox="reviewThumb"]', {});
+                        };
+                    })(f);
+
+                    reader.readAsDataURL(f);
+                }
+            }, false);
+        }
     });
 }());
+
+//добваление отсупа снизу для мобилки на странице корзины
+(function () {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Функция для обновления отступа
+        function updateCartOffset() {
+            // Получаем элементы
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const cartContentRight = document.querySelector('.cart__content_right');
+
+            if (mobileMenu && cartContentRight) {
+                const mobileMenuHeight = mobileMenu.offsetHeight;
+
+                cartContentRight.style.bottom = `${mobileMenuHeight - 5}px`;
+            }
+        }
+
+        updateCartOffset();
+
+        window.addEventListener('resize', updateCartOffset);
+    });
+}())
