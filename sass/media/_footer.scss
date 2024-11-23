@@ -35,6 +35,7 @@
 
 @media screen and (max-width:768px) {
   .footer {
+    margin-top: 40px;
     &__banner {
       background: url(/images/feedback-bg.png) 63% / cover no-repeat;
       &_form {

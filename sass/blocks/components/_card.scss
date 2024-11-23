@@ -59,8 +59,11 @@
       justify-content: center;
 
       img {
-        width: 194px;
-        height: 194px;
+        //width: 194px;
+        width: 100%;
+        height: 100%;
+        max-width: 194px;
+        max-height: 194px;
 
         object-fit: contain;
 
