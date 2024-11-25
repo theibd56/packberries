@@ -29,6 +29,25 @@
     display: flex;
     flex-direction: column;
     gap: 9px;
+    max-height: 350px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 3px;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #E7E7E7;
+      -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    }
+    /* Стили только для Firefox */
+    @-moz-document url-prefix() {
+      & {
+        scrollbar-width: thin; /* Устанавливаем тонкий скролл */
+        scrollbar-color: #E7E7E7 rgba(0, 0, 0, 0); /* Цвет скролла и фона */
+      }
+    }
   }
   &__item {
     display: flex;
