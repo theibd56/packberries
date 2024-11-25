@@ -819,3 +819,15 @@ function createdMore (eachedElem, indexNum, trigger) {
     });
 }());
 
+//поиск тогл
+(function () {
+    const searchTrigger = document.querySelector('.header-mobile__search_trigger');
+    const searchWrapper = document.querySelector('.header-mobile__search');
+
+    searchTrigger.addEventListener('click', function(event) {
+        searchTrigger.classList.toggle('active');
+        searchWrapper.classList.toggle('active');
+    });
+
+
+}());
