@@ -6,6 +6,8 @@
     &__cards {
       grid-template: auto / repeat(3, 1fr);
       gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
     }
   }
 }
@@ -21,6 +23,7 @@
 @media screen and (max-width: 878px) {
   .popular {
     &__cards {
+      max-width: 600px;
       grid-template: auto / repeat(2, 1fr);
     }
   }
