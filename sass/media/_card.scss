@@ -39,6 +39,8 @@
   }
 }
 
+
+
 @media screen and (max-width:768px) {
   .card {
     &__arrow {
@@ -151,6 +153,10 @@
 
     &__slider.swiper {
       padding: 10px 0;
+    }
+
+    &__status {
+      font-size: 8px;
     }
   }
 

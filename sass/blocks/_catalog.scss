@@ -51,15 +51,18 @@
     }
     &-item {
       background: #f8f7f7;
+      .banner__bg img {
+        bottom: auto ;
+      }
     }
   }
   &-popular {
     margin-top: 40px;
     &__wrapper {
       margin-top: 20px;
-      display: grid;
-      grid-template: minmax(258px, auto) / repeat(6, 1fr);
-      gap: 20px;
+      //display: grid;
+      //grid-template: minmax(258px, auto) / repeat(6, 1fr);
+      //gap: 20px;
     }
     &__item {
       display: flex;
@@ -163,6 +166,10 @@
       gap: 20px;
       &-row {
         grid-template: auto / 1fr !important;
+      }
+      .card__star {
+        row-gap: 5px;
+        justify-content: space-between;
       }
     }
   }

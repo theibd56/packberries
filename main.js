@@ -117,6 +117,37 @@ const bannerSlider = new Swiper('.catalog-banners-slider', {
         pauseOnMouseEnter: true,
     },
 });
+//----------------- слайдер для популярных категорий в каталоге -----------------//
+const catalogPopularSlider = new Swiper('.catalog-popular__slider', {
+    slidesPerView: 6,
+    spaceBetween: 20,
+    speed: 800,
+    loop: false,
+    autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1.7,
+            spaceBetween: 10,
+        },
+        576: {
+            slidesPerView: 2.7,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 3.5,
+        },
+        992: {
+            slidesPerView: 4.8,
+        },
+        1200: {
+            slidesPerView: 6,
+        }
+    }
+});
 //----------------- слайдер для навигационного слайдера на странице продукта -----------------//
 const productSliderNavigate = new Swiper('.product__slider_thumbs', {
     centeredSlidesBounds: true,

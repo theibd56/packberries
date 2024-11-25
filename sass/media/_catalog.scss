@@ -7,6 +7,7 @@
 
 @media screen and (max-width:992px) {
   .catalog-content {
+    flex-direction: column;
     margin-top: 20px;
     .filter {
       display: none;
@@ -60,6 +61,30 @@
     &-item {
       width: 30px;
       height: 30px;
+    }
+  }
+
+  .catalog-brands__title {
+    font-size: 15px;
+  }
+  .catalog-popular {
+    margin-top: 20px;
+    &__wrapper {
+      margin-top: 10px;
+    }
+    &__title {
+      font-size: 15px;
+    }
+    &__item {
+      &_card {
+        height: 180px;
+        &-img {
+          height: 145px;
+        }
+      }
+      &_title {
+        font-size: 12px;
+      }
     }
   }
 }
