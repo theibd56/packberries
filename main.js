@@ -248,6 +248,7 @@ function createdMore (eachedElem, indexNum, trigger) {
 (function () {
     document.querySelectorAll('.card').forEach((item, index) => {
         const cardButton = item.querySelector('.card__button');
+        const cardButtonMobile = item.querySelector('.card__button_row');
 
         if(cardButton) {
             cardButton.addEventListener('click', function() {
@@ -257,6 +258,12 @@ function createdMore (eachedElem, indexNum, trigger) {
                     cardButton.innerHTML = 'В корзине' :
                     cardButton.innerHTML = 'Добавить в корзину';
 
+            })
+        }
+
+        if (cardButtonMobile) {
+            cardButtonMobile.addEventListener('click', function() {
+                cardButtonMobile.classList.toggle('card__button-cart');
             })
         }
     })
@@ -828,6 +835,20 @@ function createdMore (eachedElem, indexNum, trigger) {
         searchTrigger.classList.toggle('active');
         searchWrapper.classList.toggle('active');
     });
+}());
 
-
+//change button text
+(function () {
+    function updateButtonText() {
+        const buttons = document.querySelectorAll('.card__button');
+        buttons.forEach(button => {
+            if (window.innerWidth < 992) {
+                button.textContent = 'В корзину';
+            } else {
+                button.textContent = 'Добавить в корзину';
+            }
+        });
+    }
+    updateButtonText();
+    window.addEventListener('resize', updateButtonText);
 }());
