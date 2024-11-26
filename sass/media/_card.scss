@@ -77,8 +77,11 @@
       height: 30px;
       background: none;
       transition: all .3s ease;
-      svg path {
-        transition: all .3s ease;
+      svg {
+        min-width: 16px;
+        path {
+          transition: all .3s ease;
+        }
       }
       &.card__button-cart {
         background: #c2025e;
