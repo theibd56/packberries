@@ -158,6 +158,23 @@ const productSliderNavigate = new Swiper('.product__slider_thumbs', {
     watchSlidesProgress: true,
     direction: 'vertical',
     speed: 800,
+    breakpoints: {
+        320: {
+            direction: 'horizontal',
+            slidesPerView: 5,
+        },
+        576: {
+            direction: 'horizontal',
+            slidesPerView: 6,
+        },
+        768: {
+            direction: 'horizontal',
+            slidesPerView: 7,
+        },
+        992: {
+            direction: 'vertical',
+        }
+    }
 });
 //----------------- слайдер для главного слайдера на странице продукта -----------------//
 const productSlider = new Swiper('.product__slider_main', {
@@ -409,52 +426,84 @@ function createdMore (eachedElem, indexNum, trigger) {
 }());
 //----------------- inc / dec в input при добавление товара в корзину -----------------//
 (function () {
-    const productCounterToCart = document.querySelectorAll('.product__info_counter-cart')
-    if (productCounterToCart) {
+    const productReviewImages = document.querySelector('.product__review_images');
+    if (productReviewImages) {
+        const productReviewImagesItem = productReviewImages.querySelectorAll('.product__review_images-item');
 
-        productCounterToCart.forEach(counter => {
-            const productCounterInput = counter.querySelector('input')
-            const productCounterDec = counter.querySelector('.js-product-cart-dec')
-            const productCounterInc = counter.querySelector('.js-product-cart-inc')
+        function updateVisibleImages() {
+            let maxViewImages;
+            const screenWidth = window.innerWidth;
 
-            function decrementCart() {
-                productCounterInput.value <= 1 ? // ограничение в 1 ед. товара
-                    productCounterInput.value = productCounterInput.value :
-                    productCounterInput.value = --productCounterInput.value
+            if (screenWidth >= 992) {
+                maxViewImages = 10;
+            } else if (screenWidth >= 768) {
+                maxViewImages = 7;
+            } else if (screenWidth >= 576) {
+                maxViewImages = 6;
+            } else {
+                maxViewImages = 5; // Дефолтное значение для разрешений меньше 576px
             }
 
-            function incrementCart() {
-                productCounterInput.value >= 999 ? // ограничение в 999 ед. товара
-                    productCounterInput.value = productCounterInput.value :
-                    productCounterInput.value = ++productCounterInput.value
-            }
+            let productReviewImagesDifference = productReviewImagesItem.length - maxViewImages;
 
-            productCounterDec.addEventListener('click', decrementCart);
-            productCounterInc.addEventListener('click', incrementCart);
-        })
-    }
-}());
-//----------------- кнопка показать еще в характеристиках -----------------//
-(function() {
-    const characteristicWrapper = document.querySelector('.product__info_characteristic-wrapper')
-    if (characteristicWrapper) {
-        const characteristicItem = characteristicWrapper.querySelectorAll('.product__info_characteristic-item')
-        const characteristicMore = characteristicWrapper.querySelector('.product__info_characteristic-more')
-        const characteristicMoreSpan = characteristicMore.querySelector('span')
+            productReviewImagesItem.forEach((item, index) => {
+                const productReviewImg = item.querySelector('img');
+                const existingSpan = item.querySelector('span');
 
-        if (characteristicItem.length > 5) {
-            characteristicItem.forEach((item, index) => {
-                if(index > 4) {
-                    item.classList.add('hidden')
+                // Убираем старый span, если он был добавлен
+                if (existingSpan) {
+                    existingSpan.remove();
                 }
-            })
 
-            characteristicMore.classList.remove('hidden')
+                // Создаем новый span при необходимости
+                if (productReviewImagesDifference > 0 && index === maxViewImages - 1) {
+                    const span = document.createElement("span");
+                    span.innerText = productReviewImagesDifference > 10 ?
+                        Math.floor(productReviewImagesDifference / 10) * 10 + '+' :
+                        productReviewImagesDifference;
+                    span.classList.add('product__review_images-span');
+                    productReviewImg.style.filter = "blur(2px)";
+                    item.append(span);
+                } else {
+                    productReviewImg.style.filter = "none"; // Убираем блюр для других элементов
+                }
+
+                // Отображаем или скрываем элемент в зависимости от индекса
+                item.style.display = index < maxViewImages ? 'block' : 'none';
+            });
         }
 
-        characteristicMore.addEventListener('click', () => {
-            createdMore(characteristicItem, 4, characteristicMore)
-            characteristicWrapper.classList.toggle('characteristic-active')
+        // Первоначальная настройка
+        updateVisibleImages();
+
+        // Обновление при изменении размера окна
+        window.addEventListener('resize', updateVisibleImages);
+    }
+})();
+//----------------- кнопка показать еще в характеристиках -----------------//
+(function() {
+    const characteristicWrapperList = document.querySelectorAll('.product__info_characteristic-wrapper')
+
+    if (characteristicWrapperList) {
+        characteristicWrapperList.forEach((characteristicWrapper) => {
+            const characteristicItem = characteristicWrapper.querySelectorAll('.product__info_characteristic-item')
+            const characteristicMore = characteristicWrapper.querySelector('.product__info_characteristic-more')
+            const characteristicMoreSpan = characteristicMore.querySelector('span')
+
+            if (characteristicItem.length > 5) {
+                characteristicItem.forEach((item, index) => {
+                    if(index > 4) {
+                        item.classList.add('hidden')
+                    }
+                })
+
+                characteristicMore.classList.remove('hidden')
+            }
+
+            characteristicMore.addEventListener('click', () => {
+                createdMore(characteristicItem, 4, characteristicMore)
+                characteristicWrapper.classList.toggle('characteristic-active')
+            })
         })
     }
 }());
