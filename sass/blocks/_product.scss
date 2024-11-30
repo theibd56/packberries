@@ -808,8 +808,10 @@
             transform: translate(-50%, -50%);
 
             font-size: 18px;
-            padding-left: 3px;
             color: #C2025E;
+            img {
+              filter: none;
+            }
           }
         }
       }
@@ -834,8 +836,8 @@
         &__video {
           position: relative;
           span {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             background: rgba(255, 255, 255, 1);
 
             border-radius: 100%;
@@ -844,7 +846,6 @@
             align-items: center;
             justify-content: center;
 
-            padding-left: 3px;
 
             position: absolute;
             top: 50%;
@@ -853,6 +854,7 @@
 
             font-size: 18px;
             color: #C2025E;
+
           }
         }
       }
