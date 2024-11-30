@@ -111,14 +111,18 @@
   }
   .product__info_right-top {
     position: relative;
+    padding: 15px 20px;
   }
   .product__info_buttons {
     width: 100% !important;
   }
   .product__info_buttons-like {
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 20px;
+    top: 15px;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
   }
   .product__info_left-bottom {
     .product__info_characteristic {
@@ -234,7 +238,7 @@
     font-size: 11px;
     &__text {
       flex-direction: row;
-      white-space:nowrap;
+      gap: 3px;
     }
   }
   .product__info_buttons-cart {
@@ -327,5 +331,11 @@
     .product__review_mobile {
       gap: 10px;
     }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .product__info_left-sliders {
+    max-width: 300px;
   }
 }
