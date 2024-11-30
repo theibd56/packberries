@@ -178,6 +178,19 @@
       color: #290718;
     }
   }
+  .product__slider_thumbs-wrapper {
+    height: auto;
+  }
+  .product__slider_thumbs-slide {
+    height: 50px;
+  }
+
+  .buy-now {
+    padding: 20px 30px;
+  }
+  .review-modal {
+    width: 100% !important;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -330,6 +343,98 @@
     flex-wrap: wrap;
     .product__review_mobile {
       gap: 10px;
+    }
+  }
+
+  .buy-now {
+    padding: 20px;
+    width: 100%;
+    max-width: 340px;
+    &__title {
+      text-align: left;
+      font-size: 18px;
+    }
+    &__form {
+      margin-top: 20px;
+      gap: 10px;
+    }
+    &__field {
+      input {
+        height: 40px;
+        font-size: 13px;
+        padding: 0 15px;
+      }
+    }
+    &__btn {
+      margin-top: 10px;
+      font-size: 14px;
+      padding: 10.5px 15px;
+    }
+    &__policy {
+      a {
+        font-size: 12px;
+      }
+    }
+    .f-button.is-close-btn {
+      background: none;
+      svg {
+        stroke: #E8E3E6;
+      }
+    }
+  }
+  .review-modal {
+    padding: 30px 20px;
+    &__heading {
+      flex-wrap: wrap;
+      row-gap: 5px;
+    }
+    &__title {
+      font-size: 18px;
+      white-space: nowrap;
+    }
+    &__stars {
+      gap: 5px;
+    }
+    &__form {
+      input, textarea {
+        height: 40px;
+        font-size: 13px;
+        padding: 15px;
+      }
+      textarea {
+        height: 90px !important;
+      }
+    }
+    &__images {
+      &_files {
+        .review-modal__file_thumb {
+          width: 52px;
+          height: 52px;
+        }
+        .thumb-video:after, .thumb-video:before {
+          width: 52px;
+          height: 52px;
+        }
+      }
+      &_download {
+        width: 52px;
+        height: 52px;
+      }
+    }
+    &__btn {
+      height: 40px;
+      font-size: 14px;
+    }
+    &__privacy {
+      font-size: 12px;
+    }
+    .f-button.is-close-btn {
+      background: none;
+      top: 2px !important;
+      right: 2px !important;
+      svg {
+        stroke: #E8E3E6;
+      }
     }
   }
 }
