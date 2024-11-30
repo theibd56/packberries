@@ -603,18 +603,30 @@
         * {
           cursor: pointer;
         }
-
         &__video {
-          span {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.25);
+          &:before {
+            content: '';
+            display: block;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/images/video-play.svg') center / contain no-repeat;
 
-            border-radius: 100%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute;
+            z-index: 5;
+            transform: scale(0.5);
+          }
+          &:after {
+            content: '';
+            display: block;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            position: absolute;
+            z-index: 1;
+            inset: 0;
           }
         }
       }
@@ -897,5 +909,104 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+.review-mobile {
+  background: #fff;
+  position: fixed;
+  z-index: 500;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  left: -100%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: auto;
+  padding-bottom: 50px;
+  &__content {
+    padding-top: 100px;
+  }
+  &__item {
+    padding: 12.5px 20px 12.5px 25px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 10px 0 20px;
+    position: relative;
+    &_image {
+      min-width: 50px;
+      width: 50px;
+      height: 50px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &_code {
+      color: #776E73;
+      font-size: 11px;
+      font-weight: 400;
+    }
+    &_title {
+      margin-top: 3px;
+      color: #290718;
+      font-size: 13px;
+      font-weight: 600;
+
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    &:before {
+      content: "";
+      display:block;
+      width: 10px;
+      height: 10px;
+
+      position: absolute;
+      left: 10px;
+      top: 48%;
+      transform: translateY(-50%) rotate(45deg);
+
+      border-bottom: 1px solid #290718;
+      border-left: 1px solid #290718;
+    }
+  }
+
+  .product__review_heading {
+    gap: 5px;
+    .product__review_star {
+      margin-left: 5px;
+    }
+  }
+  .product__review_images-item__video {
+    span {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.25);
+
+      border-radius: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .product__review_item {
+    display: flex !important;
+  }
+  &.active {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
   }
 }

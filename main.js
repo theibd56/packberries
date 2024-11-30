@@ -426,58 +426,61 @@ function createdMore (eachedElem, indexNum, trigger) {
 }());
 //----------------- inc / dec в input при добавление товара в корзину -----------------//
 (function () {
-    const productReviewImages = document.querySelector('.product__review_images');
-    if (productReviewImages) {
-        const productReviewImagesItem = productReviewImages.querySelectorAll('.product__review_images-item');
+    const productReviewImagesWrapper = document.querySelectorAll('.product__review_images');
 
-        function updateVisibleImages() {
-            let maxViewImages;
-            const screenWidth = window.innerWidth;
+    if (productReviewImagesWrapper) {
+        productReviewImagesWrapper.forEach(productReviewImages => {
+            const productReviewImagesItem = productReviewImages.querySelectorAll('.product__review_images-item');
 
-            if (screenWidth >= 992) {
-                maxViewImages = 10;
-            } else if (screenWidth >= 768) {
-                maxViewImages = 7;
-            } else if (screenWidth >= 576) {
-                maxViewImages = 6;
-            } else {
-                maxViewImages = 5; // Дефолтное значение для разрешений меньше 576px
+            function updateVisibleImages() {
+                let maxViewImages;
+                const screenWidth = window.innerWidth;
+
+                if (screenWidth >= 992) {
+                    maxViewImages = 10;
+                } else if (screenWidth >= 768) {
+                    maxViewImages = 7;
+                } else if (screenWidth >= 576) {
+                    maxViewImages = 6;
+                } else {
+                    maxViewImages = 5; // Дефолтное значение для разрешений меньше 576px
+                }
+
+                let productReviewImagesDifference = productReviewImagesItem.length - maxViewImages;
+
+                productReviewImagesItem.forEach((item, index) => {
+                    const productReviewImg = item.querySelector('img');
+                    const existingSpan = item.querySelector('span');
+
+                    // Убираем старый span, если он был добавлен
+                    if (existingSpan) {
+                        existingSpan.remove();
+                    }
+
+                    // Создаем новый span при необходимости
+                    if (productReviewImagesDifference > 0 && index === maxViewImages - 1) {
+                        const span = document.createElement("span");
+                        span.innerText = productReviewImagesDifference > 10 ?
+                            Math.floor(productReviewImagesDifference / 10) * 10 + '+' :
+                            productReviewImagesDifference;
+                        span.classList.add('product__review_images-span');
+                        productReviewImg.style.filter = "blur(2px)";
+                        item.append(span);
+                    } else {
+                        productReviewImg.style.filter = "none"; // Убираем блюр для других элементов
+                    }
+
+                    // Отображаем или скрываем элемент в зависимости от индекса
+                    item.style.display = index < maxViewImages ? 'block' : 'none';
+                });
             }
 
-            let productReviewImagesDifference = productReviewImagesItem.length - maxViewImages;
+            // Первоначальная настройка
+            updateVisibleImages();
 
-            productReviewImagesItem.forEach((item, index) => {
-                const productReviewImg = item.querySelector('img');
-                const existingSpan = item.querySelector('span');
-
-                // Убираем старый span, если он был добавлен
-                if (existingSpan) {
-                    existingSpan.remove();
-                }
-
-                // Создаем новый span при необходимости
-                if (productReviewImagesDifference > 0 && index === maxViewImages - 1) {
-                    const span = document.createElement("span");
-                    span.innerText = productReviewImagesDifference > 10 ?
-                        Math.floor(productReviewImagesDifference / 10) * 10 + '+' :
-                        productReviewImagesDifference;
-                    span.classList.add('product__review_images-span');
-                    productReviewImg.style.filter = "blur(2px)";
-                    item.append(span);
-                } else {
-                    productReviewImg.style.filter = "none"; // Убираем блюр для других элементов
-                }
-
-                // Отображаем или скрываем элемент в зависимости от индекса
-                item.style.display = index < maxViewImages ? 'block' : 'none';
-            });
-        }
-
-        // Первоначальная настройка
-        updateVisibleImages();
-
-        // Обновление при изменении размера окна
-        window.addEventListener('resize', updateVisibleImages);
+            // Обновление при изменении размера окна
+            window.addEventListener('resize', updateVisibleImages);
+        })
     }
 })();
 //----------------- кнопка показать еще в характеристиках -----------------//
@@ -900,4 +903,27 @@ function createdMore (eachedElem, indexNum, trigger) {
     }
     updateButtonText();
     window.addEventListener('resize', updateButtonText);
+}());
+
+//открытие модалки с отзывами
+(function () {
+    const modalReviewTrigger = document.querySelector('.product__review_mobile-more');
+    if (modalReviewTrigger) {
+        const modalReview = document.querySelector('.review-mobile');
+        const modalReviewClose = document.querySelector('.review-mobile__item');
+
+        modalReviewTrigger.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+            });
+
+            modalReview.classList.add('active');
+            document.documentElement.classList.add('lock');
+        });
+
+        modalReviewClose.addEventListener('click', function() {
+            modalReview.classList.remove('active');
+            document.documentElement.classList.remove('lock');
+        });
+    }
 }());

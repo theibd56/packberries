@@ -150,9 +150,11 @@
       white-space: nowrap;
     }
   }
-  .product__review_item {
-    &:not(:first-child) {
-      display: none
+  .product__review_wrapper {
+    .product__review_item {
+      &:not(:first-child) {
+        display: none
+      }
     }
   }
   .product__review_more.active {
@@ -344,6 +346,9 @@
     .product__review_mobile {
       gap: 10px;
     }
+  }
+  .product__review_images {
+    gap: 5px;
   }
 
   .buy-now {
