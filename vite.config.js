@@ -1,3 +1,4 @@
+import { constants } from 'buffer';
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import handlebars from 'vite-plugin-handlebars';
@@ -15,6 +16,7 @@ export default defineConfig({
                 cart: resolve(__dirname, 'cart.html'),
                 favoriteEmpty: resolve(__dirname, 'favorite-empty.html'),
                 cartEmpty: resolve(__dirname, 'cart-empty.html'),
+                constants: resolve(__dirname, 'contact.html'),
             },
         },
     },

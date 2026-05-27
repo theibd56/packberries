@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Контакты</title>
+    </head>
+    <body>
+        {{> _header}}
+
+        <main class="main main-contact">
+            <div class="breadcrumbs">
+                <div class="breadcrumbs-container container">
+                    <div class="breadcrumbs-item">
+                        <a href="/index.html" class="breadcrumbs-item-link">
+                            <span>Главная</span>
+                        </a>
+                    </div>
+                    <div class="breadcrumbs-item">
+                        <span>\</span>
+                    </div>
+                    <div class="breadcrumbs-item">
+                        <a href="/contacts.html" class="breadcrumbs-item-link">
+                            <span>Контакты</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+            <section class="contact">
+              <h3 class="contact-title">Контакты</h3>
+              <div class="contact-wrapper">
+                <div class="contact-content">
+                    <div class="contact-info">
+                    <div class="contact-info_item">
+                        <div class="contact-info_icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.00006 8.44C5.98006 13.54 11.1701 17.62 11.3901 17.79C11.5701 17.93 11.7901 18 12.0001 18C12.2101 18 12.4301 17.93 12.6101 17.79C12.8301 17.62 18.0201 13.54 18.0001 8.44C18.0001 4.89 15.3101 2 12.0001 2C8.69006 2 6.00006 4.89 6.00006 8.44ZM16.0001 8.44C16.0101 11.63 13.2601 14.52 12.0001 15.68C10.7401 14.53 7.99006 11.64 8.00006 8.44C8.00006 5.99 9.79006 4 12.0001 4C14.2101 4 16.0001 5.99 16.0001 8.44Z" fill="#290718" />
+                            <path d="M12 6C11.4696 6 10.9609 6.21071 10.5858 6.58579C10.2107 6.96086 10 7.46957 10 8C10 8.53043 10.2107 9.03914 10.5858 9.41421C10.9609 9.78929 11.4696 10 12 10C12.5304 10 13.0391 9.78929 13.4142 9.41421C13.7893 9.03914 14 8.53043 14 8C14 7.46957 13.7893 6.96086 13.4142 6.58579C13.0391 6.21071 12.5304 6 12 6Z" fill="#290718" />
+                            <path d="M18.02 14.73C17.62 15.37 17.18 15.96 16.75 16.49C18.88 16.97 20 17.68 20 18C20 18.51 17.25 20 12 20C6.75 20 4 18.51 4 18C4 17.68 5.12 16.97 7.25 16.49C6.82 15.96 6.39 15.37 5.98 14.73C3.66 15.37 2 16.44 2 18C2 20.75 7.18 22 12 22C16.82 22 22 20.75 22 18C22 16.44 20.33 15.37 18.02 14.73Z" fill="#290718" />
+                            </svg>
+                        </div>
+
+                        <div class="contact-info_content">
+                            <div class="contact-subtitle">Новосибирск:</div>
+
+                            <p>
+                            ул. Электрозаводская, д. 2 к. 1 оф 101
+                            </p>
+
+                            <div class="contact-info_hours">
+                            Пн-Пт 08:00 - 18:00
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info_item">
+                        <div class="contact-info_icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.0708 22H18.4208C18.8908 21.98 19.3208 21.74 19.5908 21.36L21.7308 18.27C21.9608 17.94 22.0508 17.53 21.9708 17.13C21.8908 16.73 21.6608 16.39 21.3308 16.16L16.6908 13.07C16.4456 12.9051 16.1563 12.818 15.8608 12.82C15.4508 12.82 15.0508 12.98 14.7608 13.3L13.2908 14.89C12.6008 14.46 11.6808 13.82 10.9308 13.07C10.2108 12.35 9.56084 11.43 9.11084 10.71L10.7008 9.24C11.2408 8.74 11.3408 7.92 10.9308 7.31L7.84084 2.67C7.62084 2.34 7.27084 2.1 6.87084 2.03C6.67608 1.99073 6.47534 1.99177 6.281 2.03305C6.08666 2.07432 5.90282 2.15496 5.74084 2.27L2.65084 4.41C2.26084 4.68 2.03084 5.11 2.01084 5.58C1.98084 6.27 1.85084 12.48 6.69084 17.32C11.0408 21.67 16.5008 22.01 18.0708 22.01V22ZM6.88084 10.05C6.72084 10.2 6.67084 10.44 6.77084 10.64C6.82084 10.73 7.92084 12.88 9.51084 14.48C11.1108 16.08 13.2608 17.18 13.3508 17.23C13.5508 17.33 13.7908 17.29 13.9408 17.12L15.9308 14.97L19.7908 17.54L18.0908 20C16.9308 20 11.9608 19.76 8.10084 15.9C4.24084 12.04 4.00084 7.06 4.00084 5.91L6.46084 4.21L9.03084 8.07L6.88084 10.06V10.05Z" fill="#290718" />
+                            </svg>
+                        </div>
+
+                        <div class="contact-info_content">
+                            <div class="contact-subtitle">Телефон:</div>
+                            <p>8 383 373-45-03</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info_item">
+                        <div class="contact-info_icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM11.39 14.79C11.57 14.93 11.79 15 12 15C12.21 15 12.43 14.93 12.61 14.79L14.16 13.58L18.58 18H5.41L9.83 13.58L11.38 14.79H11.39ZM20 6V6.51L12 12.73L4 6.51V6H20ZM20 9.04V16.58L15.76 12.34L20 9.04ZM8.24 12.34L4 16.58V9.04L8.24 12.34Z" fill="#290718" />
+                            </svg>
+                        </div>
+
+                        <div class="contact-info_content">
+                            <div class="contact-subtitle">Электронная почта:</div>
+                            <p>nsk4@hmru.ru</p>
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <div class="contact-map js-contact active" data-city="Новосибирск">
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9e3af6f430e384c9bf58160239f6e5423cea85610393ba3220cd2df163c27611&amp;source=constructor" width="100%" height="338" frameborder="0"></iframe>                
+                    </div>
+                
+              </div>
+
+                <div class="contact-right">
+                    <div class="contact-text">
+                        <h4>Реквизиты</h4>
+
+                        <p>
+                            Индивидуальный предприниматель <br>
+                            Фёдоров Алексей Викторович <br>
+                            ИНН 540697640041 <br>
+                            ОГРНИП 320547600030527 <br>
+                        </p>
+
+                        <br>
+
+                        <p> 
+                            БАНКОВСКИЕ РЕКВИЗИТЫ: <br>
+                            Расчетный счет: 40802810123670002095 <br>
+                            Название банка: ФИЛИАЛ «НОВОСИБИРСКИЙ» <br>
+                            АО «АЛЬФА-БАНК» г. Новосибирск <br>
+                            БИК: 045004774 <br>
+                            Корреспондентский счет: 30101810600000000774 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </section>
+            </div>
+        </main>
+
+        <div style="display: none;" id="mobile-filter" class="mobile-filter">
+            <div class="filter">
+                <div class="filter__title">
+                    Фильтр
+                    <span>5</span>
+                </div>
+                <form action="" class="filter__content">
+                    <div class="filter__category filter__category-categories">
+                        <div class="filter__category_title">
+                            Категория:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Индукционные запайщики</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Клипсаторы для пакетов</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Укупорочное оборудование</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Блистер упаковочная машина</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Горизонтальные упаковочные машины</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Горячие столы</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Индукционные запайщики</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Клипсаторы для пакетов</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Укупорочное оборудование</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-price">
+                        <div class="filter__category_title">
+                            Цена:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item-num">
+                                <input type="number" placeholder="Минимум">
+                                <input type="number" placeholder="Максимум">
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>до 100 000₽</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>от 200 000₽ до 500 000₽</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Неважно</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-manufacturer">
+                        <div class="filter__category_title">
+                            Производитель:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Hualian</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Robopac</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Minipack</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Xiaojin</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-delivery">
+                        <div class="filter__category_title">
+                            Сроки доставки:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Неважно</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Сегодня</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>Завтра</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>До 3 дней</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-radio">
+                                <label>
+                                    <input type="radio" name="filter-radio">
+                                    <span>До 7 дней</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-condition">
+                        <div class="filter__category_title">
+                            Состояние товара:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Новое</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>Уценка</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__category-power">
+                        <div class="filter__category_title">
+                            Мощность:
+                        </div>
+                        <div class="filter__wrapper">
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>220</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>1200</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>2400</span>
+                                </label>
+                            </div>
+                            <div class="filter__item filter__item-checkbox">
+                                <label>
+                                    <input type="checkbox" >
+                                    <span>2500</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__category filter__buttons">
+                        <button type="reset" id="filter-reset">
+                            Сбросить
+                        </button>
+                        <button type="submit" id="filter-send">
+                            Применить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {{> _footer}}
+        <script type="module" src="/main.js"></script>
+    </body>
+</html>

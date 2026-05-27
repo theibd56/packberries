@@ -39,7 +39,7 @@ a {
   cursor: pointer;
 }
 
-main {
+main:not(.main-contact) {
   min-height: 100vh;
 }
 
