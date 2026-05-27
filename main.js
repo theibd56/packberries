@@ -927,3 +927,297 @@ function createdMore (eachedElem, indexNum, trigger) {
         });
     }
 }());
+
+// ----------------------------------search-autocomplete----------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+
+    initSearch({
+        input: document.getElementById('search-input'),
+        form: document.getElementById('search-form'),
+        clear: document.getElementById('search-clear'),
+        container: document.getElementById('search-autocomplete')
+    });
+
+    initSearch({
+        input: document.getElementById('search-input_mobile'),
+        form: document.getElementById('search-form_mobile'),
+        clear: document.getElementById('search-clear_mobile'),
+        container: document.getElementById('search-autocomplete_mobile')
+    });
+
+});
+
+function initSearch({
+    input,
+    form,
+    clear,
+    container
+}) {
+
+    const autocompleteList = container.querySelector('.search-autocomplete__list');
+
+    if (!input || !container || !autocompleteList || !clear) return;
+
+    const searchData = [
+        { 
+            id: 1, 
+            title: 'Поступление вакуумного массажёра GRKL-2500', 
+            category: 'Упаковочное оборудование',
+            price: '6 160 224',
+            image: '/images/product-card/card-img-1.png'
+        },
+        { 
+            id: 2, 
+            title: 'Вакуумный упаковщик DZ-500/2E', 
+            category: 'Упаковочное оборудование',
+            price: '52 500',
+            image: '/images/product-card/card-img-1.png'
+        },
+        { 
+            id: 3, 
+            title: 'Горизонтальная упаковочная машина HL-450', 
+            category: 'Упаковочное оборудование',
+            price: '78 900',
+            image: '/images/product-card/card-img-1.png'
+        },
+        { 
+            id: 3, 
+            title: 'Горизонтальная упаковочная машина HL-450', 
+            category: 'Упаковочное оборудование',
+            price: '78 900',
+            image: '/images/product-card/card-img-1.png'
+        },
+        { 
+            id: 4, 
+            title: 'Запайщик пакетов FRD-1000', 
+            category: 'Упаковочное оборудование',
+            price: '23 700',
+            image: '/images/product-card/card-img-1.png'
+        },
+        { 
+            id: 5, 
+            title: 'Мясорубка промышленная MG-32', 
+            category: 'Мясопереработка',
+            price: '34 800',
+            image: '/images/product-card/card-img-1.png'
+        },
+        { 
+            id: 2, 
+            title: 'Вакуумный упаковщик DZ-500/2E', 
+            category: 'Упаковочное оборудование',
+            price: '52 500',
+            image: '/images/product-card/card-img-1.png'
+        },
+    ];
+
+    let selectedIndex = -1;
+    let currentResults = [];
+
+    function searchItems(query) {
+        if (!query || query.length < 2) {
+            return [];
+        }
+
+        const normalizedQuery = query.toLowerCase().trim();
+
+        return searchData.filter(item => {
+            const titleMatch = item.title.toLowerCase().includes(normalizedQuery);
+            const categoryMatch = item.category.toLowerCase().includes(normalizedQuery);
+
+            return titleMatch || categoryMatch;
+        });
+    }
+
+    function highlightMatch(text, query) {
+        if (!query) return text;
+
+        const normalizedQuery = query.trim();
+        const regex = new RegExp(`(${normalizedQuery})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function displayResults(results, query) {
+        autocompleteList.innerHTML = '';
+
+        if (results.length === 0) {
+            autocompleteList.innerHTML = '<div class="search-autocomplete__empty">Ничего не найдено</div>';
+            container.classList.add('active');
+            return;
+            autocompleteFooter.innerHTML = '';
+        }
+
+        results.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'search-autocomplete__item';
+            itemElement.dataset.index = index;
+            itemElement.dataset.itemId = item.id;
+
+            itemElement.innerHTML = `
+                <div class="search-autocomplete__item-image">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'">
+                </div>
+                <div class="search-autocomplete__item-content">
+                    <div class="search-autocomplete__item-title">${highlightMatch(item.title, query)}</div>
+                    <div class="search-autocomplete__item-price">${item.price} <span class="currency">₽</span></div>
+                </div>
+            `;
+
+            itemElement.addEventListener('click', () => {
+                selectItem(item);
+            });
+
+            autocompleteList.appendChild(itemElement);
+        });
+
+        const showAllButton = document.createElement('button');
+        const autocompleteFooter = container.querySelector('.search-autocomplete__footer');
+
+        showAllButton.className = 'search-autocomplete__btn';
+
+        showAllButton.textContent = 'Смотреть все';
+
+        showAllButton.addEventListener('click', () => {
+            console.log('Открыть все результаты');
+            
+        });
+
+        autocompleteFooter.innerHTML = '';
+        autocompleteFooter.appendChild(showAllButton);
+
+        container.classList.add('active');
+    }
+
+    function selectItem(item) {
+        input.value = item.title;
+        hideAutocomplete();
+        console.log('Выбран товар:', item);
+    }
+
+    function hideAutocomplete() {
+        container.classList.remove('active');
+        selectedIndex = -1;
+        currentResults = [];
+        autocompleteFooter.innerHTML = '';
+    }
+
+    function toggleClearButton() {
+        if (input.value.length > 0) {
+            clear.style.display = 'flex';
+        } else {
+            clear.style.display = 'none';
+        }
+    }
+
+    function clearSearch() {
+        input.value = '';
+        input.focus();
+        hideAutocomplete();
+        toggleClearButton();
+    }
+
+    function updateSelectedItem() {
+        const items = autocompleteList.querySelectorAll('.search-autocomplete__item');
+        items.forEach((item, index) => {
+            if (index === selectedIndex) {
+                item.classList.add('selected');
+                item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            } else {
+                item.classList.remove('selected');
+            }
+        });
+    }
+
+    let searchTimeout;
+    input.addEventListener('input', (e) => {
+        const query = e.target.value;
+        clearTimeout(searchTimeout);
+        toggleClearButton();
+
+        if (!query || query.length < 2) {
+            hideAutocomplete();
+            return;
+        }
+
+        searchTimeout = setTimeout(() => {
+            currentResults = searchItems(query);
+            displayResults(currentResults, query);
+            selectedIndex = -1;
+        }, 300);
+    });
+
+    clear.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearSearch();
+    });
+
+    input.addEventListener('keydown', (e) => {
+        const items = autocompleteList.querySelectorAll('.search-autocomplete__item');
+
+        if (!container.classList.contains('active') || items.length === 0) {
+            return;
+        }
+
+        switch (e.key) {
+            case 'ArrowDown':
+                e.preventDefault();
+                selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                updateSelectedItem();
+                break;
+
+            case 'ArrowUp':
+                e.preventDefault();
+                selectedIndex = Math.max(selectedIndex - 1, -1);
+                updateSelectedItem();
+                break;
+
+            case 'Enter':
+                e.preventDefault();
+                if (selectedIndex >= 0 && selectedIndex < currentResults.length) {
+                    selectItem(currentResults[selectedIndex]);
+                } else if (currentResults.length > 0) {
+                    selectItem(currentResults[0]);
+                }
+                break;
+
+            case 'Escape':
+                e.preventDefault();
+                hideAutocomplete();
+                break;
+        }
+    });
+
+    input.addEventListener('focus', () => {
+        toggleClearButton();
+        if (searchInput.value.length >= 2 && currentResults.length > 0) {
+            container.classList.add('active');
+        }
+    });
+
+    input.addEventListener('blur', () => {
+        setTimeout(() => {
+            if (input.value.length === 0) {
+                searchClear.style.display = 'none';
+            }
+        }, 150);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!form.contains(e.target)) {
+            hideAutocomplete();
+        }
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (selectedIndex >= 0 && selectedIndex < currentResults.length) {
+            selectItem(currentResults[selectedIndex]);
+        } else if (currentResults.length > 0) {
+            selectItem(currentResults[0]);
+        } else if (input.value) {
+            console.log('Поиск по запросу:', searchInput.value);
+        }
+    });
+
+}
+

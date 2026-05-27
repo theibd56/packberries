@@ -1,3 +1,9 @@
+@media screen and (max-width:1400px) {
+  .search-autocomplete {
+    width: 80vw;
+  }
+}
+
 @media screen and (max-width:1200px) {
   .header {
     &__top {
@@ -54,10 +60,42 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    top: 0;
+    max-height: 70px;
+    box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .search-autocomplete {
+    width: 90vw;
+    top: calc(25% + 22px);
   }
 
   .mobile-menu {
     display: flex;
+  }
+}
+
+@media screen and (max-width:768px) { 
+  .search-autocomplete {
+    padding: 0px 0px 16px;
+    width: 100%;
+    backdrop-filter: blur(68px);
+    background: rgba(255, 255, 255, 0.7);
+    &__item {
+    &-content {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px;
+    }
+    &-title {
+      font-size: 14px;
+    }
+
+    &-price {
+      font-size: 16px;
+      white-space: wrap;
+    }
+    }
   }
 }
 
