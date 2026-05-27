@@ -16,7 +16,7 @@ export default defineConfig({
                 cart: resolve(__dirname, 'cart.html'),
                 favoriteEmpty: resolve(__dirname, 'favorite-empty.html'),
                 cartEmpty: resolve(__dirname, 'cart-empty.html'),
-                constants: resolve(__dirname, 'contact.html'),
+                contacts: resolve(__dirname, 'contacts.html'),
             },
         },
     },

@@ -1,5 +1,5 @@
 @media screen and (max-width:1350px) {
-  .contact {
+  .contacts {
   &-map{
     display: block;
     min-width:auto;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width:768px) {
-  .contact {
+  .contacts {
     gap: 24px;
     h3 {
       font-size: 18px;
@@ -42,7 +42,7 @@
 }
 
 @media screen and (max-width:565px) {
-  .contact {
+  .contacts {
     &-info {
       flex-direction: column;
       gap: 16px;
