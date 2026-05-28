@@ -831,7 +831,6 @@ function createdMore (eachedElem, indexNum, trigger) {
 //бургер меню тогл
 (function () {
     const header = document.querySelector('.header');
-    const headerHeight = header.offsetHeight;
     const burgerMenu = document.querySelector('.burger-menu');
     const headerBurger = document.querySelector('.header-burger');
 
@@ -843,6 +842,7 @@ function createdMore (eachedElem, indexNum, trigger) {
 
     ['load', 'resize'].forEach(event => {
         window.addEventListener(event, () => {
+            const headerHeight = header.offsetHeight;
             burgerMenu.style.top = headerHeight + 'px';
         });
     });
@@ -964,49 +964,49 @@ function initSearch({
             title: 'Поступление вакуумного массажёра GRKL-2500', 
             category: 'Упаковочное оборудование',
             price: '6 160 224',
-            image: '/images/product-card/card-img-1.png'
+            image: 'images/product-card/card-img-1.png'
         },
         { 
             id: 2, 
             title: 'Вакуумный упаковщик DZ-500/2E', 
             category: 'Упаковочное оборудование',
             price: '52 500',
-            image: '/images/product-card/card-img-1.png'
+            image: 'images/product-card/card-img-1.png'
         },
         { 
             id: 3, 
             title: 'Горизонтальная упаковочная машина HL-450', 
             category: 'Упаковочное оборудование',
             price: '78 900',
-            image: '/images/product-card/card-img-1.png'
+            image: 'images/product-card/card-img-1.png'
         },
         { 
             id: 3, 
             title: 'Горизонтальная упаковочная машина HL-450', 
             category: 'Упаковочное оборудование',
             price: '78 900',
-            image: '/images/product-card/card-img-1.png'
+            image: 'images/product-card/card-img-1.png'
         },
         { 
             id: 4, 
             title: 'Запайщик пакетов FRD-1000', 
             category: 'Упаковочное оборудование',
             price: '23 700',
-            image: '/images/product-card/card-img-1.png'
+            image: 'images/product-card/card-img-1.png'
         },
         { 
             id: 5, 
             title: 'Мясорубка промышленная MG-32', 
             category: 'Мясопереработка',
             price: '34 800',
-            image: '/images/product-card/card-img-1.png'
+            image: 'images/product-card/card-img-1.png'
         },
         { 
             id: 2, 
             title: 'Вакуумный упаковщик DZ-500/2E', 
             category: 'Упаковочное оборудование',
             price: '52 500',
-            image: '/images/product-card/card-img-1.png'
+            image: 'images/product-card/card-img-1.png'
         },
     ];
 
@@ -1093,12 +1093,17 @@ function initSearch({
         console.log('Выбран товар:', item);
     }
 
-    function hideAutocomplete() {
-        container.classList.remove('active');
-        selectedIndex = -1;
-        currentResults = [];
+function hideAutocomplete() {
+    container.classList.remove('active');
+    selectedIndex = -1;
+    currentResults = [];
+
+    const autocompleteFooter = container.querySelector('.search-autocomplete__footer');
+
+    if (autocompleteFooter) {
         autocompleteFooter.innerHTML = '';
     }
+}
 
     function toggleClearButton() {
         if (input.value.length > 0) {
@@ -1149,6 +1154,7 @@ function initSearch({
         e.preventDefault();
         clearSearch();
     });
+    toggleClearButton();
 
     input.addEventListener('keydown', (e) => {
         const items = autocompleteList.querySelectorAll('.search-autocomplete__item');
@@ -1188,7 +1194,7 @@ function initSearch({
 
     input.addEventListener('focus', () => {
         toggleClearButton();
-        if (searchInput.value.length >= 2 && currentResults.length > 0) {
+        if (input.value.length >= 2 && currentResults.length > 0) {
             container.classList.add('active');
         }
     });
@@ -1196,7 +1202,7 @@ function initSearch({
     input.addEventListener('blur', () => {
         setTimeout(() => {
             if (input.value.length === 0) {
-                searchClear.style.display = 'none';
+                clear.style.display = 'none';
             }
         }, 150);
     });
@@ -1215,7 +1221,7 @@ function initSearch({
         } else if (currentResults.length > 0) {
             selectItem(currentResults[0]);
         } else if (input.value) {
-            console.log('Поиск по запросу:', searchInput.value);
+            console.log('Поиск по запросу:', input.value);
         }
     });
 

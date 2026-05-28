@@ -53,6 +53,11 @@
     &-catalog {
       display: none;
     }
+    &__search {
+      &_clear {
+        z-index: 10;
+      }
+    }
   }
 
   .header-mobile__search {
