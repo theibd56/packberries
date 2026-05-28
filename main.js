@@ -964,49 +964,49 @@ function initSearch({
             title: 'Поступление вакуумного массажёра GRKL-2500', 
             category: 'Упаковочное оборудование',
             price: '6 160 224',
-            image: 'images/product-card/card-img-1.png'
+            image: './images/product-card/card-img-1.png'
         },
         { 
             id: 2, 
             title: 'Вакуумный упаковщик DZ-500/2E', 
             category: 'Упаковочное оборудование',
             price: '52 500',
-            image: 'images/product-card/card-img-1.png'
+            image: './images/product-card/card-img-1.png'
         },
         { 
             id: 3, 
             title: 'Горизонтальная упаковочная машина HL-450', 
             category: 'Упаковочное оборудование',
             price: '78 900',
-            image: 'images/product-card/card-img-1.png'
+            image: './images/product-card/card-img-1.png'
         },
         { 
             id: 3, 
             title: 'Горизонтальная упаковочная машина HL-450', 
             category: 'Упаковочное оборудование',
             price: '78 900',
-            image: 'images/product-card/card-img-1.png'
+            image: './images/product-card/card-img-1.png'
         },
         { 
             id: 4, 
             title: 'Запайщик пакетов FRD-1000', 
             category: 'Упаковочное оборудование',
             price: '23 700',
-            image: 'images/product-card/card-img-1.png'
+            image: './images/product-card/card-img-1.png'
         },
         { 
             id: 5, 
             title: 'Мясорубка промышленная MG-32', 
             category: 'Мясопереработка',
             price: '34 800',
-            image: 'images/product-card/card-img-1.png'
+            image: './images/product-card/card-img-1.png'
         },
         { 
             id: 2, 
             title: 'Вакуумный упаковщик DZ-500/2E', 
             category: 'Упаковочное оборудование',
             price: '52 500',
-            image: 'images/product-card/card-img-1.png'
+            image: './images/product-card/card-img-1.png'
         },
     ];
 
