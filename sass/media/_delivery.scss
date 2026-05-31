@@ -16,6 +16,7 @@
 @media screen and (max-width:768px) {
   .delivery {
     &__content {
+      margin-top: 36px;
       gap: 40px;
       &-items {
         flex-direction: column;
@@ -55,6 +56,14 @@
       &_text {
         h4 {
           font-size: 15px;
+        }
+      }
+      &_icon {
+        display: none;
+        &-mobile {
+          display: block;
+          width: 11px;
+          height: 7px;
         }
       }
     }     
