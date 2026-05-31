@@ -1,0 +1,122 @@
+.delivery {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    &-top {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    &-items {
+      display: flex;
+      // flex-wrap: wrap;
+      gap: 16px;
+    }
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+
+      border-radius: 10px;
+      padding: 40px 48px;
+      box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.08);
+      background: #fff;
+    }
+    &-icon {
+      width: 80px;
+      height: 80px;
+      svg {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      h4 {
+        font-size: 18px;
+        max-width: 265px;
+      }
+      &_term {
+        font-weight: 600;
+        font-size: 13px;
+        color: #c2025e;
+      }
+    }
+
+    &-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      ul {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        // flex-wrap: wrap;
+        gap: 16px;
+        list-style: none;
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          span {
+            padding: 11px 8px;
+            min-width: 50px;
+            border-radius: 26px;
+            background: #c2025e;
+            font-weight: 500;
+            font-size: 23px;
+            text-align: center;
+            color: #f6f4f5;
+          }
+        }
+      }
+      &_text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+        h4 {
+          font-size: 18px;
+          color: #290718;
+        }
+      }
+      &_icon {
+        width: 8px;
+        height: 12px;
+        svg {
+          width: 8px;
+          height: 12px;
+        }
+      }
+    }
+  }
+  &__faq {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    &-subtitle {
+      font-weight: 700;
+      font-size: 18px;
+      color: #290718;
+    }
+  }
+}
