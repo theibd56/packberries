@@ -38,6 +38,9 @@
     margin-top: 40px;
     &__banner {
       background: url(/images/feedback-bg.png) 63% / cover no-repeat;
+      &_title {
+        line-height: normal;
+      }
       &_form {
         display: grid;
         grid-template: auto / 1fr;

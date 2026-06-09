@@ -25,6 +25,14 @@
     &-item {
       gap: 8px;
       padding: 24px;
+      max-width: none;
+      &:last-child {
+        .delivery__content-text {
+          p {
+            padding-bottom: 0px;
+          }
+        }
+      }
     }
     &-icon {
       width: 60px;
@@ -37,6 +45,9 @@
     &-text {
       h4 {
         font-size: 15px;
+      }
+      p {
+        padding-bottom: 0px;
       }
       &_term {
         font-size: 12px;

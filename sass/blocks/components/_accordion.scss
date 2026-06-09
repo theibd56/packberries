@@ -33,6 +33,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 8px;
+            line-height: 1.23;
     }
 
     &_text {
@@ -42,7 +43,7 @@
         color: #776e73;
         border-radius: 16px;
 
-        line-height: 1.28;
+        line-height: 1.19;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
