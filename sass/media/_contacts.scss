@@ -46,6 +46,11 @@
     &-info {
       flex-direction: column;
       gap: 16px;
+      &_content {
+        a {
+          font-size: 14px;
+        }
+      }
     }
     &-text {
       p {

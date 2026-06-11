@@ -48,6 +48,10 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+      a {
+        font-size: 16px;
+        color: #776e73;
+      }
     }
     &_hours {
       font-weight: 400;
