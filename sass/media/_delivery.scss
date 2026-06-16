@@ -2,7 +2,7 @@
   .delivery {
     &__content {
     &-steps {
-      ul {
+      ol {
         flex-direction: column;
       }
       &_icon {
@@ -54,7 +54,7 @@
       }
     }
     &-steps {                       
-      ul {
+      ol {
         li {
           gap: 8px;
           span {
@@ -67,14 +67,6 @@
       &_text {
         h4 {
           font-size: 15px;
-        }
-      }
-      &_icon {
-        display: none;
-        &-mobile {
-          display: block;
-          width: 11px;
-          height: 7px;
         }
       }
     }     

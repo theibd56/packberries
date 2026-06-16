@@ -17,6 +17,7 @@
       }
     }
     &-items {
+      padding: 0;
       display: flex;
       // flex-wrap: wrap;
       gap: 16px;
@@ -91,7 +92,7 @@
       h4 {
         color: #290718;
       }
-      ul {
+      ol {
         padding: 0;
         display: flex;
         align-items: center;
@@ -134,9 +135,6 @@
           width: 8px;
           height: 12px;
         }
-        &-mobile {
-          display: none;
-        }
       }
     }
   }
@@ -151,11 +149,13 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      padding: 0px;
     }
     &-subtitle {
       font-weight: 700;
       font-size: 18px;
       color: #290718;
+      cursor: pointer;
     }
   }
 }
