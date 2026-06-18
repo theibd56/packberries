@@ -4,9 +4,15 @@
     &-steps {
       ol {
         flex-direction: column;
-      }
-      &_icon {
-        transform: rotate(90deg);
+        li {
+        &:not(:last-child)::after {
+          top: auto;
+          right: auto;
+          left: 50%;
+          bottom: -24px;
+          transform: translateX(-50%) rotate(90deg);
+        }
+        }
       }
     }
     }

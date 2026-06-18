@@ -96,11 +96,10 @@
         padding: 0;
         display: flex;
         align-items: center;
-        // justify-content: center;
-        // flex-wrap: wrap;
-        gap: 16px;
+        gap: 39px;
         list-style: none;
         li {
+          position: relative;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -115,6 +114,15 @@
             text-align: center;
             color: #f6f4f5;
           }
+          &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -24px;
+            width: 8px;
+            height: 12px;
+            background: url("/images/arrow.svg") center / contain no-repeat;
+          }
         }
       }
       &_text {
@@ -128,14 +136,14 @@
           color: #290718;
         }
       }
-      &_icon {
-        width: 8px;
-        height: 12px;
-        svg {
-          width: 8px;
-          height: 12px;
-        }
-      }
+      // &_icon {
+      //   width: 8px;
+      //   height: 12px;
+      //   svg {
+      //     width: 8px;
+      //     height: 12px;
+      //   }
+      // }
     }
   }
   &__faq {
