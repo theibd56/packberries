@@ -1,4 +1,3 @@
-import { constants } from 'buffer';
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import handlebars from 'vite-plugin-handlebars';
@@ -18,6 +17,16 @@ export default defineConfig({
                 cartEmpty: resolve(__dirname, 'cart-empty.html'),
                 contacts: resolve(__dirname, 'pages/contacts/contacts-page.html'),
                 dilevery: resolve(__dirname, 'pages/delivery/delivery-page.html'),
+            },
+            output: {
+                entryFileNames: 'assets/[name].js',
+                chunkFileNames: 'assets/[name].js',
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name.endsWith('.css')) {
+                        return 'assets/[name][extname]'
+                    }
+                    return 'assets/[name][extname]'
+                },
             },
         },
     },
