@@ -1092,7 +1092,7 @@ function initSearch({
         hideAutocomplete();
         console.log('Выбран товар:', item);
     }
-
+    
 function hideAutocomplete() {
     container.classList.remove('active');
     selectedIndex = -1;
