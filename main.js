@@ -1074,7 +1074,7 @@ function initSearch({
 
         showAllButton.className = 'search-autocomplete__btn';
 
-        showAllButton.textContent = 'Смотреть все';
+        showAllButton.textContent = 'Все результаты';
 
         showAllButton.addEventListener('click', () => {
             console.log('Открыть все результаты');
