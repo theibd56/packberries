@@ -17,6 +17,7 @@ export default defineConfig({
                 cartEmpty: resolve(__dirname, 'cart-empty.html'),
                 contacts: resolve(__dirname, 'pages/contacts/contacts-page.html'),
                 dilevery: resolve(__dirname, 'pages/delivery/delivery-page.html'),
+                error: resolve(__dirname, 'pages/error/error-page.html'),
             },
             output: {
                 entryFileNames: 'assets/[name].js',

@@ -1,0 +1,50 @@
+
+@media screen and (max-width:768px) {
+  .error {
+    margin-top: 40px;
+    &-text {
+      p {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:576px) {
+  .error {
+    &-content {
+      gap: 25px;
+    }
+    &-image {
+      width: 238px;
+      height: 107px;
+    }
+    &-text {
+      h4 {
+        text-align: center;
+      } 
+      p {
+        font-size: 13px;
+      }
+    }
+    &-buttons {
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      padding: 0px 12px;
+      .btn {
+      &:first-child {
+        padding: 10.5px 42px;
+          &:hover {
+            background: #c2025e;
+            border: none;
+            color: #f6f4f5;
+            padding: 15.9px 30.9px;
+          }
+        }
+      }
+    }
+  }
+}

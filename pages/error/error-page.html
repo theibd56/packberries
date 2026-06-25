@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./sass/index.scss">
+    <title>Ошибка 404</title>
+</head>
+<body>
+{{> _header}}
+
+<main class="error-main main">
+  <div class="container">
+    <!-- <div class="breadcrumbs">
+        <div class="breadcrumbs-container container">
+            <div class="breadcrumbs-item">
+                <a href="/catalog.html" class="breadcrumbs-item-link">
+                    <span>Каталог</span>
+                </a>
+            </div>
+        </div>
+    </div> -->
+    <section class="error">
+      <div class="error-content">
+        <div class="error-image">
+          <img src="/images/error_404.png" alt="">
+        </div>
+        <div class="error-text">
+          <h4>Запрашиваемая страница не найдена</h4>
+          <p>
+            Возможно, ссылка устарела, страница была перемещена, или вы ошиблись <br> при вводе адреса.
+          </p>
+        </div>
+        <div class="error-buttons">
+          <button class="btn">
+            Вернуться на главную
+          </button>
+          <button class="btn">
+            Перейти в каталог
+          </button>
+        </div>
+      </div>
+    </section>
+    </div>
+</main>
+
+{{> _footer}}
+<script type="module" src="/main.js"></script>
+</body>
+</html>
