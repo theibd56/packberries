@@ -24,6 +24,8 @@
     gap: 10px;
     p {
       text-align: center;
+      color: #a9a2a6;
+      max-width: 650px;
     }
   }
   &-buttons {
@@ -31,15 +33,13 @@
     gap: 20px;
     .btn {
       &:first-child {
-        border: 1px solid #c2025e;
-        background: transparent;
+        border: 1px solid rgba(194, 2, 94, 0.2);
+        background: none;
         color: #c2025e;
         transition: color .3s;
         &:hover {
           background: #c2025e;
-          border: none;
           color: #f6f4f5;
-          padding: 15.9px 30.9px;
         }
       }
     }
