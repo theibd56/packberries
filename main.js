@@ -563,26 +563,36 @@ function createdMore (eachedElem, indexNum, trigger) {
 //----------------- catalog dropdown -----------------//
 (function() {
     const catalogTab = document.querySelectorAll('.header-catalog__tabs_item');
-    const catalogContent = document.querySelectorAll('.header-catalog__menu');
+    const menus = document.querySelectorAll('.header-catalog__menu');
 
-    for (let i = 0; i < catalogTab.length; i++) {
-        catalogTab[i].addEventListener("click", function(e){
-            e.preventDefault();
-            const activeTabAttr = e.target.getAttribute("data-tab");
 
-            for (let j = 0; j < catalogTab.length; j++) {
-                let contentAttr = catalogContent[j].getAttribute("data-tab-content");
+    catalogTab.forEach(tab => {
 
-                if (activeTabAttr === contentAttr) {
-                    catalogTab[j].classList.add("active");
-                    catalogContent[j].classList.add("active");
-                } else {
-                    catalogTab[j].classList.remove("active");
-                    catalogContent[j].classList.remove("active");
-                }
-            }
-        })
-    }
+        tab.addEventListener("click", () => {
+
+            catalog.classList.remove("open");
+
+            const id = tab.dataset.tab;
+
+
+            catalogTab.forEach(item => {
+                item.classList.toggle(
+                    "active",
+                    item.dataset.tab === id
+                );
+            });
+
+
+            menus.forEach(menu => {
+                menu.classList.toggle(
+                    "active",
+                    menu.dataset.tabContent === id
+                );
+            });
+
+        });
+
+    });
 }());
 //----------------- product review more -----------------//
 (function() {
@@ -877,6 +887,19 @@ function createdMore (eachedElem, indexNum, trigger) {
         });
     });
 }());
+
+const catalog = document.querySelector(".header-catalog");
+
+const showBtn = catalog.querySelector(".header-catalog_btn-show");
+const hideBtn = catalog.querySelector(".header-catalog_btn-hide");
+
+showBtn.addEventListener("click", () => {
+  catalog.classList.add("open");
+});
+
+hideBtn.addEventListener("click", () => {
+  catalog.classList.remove("open");
+});
 
 //поиск тогл
 (function () {

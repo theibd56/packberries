@@ -32,8 +32,13 @@
         }
       }
       &__menu {
+        flex-wrap: wrap;
+
+        &_item {
+          flex: 0 0 220px;
+        }
         &.active {
-          column-gap: 15px;
+        row-gap: 20px;
         }
       }
     }
