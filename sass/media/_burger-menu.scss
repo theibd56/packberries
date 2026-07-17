@@ -75,11 +75,14 @@
           background: #F6F4F5;
           border-radius: 0 0 10px 10px;
           display: none;
-          flex-direction: column;
-          gap: 10px;
           a:hover {
             color: #C2025E;
             text-decoration: underline;
+          }
+          &__links {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
           }
         }
         &.has-child.active {
@@ -110,10 +113,43 @@
             }
           }
           .submenu {
-            display: flex;
+            display: block;
           }
         }
       }
     }
   }
+  .burger-menu.open{
+      .header-catalog__bottom {
+      margin-top: 25px;
+      opacity: 1;
+      visibility: visible;
+      max-height: 600px;
+      transform: translateY(0);
+      }
+
+      .header-catalog_btn-show {
+        display: none;
+      }
+
+      .header-catalog_btn-hide {
+        display: flex;
+      }
+  }
+}
+
+.has-child.open .header-catalog__bottom {
+  margin-top: 20px;
+  opacity: 1 ;
+  visibility: visible ;
+  max-height: 600px ;
+  transform: translateY(0) ;
+}
+
+.has-child.open .header-catalog_btn-show {
+  display: none ;
+}
+
+.has-child.open .header-catalog_btn-hide {
+  display: flex ;
 }

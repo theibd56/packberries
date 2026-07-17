@@ -857,35 +857,31 @@ function createdMore (eachedElem, indexNum, trigger) {
         });
     });
 
-    document.querySelectorAll('.has-child').forEach(item => {
-        item.addEventListener('click', function() {
-            const isActive = this.classList.contains('active');
+document.querySelectorAll('.has-child > span').forEach(title => {
+    title.addEventListener('click', function () {
+        const item = this.parentElement;
 
-            document.querySelectorAll('.has-child').forEach(child => {
-                child.classList.remove('active');
-                child.querySelector('span').style.setProperty('--after-content', 'none');
-                child.style.display = 'none';
-            });
+        const isActive = item.classList.contains('active');
 
-            document.querySelectorAll('.burger-menu__menu_item').forEach(menuItem => {
-                menuItem.style.display = 'none';
-            });
-
-            if (!isActive) {
-                this.classList.add('active');
-                this.querySelector('span').style.setProperty('--after-content', '" "');
-
-                this.style.display = 'block';
-            } else {
-                this.classList.remove('active');
-                this.querySelector('span').style.setProperty('--after-content', 'none');
-
-                document.querySelectorAll('.burger-menu__menu_item').forEach(menuItem => {
-                    menuItem.style.display = 'block';
-                });
-            }
+        document.querySelectorAll('.has-child').forEach(child => {
+            child.classList.remove('active');
+            child.style.display = 'none';
         });
+
+        document.querySelectorAll('.burger-menu__menu_item').forEach(menuItem => {
+            menuItem.style.display = 'none';
+        });
+
+        if (!isActive) {
+            item.classList.add('active');
+            item.style.display = 'block';
+        } else {
+            document.querySelectorAll('.burger-menu__menu_item').forEach(menuItem => {
+                menuItem.style.display = 'block';
+            });
+        }
     });
+});
 }());
 
 const catalog = document.querySelector(".header-catalog");
@@ -899,6 +895,29 @@ showBtn.addEventListener("click", () => {
 
 hideBtn.addEventListener("click", () => {
   catalog.classList.remove("open");
+});
+
+const mobileCatalogs = document.querySelectorAll(".burger-menu .has-child");
+
+mobileCatalogs.forEach((catalog) => {
+  const showBtn = catalog.querySelector(".header-catalog_btn-show");
+  const hideBtn = catalog.querySelector(".header-catalog_btn-hide");
+
+  if (!showBtn || !hideBtn) return;
+
+showBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  console.log(catalog);
+
+  catalog.classList.add("open");
+});
+
+hideBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  catalog.classList.remove("open");
+});
 });
 
 //поиск тогл
