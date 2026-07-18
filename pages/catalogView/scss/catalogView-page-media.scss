@@ -1,0 +1,35 @@
+@media screen and (max-width:768px) {
+.catalogView {
+  padding-bottom: 28px;
+  &__title {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  &-banners {
+    &-arrow {
+      display: none;
+    }
+  }
+  &-popular {
+    margin-top: 30px;
+    &__wrapper {
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    }
+    &__title {
+      font-size: 15px;
+    }
+    &__item {
+      &_card {
+        height: 180px;
+        &-img {
+          height: 145px;
+        }
+      }
+      &_title {
+        font-size: 12px;
+      }
+    }
+  }
+}
+}
